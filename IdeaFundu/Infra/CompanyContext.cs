@@ -17,6 +17,9 @@ namespace Infra
                 );
         }
         public DbSet<Admin> Admins { set; get; }
+        public DbSet<Country> Countries { set; get; }
+        public DbSet<State> States { set; get; }
+        public DbSet<City> Cities { set; get; }
 
 
     }

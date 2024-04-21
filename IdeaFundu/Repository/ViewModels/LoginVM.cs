@@ -9,7 +9,7 @@ namespace Repository.ViewModels
 {
     public class LoginVM
     {
-        [Required(ErrorMessage ="Email Address is Required")]
+        [Required(ErrorMessage = "Email Address is Required")]
         [EmailAddress(ErrorMessage ="Email Address is not valid !")]
         [Display(Name ="Email Address")]
         public string EmailID { set; get; }

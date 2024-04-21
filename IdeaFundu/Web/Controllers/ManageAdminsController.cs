@@ -26,6 +26,8 @@ namespace Web.Controllers
                 var getLoginData = this.AdminRepo.Login(rec);
                 if (getLoginData.IsSuccess)
                 {
+                    HttpContext.Session.SetString("AdminID", getLoginData.LoggedInID.ToString());
+                    HttpContext.Session.SetString("AdminName", getLoginData.LoggedInName);
                     return RedirectToAction("Index", "AdminHome", new { area = "AdminArea" });
                 }
                 else
@@ -36,6 +38,13 @@ namespace Web.Controllers
 
             }
             return View(rec);
+        }
+
+        [HttpGet]
+        public IActionResult SignOut()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("SignIn");
         }
     }
 }

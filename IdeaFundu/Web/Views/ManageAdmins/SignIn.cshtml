@@ -115,12 +115,12 @@
               <!-- /Logo -->
               <h4 class="mb-2">Welcome to IdeaFundu! 👋</h4>
               <p class="mb-4">Please sign-in to your account.</p>
-
+              <div asp-validation-summary="ModelOnly" class="text-danger list-unstyled"></div>
               <form id="formAuthentication" class="mb-3" asp-action="SignIn" asp-controller="ManageAdmins" method="post">
                 <div class="mb-3">
                   <label asp-for="EmailID" class="form-label"></label>
                   <input asp-for="EmailID" class="form-control" placeholder="Enter your email or username" autofocus />
-                  <span asp-validation-for="EmailID"></span>
+                  <span asp-validation-for="EmailID" class="text-danger"></span>
                 </div>
                 <div class="mb-3 form-password-toggle">
                   <div class="d-flex justify-content-between">
@@ -133,6 +133,7 @@
                     <input asp-for="Password" class="form-control" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" />
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                   </div>
+                  <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
                 <div class="mb-3">
                   <div class="form-check">

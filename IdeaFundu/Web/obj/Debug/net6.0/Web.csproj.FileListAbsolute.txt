@@ -267,3 +267,10 @@ D:\Shivam\MainProject\IdeaFundu\Web\bin\Debug\net6.0\System.CodeDom.dll
 D:\Shivam\MainProject\IdeaFundu\Web\bin\Debug\net6.0\System.Text.Encodings.Web.dll
 D:\Shivam\MainProject\IdeaFundu\Web\bin\Debug\net6.0\System.Text.Json.dll
 D:\Shivam\MainProject\IdeaFundu\Web\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+D:\Shivam\MainProject\IdeaFundu\Web\bin\Debug\net6.0\System.Web.Mvc.dll
+D:\Shivam\MainProject\IdeaFundu\Web\bin\Debug\net6.0\System.Web.Razor.dll
+D:\Shivam\MainProject\IdeaFundu\Web\bin\Debug\net6.0\System.Web.Helpers.dll
+D:\Shivam\MainProject\IdeaFundu\Web\bin\Debug\net6.0\System.Web.WebPages.Deployment.dll
+D:\Shivam\MainProject\IdeaFundu\Web\bin\Debug\net6.0\System.Web.WebPages.Razor.dll
+D:\Shivam\MainProject\IdeaFundu\Web\bin\Debug\net6.0\System.Web.WebPages.dll
+D:\Shivam\MainProject\IdeaFundu\Web\bin\Debug\net6.0\Microsoft.Web.Infrastructure.dll

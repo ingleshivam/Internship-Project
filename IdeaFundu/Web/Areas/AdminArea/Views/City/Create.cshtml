@@ -1,0 +1,42 @@
+﻿@model City
+@{
+    ViewBag.Title = "ADMIN | ADD CITY";
+}
+<div class="col-lg-6 mx-auto">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Add States</h5>
+            <form class="row g-3" asp-action="Create" method="Post">
+                <div class="col-12">
+                    <label class="form-label">City Name</label>
+                    <input asp-for="CityName" class="form-control" />
+                    <span asp-validation-for="CityName" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">State Name</label>
+                    <select asp-for="State.StateName" asp-items="@ViewBag.StateID" class="form-select">
+                        <option>Select State</option>
+                    </select>
+                    <span asp-validation-for="State.StateName" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">Country Name</label>
+                    <select asp-for="State.Country.CountryName" asp-items="@ViewBag.CountryID" class="form-select">
+                        <option>Select Country</option>
+                    </select>
+                    <span asp-validation-for="State.Country.CountryName" class="text-danger"></span>
+                </div>
+
+                <div>
+                    <button type="submit" class="btn btn-primary btn-sm">Create</button>
+                </div>
+                @if (ViewBag.Message != null)
+                {
+                    <h6 class="text-info fw-bold">@ViewBag.Message</h6>
+                }
+            </form>
+        </div>
+    </div>
+</div>

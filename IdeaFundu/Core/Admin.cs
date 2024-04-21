@@ -15,7 +15,7 @@ namespace Core
         public string FullName { 
             get
             {
-                return FirstName + LastName;
+                return FirstName+" "+LastName;
             }
         }
         public string EmailID { set; get; }

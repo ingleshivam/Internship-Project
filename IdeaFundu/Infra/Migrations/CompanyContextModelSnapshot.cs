@@ -62,6 +62,99 @@ namespace Infra.Migrations
                             Password = "Shivam@2001"
                         });
                 });
+
+            modelBuilder.Entity("Core.City", b =>
+                {
+                    b.Property<long>("CityID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("CityID"));
+
+                    b.Property<string>("CityName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("StateID")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("CityID");
+
+                    b.HasIndex("StateID");
+
+                    b.ToTable("CityTbl");
+                });
+
+            modelBuilder.Entity("Core.Country", b =>
+                {
+                    b.Property<long>("CountryID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("CountryID"));
+
+                    b.Property<string>("CountryName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CountryID");
+
+                    b.ToTable("CountryTbl");
+                });
+
+            modelBuilder.Entity("Core.State", b =>
+                {
+                    b.Property<long>("StateID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("StateID"));
+
+                    b.Property<long>("CountryID")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("StateName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("StateID");
+
+                    b.HasIndex("CountryID");
+
+                    b.ToTable("States");
+                });
+
+            modelBuilder.Entity("Core.City", b =>
+                {
+                    b.HasOne("Core.State", "State")
+                        .WithMany("Cities")
+                        .HasForeignKey("StateID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("State");
+                });
+
+            modelBuilder.Entity("Core.State", b =>
+                {
+                    b.HasOne("Core.Country", "Country")
+                        .WithMany("States")
+                        .HasForeignKey("CountryID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Country");
+                });
+
+            modelBuilder.Entity("Core.Country", b =>
+                {
+                    b.Navigation("States");
+                });
+
+            modelBuilder.Entity("Core.State", b =>
+                {
+                    b.Navigation("Cities");
+                });
 #pragma warning restore 612, 618
         }
     }
