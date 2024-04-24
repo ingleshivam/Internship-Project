@@ -1,8 +1,10 @@
 using Infra;
 using Microsoft.EntityFrameworkCore;
 using Repository;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.Configure<Microsoft.AspNetCore.Http.Json.JsonOptions>(options => options.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(
       opt =>

@@ -1,5 +1,6 @@
 ﻿using Core;
 using Infra;
+using Repository.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

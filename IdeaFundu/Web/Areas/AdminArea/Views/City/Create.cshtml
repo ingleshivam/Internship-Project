@@ -1,11 +1,13 @@
-﻿@model City
+﻿@model CityVM
 @{
     ViewBag.Title = "ADMIN | ADD CITY";
+    ViewBag.MainState = "active";
+    ViewBag.CityState = "active";
 }
-<div class="col-lg-6 mx-auto">
+<div class="col-lg-6">
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Add States</h5>
+            <h5 class="card-title">Add Cities</h5>
             <form class="row g-3" asp-action="Create" method="Post">
                 <div class="col-12">
                     <label class="form-label">City Name</label>
@@ -14,19 +16,19 @@
                 </div>
 
                 <div class="col-12">
-                    <label class="form-label">State Name</label>
-                    <select asp-for="State.StateName" asp-items="@ViewBag.StateID" class="form-select">
-                        <option>Select State</option>
+                    <label class="form-label">Country Name</label>
+                    <select asp-for="CountryID" asp-items="@ViewBag.CountryID" class="form-select" id="CountryID">
+                        <option value="0">Select Country</option>
                     </select>
-                    <span asp-validation-for="State.StateName" class="text-danger"></span>
+                    <span asp-validation-for="CountryID" class="text-danger"></span>
                 </div>
 
                 <div class="col-12">
-                    <label class="form-label">Country Name</label>
-                    <select asp-for="State.Country.CountryName" asp-items="@ViewBag.CountryID" class="form-select">
-                        <option>Select Country</option>
+                    <label class="form-label">State Name</label>
+                    <select asp-for="StateID" asp-items="@ViewBag.StateID" id="State" name="StateID" class="form-select">
+                        <option value="0">Select State</option>
                     </select>
-                    <span asp-validation-for="State.Country.CountryName" class="text-danger"></span>
+                    <span asp-validation-for="StateID" class="text-danger"></span>
                 </div>
 
                 <div>
@@ -36,7 +38,59 @@
                 {
                     <h6 class="text-info fw-bold">@ViewBag.Message</h6>
                 }
+
             </form>
         </div>
     </div>
 </div>
+
+@*<script type="text/javascript">
+    $(function () {
+        $("#CountryID").change(function () {
+            var urltocall = "/AdminArea/City/SearchByCountry/?CountryID=" + $(this).val();
+            $.ajax({
+                url: urltocall,
+                type: "Get",
+                ContentType: "application/json",
+                success: function (result) {
+                    //alert(JSON.stringify(result));
+                        $("#State").empty();
+                        var str = "";
+                        for (var i = 0; i < result.length; i++) {
+                            str = "<option value='"+result[i].stateID+"'>"+result[i].stateName+"</option>";
+                            $("#State").append(str);
+                        } 
+                },
+                error: function (err) {
+                }
+            });
+
+        });
+    });
+</script>*@
+
+<script type="text/javascript">
+    $(function () {
+        $("#CountryID").change(function () {
+
+            $.ajax({
+                url: "/AdminArea/City/GetStatesJson/"+$("#CountryID").val(),
+                type: "Get",
+                contentType: "application/json",
+                success: function (result) {
+                    //alert(JSON.stringify(result));
+                    $("#State").empty();
+                    for (var i = 0; i < result.length; i++) {
+                        var str = "<option value='" + result[i].stateID + "'>" + result[i].stateName + "</option>";
+                        $("#State").append(str);
+                    }
+                },
+                error: function (err) {
+                    alert(JSON.stringify(err));
+                }
+            });
+
+        });
+
+    });
+</script>

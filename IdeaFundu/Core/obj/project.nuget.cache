@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "6/iAeh66A+XrmNUYnQR8nygZL877R2dpcwijAjbGzpG3tUU/Y3NLpquJxbY/qYSbBt6u9c91hvI5HrVXv+25CA==",
+  "dgSpecHash": "4MwCRoUzz3sFCOD3EgPa8vcK69KtSMcuxczncgGnPFEC9NKXUGcBm20VxYZpda2xK0R/PwYp5GLlgrdvl2w47Q==",
   "success": true,
   "projectFilePath": "D:\\Shivam\\MainProject\\IdeaFundu\\Core\\Core.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Developer\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
+    "C:\\Users\\Developer\\.nuget\\packages\\microsoft.extensions.primitives\\2.2.0\\microsoft.extensions.primitives.2.2.0.nupkg.sha512",
+    "C:\\Users\\Developer\\.nuget\\packages\\system.memory\\4.5.1\\system.memory.4.5.1.nupkg.sha512",
+    "C:\\Users\\Developer\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.1\\system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -1,9 +1,9 @@
 ﻿using Core;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using NuGet.Protocol.Plugins;
 using Repository;
 using Web.CustFilter;
+using Repository.ViewModels;
 
 namespace Web.Areas.AdminArea.Controllers
 {
@@ -38,7 +38,7 @@ namespace Web.Areas.AdminArea.Controllers
         public IActionResult Create(City rec)
         {
             ViewBag.CountryID = new SelectList(this.CRepo.GetAll(), "CountryID", "CountryName");
-            ViewBag.StateID = new SelectList(this.CityRepo.GetAll(), "StateID", "StateName");
+            ViewBag.StateID = new SelectList(this.SRepo.GetAll(), "StateID", "StateName");
             if (ModelState.IsValid)
             {
                 this.CityRepo.Add(rec);
@@ -50,9 +50,9 @@ namespace Web.Areas.AdminArea.Controllers
         [HttpGet]
         public IActionResult Edit(Int64 id)
         {
-            ViewBag.CountryID = new SelectList(this.CRepo.GetAll(), "CountryID", "CountryName");
-            ViewBag.StateID = new SelectList(this.CityRepo.GetAll(), "StateID", "StateName");
             var rec = this.CityRepo.GetById(id);
+            ViewBag.CountryID = new SelectList(this.CRepo.GetAll(), "CountryID", "CountryName",rec.State.CountryID);
+            ViewBag.StateID = new SelectList(this.SRepo.GetAll(), "StateID", "StateName",rec.StateID);
             return View(rec);
         }
 
@@ -60,7 +60,7 @@ namespace Web.Areas.AdminArea.Controllers
         public IActionResult Edit(City rec)
         {
             ViewBag.CountryID = new SelectList(this.CRepo.GetAll(), "CountryID", "CountryName");
-            ViewBag.StateID = new SelectList(this.CityRepo.GetAll(), "StateID", "StateName");
+            ViewBag.StateID = new SelectList(this.SRepo.GetAll(), "StateID", "StateName");
             if (ModelState.IsValid)
             {
                 this.CityRepo.Edit(rec);
@@ -76,6 +76,27 @@ namespace Web.Areas.AdminArea.Controllers
             return RedirectToAction("Index");
         }
 
+        //public IActionResult SearchByCountry(Int64 CountryID = 0)
+        //{
+        //    if (CountryID != 0)
+        //    {
+        //        var v = from t in this.SRepo.GetAll()
+        //                where t.CountryID == CountryID
+        //                select new StateVM
+        //                {
+        //                    StateID = t.StateID,
+        //                    StateName = t.StateName
+        //                };
+        //        return Json(v.ToList());
+        //    }
+        //    return View();
+        //}
+
+        public IActionResult GetStatesJson(Int64 id)
+        {
+            var rec = this.SRepo.GetStatesByCountryId(id);
+            return Json(rec.ToList());
+        }
 
     }
 }

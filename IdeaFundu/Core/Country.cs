@@ -13,7 +13,6 @@ namespace Core
     {
         [Key]
         public Int64 CountryID { set; get; }
-        [Required(ErrorMessage ="Country Name Required")]
         public string CountryName { set; get; }
         public virtual List<State> States { set; get; }
     }
