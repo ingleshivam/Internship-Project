@@ -16,5 +16,18 @@ namespace Repository
         {
             this.cc = cc;
         }
+
+        public List<GetCitiesVM> GetCitiesByStateId(long stateID)
+        {
+            var v = from t in this.cc.Cities
+                    where t.StateID == stateID
+                    select new GetCitiesVM
+                    {
+                        CityID = t.CityID,
+                        CityName = t.CityName
+                    };
+
+            return v.ToList();
+        }
     }
 }

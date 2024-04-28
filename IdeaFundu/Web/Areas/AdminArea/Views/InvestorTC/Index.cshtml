@@ -1,0 +1,45 @@
+﻿@model IEnumerable<InvestorTC>
+@*@{
+    ViewBag.Title = "ADMIN | CATEGORY";
+    ViewBag.MainState = "active";
+    ViewBag.CategoryState = "active";
+}*@
+<div class="card">
+    <h5 class="card-header">Investor TC List</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th colspan="4"><a class="btn btn-primary btn-sm" asp-action="Create" asp-controller="InvestorTC">CREATE</a></th>
+                </tr>
+                <tr>
+                    <th>Sr.No</th>
+                    <th>Investor TC Title</th>
+                    <th>Investor TC Description</th>
+                    <th>Edit / Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int srno = 1;
+                }
+                @foreach (var temp in Model)
+                {
+                    <tr>
+                        <td>@srno</td>
+                        <td>@temp.InvestorTCTitle</td>
+                        <td>@temp.InvestorTCDesc</td>
+                        <td colspan="5">
+                            <a class="btn btn-outline-primary btn-sm" asp-action="Edit" asp-route-id="@temp.InvestorTCID">Edit</a>
+                            |
+                            <a class="btn btn-outline-primary btn-sm" asp-action="Delete" asp-route-id="@temp.InvestorTCID">Delete</a>
+                        </td>
+                    </tr>
+                    srno++;
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

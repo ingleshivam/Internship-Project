@@ -1,0 +1,35 @@
+﻿@model InvestorTC
+@*@{
+    ViewBag.Title = "ADMIN | ADD CATEGORY";
+    ViewBag.MainState = "active";
+    ViewBag.CategoryState = "active";
+}*@
+<div class="col-lg-6">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Edit Investor TC</h5>
+            <form class="row g-3" asp-action="Edit" method="Post">
+                <div class="col-12">
+                    <label class="form-label">Investor TC Title</label>
+                    <input asp-for="InvestorTCTitle" class="form-control" />
+                    <span asp-validation-for="InvestorTCDesc" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">Investor TC Description</label>
+                    <input asp-for="InvestorTCDesc" class="form-control" />
+                    <span asp-validation-for="InvestorTCDesc" class="text-danger"></span>
+                </div>
+
+                <div>
+                    <button type="submit" class="btn btn-primary btn-sm">Update</button>
+                </div>
+                @if (ViewBag.Message != null)
+                {
+                    <h6 class="text-info fw-bold">@ViewBag.Message</h6>
+                }
+                <input type="hidden" asp-for="InvestorTCID"/>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,7 @@
 ﻿@model LoginVM
+@{
+    Layout = null;
+}
 <!DOCTYPE html>
 <html
   lang="en"
@@ -114,7 +117,7 @@
               </div>
               <!-- /Logo -->
               <h4 class="mb-2">Welcome to IdeaFundu! 👋</h4>
-              <p class="mb-4">Please sign-in to your account.</p>
+              <p class="mb-4"><h5 class="text-primary">Admin SignIn</h5></p>
               <div asp-validation-summary="ModelOnly" class="text-danger list-unstyled"></div>
               <form id="formAuthentication" class="mb-3" asp-action="SignIn" asp-controller="ManageAdmins" method="post">
                 <div class="mb-3">
@@ -145,13 +148,6 @@
                   <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
                 </div>
               </form>
-
-              <p class="text-center">
-                <span>New on our platform?</span>
-                <a href="auth-register-basic.html">
-                  <span>Create an account</span>
-                </a>
-              </p>
             </div>
           </div>
           <!-- /Register -->

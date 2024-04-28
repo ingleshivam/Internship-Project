@@ -1,0 +1,36 @@
+﻿@model SubCategory
+@{
+    ViewBag.Title = "ADMIN | ADD SUB CATEGORY";
+    ViewBag.MainState = "active";
+    ViewBag.SubCategoryState = "active";
+}
+<div class="col-lg-6">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Add SubCategory</h5>
+            <form class="row g-3" asp-action="Create" method="Post">
+                <div class="col-12">
+                    <label class="form-label">Sub Category Name</label>
+                    <input asp-for="SubCategoryName" class="form-control" />
+                    <span asp-validation-for="SubCategoryName" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">Category Name</label>
+                    <select asp-for="CategoryID" asp-items="@ViewBag.CategoryID" class="form-select">
+                        <option>Select Category</option>
+                    </select>
+                    <span asp-validation-for="CategoryID" class="text-danger"></span>
+                </div>
+
+                <div>
+                    <button type="submit" class="btn btn-primary btn-sm">Create</button>
+                </div>
+                @if (ViewBag.Message != null)
+                {
+                    <h6 class="text-info fw-bold">@ViewBag.Message</h6>
+                }
+            </form>
+        </div>
+    </div>
+</div>

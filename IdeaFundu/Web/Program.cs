@@ -20,9 +20,16 @@ builder.Services.AddDbContextPool<CompanyContext>(
     );
 
 builder.Services.AddScoped<IAdmin, AdminRepo>();
+builder.Services.AddScoped<IUser,UserRepo>();
 builder.Services.AddScoped<ICountry,CountryRepo>();
 builder.Services.AddScoped<IState, StateRepo>();
 builder.Services.AddScoped<ICity, CityRepo>();
+builder.Services.AddScoped<ICategory, CategoryRepo>();
+builder.Services.AddScoped<ISubCategory, SubCategoryRepo>();
+builder.Services.AddScoped<IDocumentType, DocumentTypeRepo>();
+builder.Services.AddScoped<IUserTC, UserTCRepo>();
+builder.Services.AddScoped<IInvestorTC, InvestorTCRepo>();
+builder.Services.AddScoped<IPreviousWork, PreviousWorkRepo>();
 
 var app = builder.Build();
 app.UseStaticFiles();

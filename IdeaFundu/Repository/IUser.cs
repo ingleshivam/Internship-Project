@@ -7,10 +7,11 @@ namespace Repository
         LoginResultVM Login(LoginVM rec);
         RepoResultVM ChangePassword(ChangePasswordVM rec, Int64 id);
 
-        RepoResultVM SignUp(User rec);
+        RepoResultVM SignUp(UserRegistrationVM rec);
 
-        //RepoResultVM EditProfile(AdminProfileVM rec, Int64 id);
-        //AdminProfileVM GetById(Int64 id);
+        RepoResultVM EditProfile(UserProfileVM rec, Int64 id);
+        UserProfileVM GetById(Int64 id);
+        List<User> GetAllUsers();
         //void Logout();
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Core;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Repository;
 using Repository.ViewModels;
 
@@ -8,9 +9,15 @@ namespace Web.Controllers
     public class ManageUsersController : Controller
     {
         IUser UserRepo;
-        public ManageUsersController(IUser _UserRepo)
+        IState SRepo;
+        ICountry CRepo;
+        ICity CityRepo;
+        public ManageUsersController(IUser _UserRepo,IState _SRepo, ICountry _CRepo, ICity _CityRepo)
         {
             this.UserRepo = _UserRepo;
+            this.CRepo = _CRepo;
+            this.SRepo = _SRepo;
+            this.CityRepo = _CityRepo;
         }
 
         [HttpGet]
@@ -44,12 +51,18 @@ namespace Web.Controllers
         [HttpGet]
         public ActionResult SignUp()
         {
+            ViewBag.StateID = new SelectList(this.SRepo.GetAll(), "StateID", "StateName");
+            ViewBag.CountryID = new SelectList(this.CRepo.GetAll(), "CountryID", "CountryName");
+            ViewBag.CityID = new SelectList(this.CityRepo.GetAll(), "CityID", "CityName");
             return View();
         }
 
         [HttpPost]
-        public ActionResult SignUp(User rec)
+        public ActionResult SignUp(UserRegistrationVM rec)
         {
+            ViewBag.StateID = new SelectList(this.SRepo.GetAll(), "StateID", "StateName");
+            ViewBag.CountryID = new SelectList(this.CRepo.GetAll(), "CountryID", "CountryName");
+            ViewBag.CityID = new SelectList(this.CityRepo.GetAll(), "CityID", "CityName");
             if (ModelState.IsValid)
             {
                 var res = this.UserRepo.SignUp(rec);
@@ -62,7 +75,6 @@ namespace Web.Controllers
                     ModelState.AddModelError("", res.Message);
                     return View(rec);
                 }
-
             }
             return View(rec);
         }

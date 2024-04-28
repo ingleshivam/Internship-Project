@@ -10,5 +10,6 @@ namespace Repository
 {
     public interface ICity:IGeneric<City>
     {
+        List<GetCitiesVM> GetCitiesByStateId(Int64 stateID);
     }
 }
