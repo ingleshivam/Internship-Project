@@ -91,6 +91,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXFByZXZpb3VzV29ya1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/AdminArea/Views/PreviousWork/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXFByZXZpb3VzV29ya1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Shivam/MainProject/IdeaFundu/Web/Areas/AdminArea/Views/PreviousWork/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXFByZXZpb3VzV29ya1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -143,6 +147,58 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXF9WaWV3U3RhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Idea/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcSWRlYVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Idea/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcSWRlYVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Idea/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcSWRlYVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Idea/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcSWRlYVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Member/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcTWVtYmVyXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Member/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcTWVtYmVyXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Member/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcTWVtYmVyXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Risk/AddRisk.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcUmlza1xBZGRSaXNrLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Risk/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcUmlza1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Risk/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcUmlza1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Risk/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcUmlza1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Risk/EditRisks.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcUmlza1xFZGl0Umlza3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Risk/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcUmlza1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Shared/_UserLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcU2hhcmVkXF9Vc2VyTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -181,6 +237,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Shivam/MainProject/IdeaFundu/Web/Views/ManageUsers/SignUp.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlVXNlcnNcU2lnblVwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Views/Shared/Components/EditRiskListVC/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRWRpdFJpc2tMaXN0VkNcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Views/Shared/Components/RiskListVC/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcUmlza0xpc3RWQ1xEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Shivam/MainProject/IdeaFundu/Web/Views/Shared/_Layout.cshtml]

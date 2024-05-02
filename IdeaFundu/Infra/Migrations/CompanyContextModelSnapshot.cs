@@ -113,7 +113,8 @@ namespace Infra.Migrations
 
                     b.HasKey("BudgetID");
 
-                    b.HasIndex("IdeaID");
+                    b.HasIndex("IdeaID")
+                        .IsUnique();
 
                     b.ToTable("BudgetTbl");
                 });
@@ -228,9 +229,6 @@ namespace Infra.Migrations
                     b.Property<string>("PhotoFilePath")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("RiskID")
-                        .HasColumnType("bigint");
-
                     b.Property<long>("SubCategoryID")
                         .HasColumnType("bigint");
 
@@ -238,9 +236,6 @@ namespace Infra.Migrations
                         .HasColumnType("bigint");
 
                     b.HasKey("IdeaID");
-
-                    b.HasIndex("RiskID")
-                        .IsUnique();
 
                     b.HasIndex("SubCategoryID");
 
@@ -603,22 +598,18 @@ namespace Infra.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EmailID")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MobileNumber")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Pincode")
@@ -721,8 +712,8 @@ namespace Infra.Migrations
             modelBuilder.Entity("Core.Budget", b =>
                 {
                     b.HasOne("Core.Idea", "Idea")
-                        .WithMany()
-                        .HasForeignKey("IdeaID")
+                        .WithOne("Budget")
+                        .HasForeignKey("Core.Budget", "IdeaID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -753,12 +744,6 @@ namespace Infra.Migrations
 
             modelBuilder.Entity("Core.Idea", b =>
                 {
-                    b.HasOne("Core.IdeaRisk", "IdeaRisk")
-                        .WithOne()
-                        .HasForeignKey("Core.Idea", "RiskID")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.HasOne("Core.SubCategory", "SubCategory")
                         .WithMany()
                         .HasForeignKey("SubCategoryID")
@@ -770,8 +755,6 @@ namespace Infra.Migrations
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-
-                    b.Navigation("IdeaRisk");
 
                     b.Navigation("SubCategory");
 
@@ -959,6 +942,11 @@ namespace Infra.Migrations
             modelBuilder.Entity("Core.Country", b =>
                 {
                     b.Navigation("States");
+                });
+
+            modelBuilder.Entity("Core.Idea", b =>
+                {
+                    b.Navigation("Budget");
                 });
 #pragma warning restore 612, 618
         }

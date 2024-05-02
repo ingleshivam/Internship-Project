@@ -30,6 +30,10 @@ builder.Services.AddScoped<IDocumentType, DocumentTypeRepo>();
 builder.Services.AddScoped<IUserTC, UserTCRepo>();
 builder.Services.AddScoped<IInvestorTC, InvestorTCRepo>();
 builder.Services.AddScoped<IPreviousWork, PreviousWorkRepo>();
+builder.Services.AddScoped<IIdea, IdeaRepo>();
+builder.Services.AddScoped<IBudget, BudgetRepo>();
+builder.Services.AddScoped<IRisk, RiskRepo>();
+builder.Services.AddScoped<IMember,MemberRepo>();
 
 var app = builder.Build();
 app.UseStaticFiles();

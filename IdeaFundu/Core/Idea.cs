@@ -18,9 +18,6 @@ namespace Core
 
         public string IdeaDescription { set; get; }
 
-        [ForeignKey("IdeaRisk")]
-        public Int64 RiskID { set; get; }
-
         [ForeignKey("SubCategory")]
         public Int64 SubCategoryID { set; get; }
 
@@ -36,7 +33,13 @@ namespace Core
         [NotMapped]
         public IFormFile ActualFile { set; get; }
         public virtual User User { set; get; }
-        public virtual IdeaRisk IdeaRisk { set; get; }
+        public virtual List<IdeaRisk> IdeaRisks { set; get; }
         public virtual SubCategory SubCategory { set; get; }
+        public virtual Budget Budget { set; get; }
+
+        public Idea() {
+            IdeaRisks = new List<IdeaRisk>();
+        }
+
     }
 }

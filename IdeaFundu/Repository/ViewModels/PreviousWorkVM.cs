@@ -18,10 +18,8 @@ namespace Repository.ViewModels
 
         public decimal TentativeBudget { set; get; }
 
-        public List<PreviousWork> GetList { set; get; }
-
-        //[ForeignKey("User")]
-        //public Int64 UserID { set; get; }
-        //public virtual User User { set; get; }
+        [ForeignKey("User")]
+        public Int64 UserID { set; get; }
+        public virtual User User { set; get; }
     }
 }

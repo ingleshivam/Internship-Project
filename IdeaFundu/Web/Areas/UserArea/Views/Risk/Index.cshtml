@@ -1,0 +1,53 @@
+﻿@model IEnumerable<IdeaRisk>
+@{
+    ViewBag.Title = "USER | RISK";
+}
+<div class="card">
+    <h5 class="card-header">Number of Risks</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th colspan="7"><a class="btn btn-primary btn-sm" asp-action="Create" asp-controller="Risk">CREATE</a></th>
+                </tr>
+                <tr>
+                    <th>Idea Name</th>
+                    <th>Number of Risks</th>
+                    <th>Edit / Delete</th> 
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int srno = 1;
+                    string previousIdeaName = null;
+                }
+
+                @foreach (var temp in Model)
+                {
+                    if (Convert.ToInt32(@Context.Session.GetString("UserID")) == temp.Idea.UserID)
+                    {
+                        if (temp.Idea.IdeaName != previousIdeaName)
+                        {
+                            <tr>
+                                <td>@temp.Idea.IdeaName</td>
+                                <td>@temp.Idea.IdeaRisks.Count()</td>
+                                <td colspan="5">
+                                    <a class="btn btn-outline-primary btn-sm" asp-action="EditRisks" asp-route-id="@temp.IdeaID">Edit</a>
+                                    |
+                                    <a class="btn btn-outline-primary btn-sm" asp-action="Delete" asp-route-id="@temp.IdeaID">Delete</a>
+                                </td>
+                            </tr>
+                            previousIdeaName = temp.Idea.IdeaName;
+                        }
+                    }
+
+                    srno++;
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+

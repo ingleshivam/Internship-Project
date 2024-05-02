@@ -1,5 +1,6 @@
 ﻿using Core;
 using Infra;
+using Repository.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +17,17 @@ namespace Repository
             this.cc = cc;
         }
 
+        public List<GetSubCategoriesVM> GetSubCategoriesByCategoryId(long id)
+        {
+            var v = from t in this.cc.SubCategories
+                    where t.CategoryID == id
+                    select new GetSubCategoriesVM
+                    {
+                        SubCategoryID = t.SubCategoryID,
+                        SubCategoryName = t.SubCategoryName
+                    };
+
+            return v.ToList();
+        }
     }
 }

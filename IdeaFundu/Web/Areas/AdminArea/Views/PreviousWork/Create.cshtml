@@ -36,13 +36,13 @@
                             <span asp-validation-for="TentativeBudget" class="text-danger"></span>
                         </div>
 
-@*                        <div class="col-2">
+                        <div class="col-2">
                             <label class="form-label">User Name</label>
                             <select asp-for="UserID" asp-items="@ViewBag.UserID" id="UserID_@i" class="form-select">
                                 <option>Select User</option>
                             </select>
                             <span asp-validation-for="UserID" class="text-danger"></span>
-                        </div>*@
+                        </div>
                     </div>
 
                 }
@@ -61,47 +61,50 @@
 
 <script type="text/javascript">
     $(function () {
-        //var PreviousWorkVM = {};
-        var PreviousWorkVM = new Array();
+        var PreviousWorks = [];
+        //var PreviousWorkVM = new Array();
         $("#submitBtn").click(function () {
             for(var i=1;i<=5;i++){
+                var workT = $("#WorkTitle_" + i).val();
+                var wordD = $("#WorkDescription_" + i).val();
+                var Dur = $("#Duration_" + i).val();
+                var Ten = $("#TentativeBudget_" + i).val();
+                var User = $("#UserID_" + i).val();
+                var PreviousWork = {
+                    WorkTitle: workT,
+                    WorkDescription: wordD,
+                    Duration: Dur,
+                    TentativeBudget: Ten,
+                    UserID : User
+                }
 
-                //var workT = $("#WorkTitle_" + i).val();
-                //var wordD = $("#WorkDescription_" + i).val();
-                //var Dur = $("#Duration_" + i).val();
-                //var Ten = $("#TentativeBudget_" + i).val();
+                PreviousWorks.push(PreviousWork);
 
-                //var PreviousWorkVM = {
-                //    WorkTitle: workT,
-                //    WorkDescription: wordD,
-                //    Duration: Dur,
-                //    TentativeBudget: Ten
-                //}
+                //var PreviousWork = {};
 
-                var PreviousWork = {};
+                //PreviousWorkVM.WorkTitle = $("#WorkTitle_" + i).val();
+                //PreviousWorkVM.WorkDescription = $("#WorkDescription_"+ i).val();
+                //PreviousWorkVM.Duration = $("#Duration_" + i).val();
+                //PreviousWorkVM.TentativeBudget = $("#TentativeBudget_" + i).val();
 
-                PreviousWorkVM.WorkTitle = $("#WorkTitle_" + i).val();
-                PreviousWorkVM.WorkDescription = $("#WorkDescription_"+ i).val();
-                PreviousWorkVM.Duration = $("#Duration_" + i).val();
-                PreviousWorkVM.TentativeBudget = $("#TentativeBudget_" + i).val();
-
-                PreviousWorkVM.push(PreviousWork);
-                console.log(PreviousWorkVM);
-
-                $.ajax({
-                    url: "/AdminArea/PreviousWork/InsertData",
-                    type: "POST",
-                    contentType: "application/json",
-                    datatype: "json",
-                    data: JSON.stringify(PreviousWorkVM),
-                    success: function (result) {
-                        alert(JSON.stringify(result));
-                    },
-                    error: function (err) {
-                        alert(JSON.stringify(err));
-                    }
-                });
+                //PreviousWorkVM.push(PreviousWork);
+                console.log(PreviousWorks);
             }
+
+            $.ajax({
+                url: "/AdminArea/PreviousWork/InsertData",
+                type: "POST",
+                contentType: "application/json",
+                datatype: "json",
+                data: JSON.stringify(PreviousWorks),
+                success: function (result) {
+                    alert(JSON.stringify(result));
+                    location.reload("Index");
+                },
+                error: function (err) {
+                    alert(JSON.stringify(err));
+                }
+            });
         });
 
     });

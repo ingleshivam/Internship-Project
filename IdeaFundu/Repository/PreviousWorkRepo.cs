@@ -1,5 +1,6 @@
 ﻿using Core;
 using Infra;
+using Repository.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,21 @@ namespace Repository
         public PreviousWorkRepo(CompanyContext cc) : base(cc)
         {
             this.cc = cc;
+        }
+
+        public void AddRecord(List<PreviousWorkVM> rec)
+        {
+            foreach(var temp in rec)
+            {
+                PreviousWork pw = new PreviousWork();
+                pw.WorkTitle = temp.WorkTitle;
+                pw.WorkDescription = temp.WorkDescription;
+                pw.Duration = temp.Duration;
+                pw.TentativeBudget = temp.TentativeBudget;
+                pw.UserID = temp.UserID;
+                this.cc.PreviousWorks.Add(pw);
+            }
+            this.cc.SaveChanges();
         }
     }
 }

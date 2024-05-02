@@ -7,10 +7,14 @@ namespace Web.Controllers
     {
         IState SRepo;
         ICity CityRepo;
-        public HomeController(IState _SRepo,ICity _CityRepo)
+        ISubCategory SubCategoryRepo;
+        IRisk RiskRepo;
+        public HomeController(IState _SRepo,ICity _CityRepo, ISubCategory _SubCategoryRepo,IRisk _RiskRepo)
         {
             SRepo = _SRepo;
             CityRepo = _CityRepo;
+            SubCategoryRepo = _SubCategoryRepo;
+            RiskRepo = _RiskRepo;
         }
         public IActionResult Index()
         {
@@ -28,5 +32,19 @@ namespace Web.Controllers
             var rec = this.CityRepo.GetCitiesByStateId(id);
             return Json(rec.ToList());
         }
+
+        public IActionResult GetSubCategories(Int64 id)
+        {
+            var rec = this.SubCategoryRepo.GetSubCategoriesByCategoryId(id);
+            return Json(rec.ToList());
+        }
+
+        public IActionResult GetIdeas(Int64 IdeaID)
+        {
+            var rec = this.RiskRepo.GetIdeasByIdeaId(IdeaID);
+            return Json(rec.ToList());
+        }
+
+        
     }
 }

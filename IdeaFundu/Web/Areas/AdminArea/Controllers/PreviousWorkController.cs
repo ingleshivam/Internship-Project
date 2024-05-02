@@ -31,15 +31,15 @@ namespace Web.Areas.AdminArea.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(List<PreviousWorkVM> rec)
+        public IActionResult Create(MainPreviousWorkVM rec)
         {
            
             if (ModelState.IsValid)
             {
-                foreach(var temp in rec)
-                {
-                   // this.PreviousWorkRepo.Add(temp);
-                }
+                //foreach(var temp in rec)
+                //{
+                //   // this.PreviousWorkRepo.Add(temp);
+                //}
                 return RedirectToAction("Index");
             }
             return View(rec);
@@ -49,6 +49,7 @@ namespace Web.Areas.AdminArea.Controllers
         public IActionResult Edit(Int64 id)
         {
             var rec = this.PreviousWorkRepo.GetById(id);
+            ViewBag.UserID = new SelectList(this.UserRepo.GetAllUsers(), "UserID", "FullName",rec.UserID);
             return View(rec);
         }
 
@@ -70,9 +71,21 @@ namespace Web.Areas.AdminArea.Controllers
             return RedirectToAction("Index");
         }
 
-        public JsonResult InsertData(List<PreviousWorkVM> rec)
-        {
-            return Json(rec);
+        public JsonResult InsertData([FromBody] List<PreviousWorkVM> PreviousWorks)
+         {
+            //PreviousWork pw = new PreviousWork();
+            //foreach(var temp in PreviousWorks)
+            //{
+            //pw.WorkTitle = temp.WorkTitle;
+            //pw.WorkDescription = temp.WorkDescription;
+            //pw.Duration = temp.Duration;
+            //pw.TentativeBudget = temp.TentativeBudget;
+            //pw.UserID = temp.UserID;
+            //this.PreviousWorkRepo.AddRecord(PreviousWorks);
+            //}
+
+            this.PreviousWorkRepo.AddRecord(PreviousWorks);
+            return Json(null);
         }
 
     }

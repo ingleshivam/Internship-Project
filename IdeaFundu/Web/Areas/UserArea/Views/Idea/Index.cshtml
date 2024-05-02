@@ -1,0 +1,52 @@
+@model IEnumerable<Idea>
+@{
+    ViewBag.Title = "USER | IDEA";
+}
+<div class="card">
+    <h5 class="card-header">Category List</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th colspan="7"><a class="btn btn-primary btn-sm" asp-action="Create" asp-controller="Idea">CREATE</a></th>
+                </tr>
+                <tr>
+                    <th>Sr.No</th>
+                    <th>Idea Name</th>
+                    <th>Sub Category</th>
+                    <th>Budget Amount</th>
+                    <th>Maxmimum Limit</th>
+                    <th>Minimum Limit</th>
+                    <th>Edit / Details / Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int srno = 1;
+                }
+                @foreach (var temp in Model)
+                {
+                    if(Convert.ToInt32(@Context.Session.GetString("UserID"))==temp.UserID){
+                        <tr>
+                            <td>@srno</td>
+                            <td>@temp.IdeaName</td>
+                            <td>@temp.SubCategory.SubCategoryName</td>
+                            <td>@temp.Budget.BudgetAmount</td>
+                            <td>@temp.Budget.MaximumInvestmentLimit</td>
+                            <td>@temp.Budget.MinimumInvestmentLimit</td>
+                            <td colspan="5">
+                                <a class="btn btn-outline-primary btn-sm" asp-action="Edit" asp-route-id="@temp.IdeaID">Edit</a>
+                                |
+                                <a class="btn btn-outline-primary btn-sm" asp-action="Details" asp-route-id="@temp.IdeaID">Details</a>
+                                |
+                                <a class="btn btn-outline-primary btn-sm" asp-action="Delete" asp-route-id="@temp.IdeaID">Delete</a>
+                            </td>
+                        </tr>
+                    }
+
+                    srno++;
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

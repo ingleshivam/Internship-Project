@@ -102,28 +102,28 @@
 
           <ul class="menu-inner py-1">
             <!-- Dashboards -->
-            <li class="menu-item @ViewBag.MainState">
+            <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Configure">Configure</div>
+                <div data-i18n="Manage Idea">Manage Idea</div>
               </a>
               <ul class="menu-sub">
-                <li class="menu-item @ViewBag.CountryState">
-                  <a asp-action="Index" asp-controller="Country" class="menu-link">
-                    <div data-i18n="Country">Country</div>
+                <li class="menu-item">
+                  <a asp-action="Index" asp-controller="Idea" class="menu-link">
+                    <div data-i18n="Idea">Idea</div>
                   </a>
                 </li>
 
-                            <li class="menu-item @ViewBag.StatesState">
-                  <a asp-action="Index" asp-controller="State" class="menu-link">
-                    <div data-i18n="State">State</div>
+                <li class="menu-item">
+                  <a asp-action="Index" asp-controller="Risk" class="menu-link">
+                    <div data-i18n="Risk">Risk</div>
                   </a>
                 </li>
 
-                <li class="menu-item @ViewBag.CityState">
-                  <a asp-action="Index" asp-controller="City" class="menu-link">
-                    <div data-i18n="City">City</div>
-                  </a>
+                <li class="menu-item">
+                    <a asp-action="Index" asp-controller="Member" class="menu-link">
+                        <div data-i18n="Member">Member</div>
+                    </a>
                 </li>
 
               </ul>
