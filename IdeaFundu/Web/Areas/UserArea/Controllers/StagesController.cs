@@ -11,18 +11,18 @@ namespace Web.Areas.UserArea.Controllers
 {
     [Area("UserArea")]
     //[UserAuthroization]
-    public class MemberController : Controller
+    public class StagesController : Controller
     {
         IIdea IdeaRepo;
-        IMember MemberRepo;    
-        public MemberController(IIdea _IdeaRepo, IMember _MemberRepo)
+        IStages StagesRepo;
+        public StagesController(IIdea _IdeaRepo, IStages _StagesRepo)
         {
             IdeaRepo = _IdeaRepo;
-            MemberRepo = _MemberRepo;
+            StagesRepo = _StagesRepo;
         }
         public IActionResult Index()
         {
-            return View(this.MemberRepo.GetAll());
+            return View(this.StagesRepo.GetAll());
         }
 
         [HttpGet]
@@ -33,18 +33,17 @@ namespace Web.Areas.UserArea.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(MemberVM rec)
+        public IActionResult Create(StagesVM rec)
         {
             if (ModelState.IsValid)
             {
-                for (int i = 0; i < rec.Members.MemberName.Count(); i++)
+                for (int i = 0; i < rec.Stagess.StageName.Count(); i++)
                 {
-                    Member member = new Member();
-                    member.MemberName = rec.Members.MemberName[i];
-                    member.MemberRole = rec.Members.MemberRole[i];
-                    member.ShortProfileDesc = rec.Members.ShortProfileDesc[i];
-                    member.IdeaID = rec.Members.IdeaID[i];
-                    this.MemberRepo.Add(member);
+                    Stages stage = new Stages();
+                    stage.StageName = rec.Stagess.StageName[i];
+                    stage.StageDescription = rec.Stagess.StageDescription[i];
+                    stage.IdeaID = rec.Stagess.IdeaID[i];
+                    this.StagesRepo.Add(stage);
                 }
                 return RedirectToAction("Index");
             }
@@ -56,14 +55,13 @@ namespace Web.Areas.UserArea.Controllers
         public IActionResult Edit(Int64 id)
         {
             //var rec = this.MemberRepo.GetById(id);
-            var rec = from t in this.MemberRepo.GetAll()
-                      where t.MemberID == id
-                      select new MemberVM
+            var rec = from t in this.StagesRepo.GetAll()
+                      where t.StageID == id
+                      select new StagesVM
                       {
-                          MemberID = t.MemberID,
-                          MemberName = t.MemberName,
-                          MemberRole = t.MemberRole,
-                          ShortProfileDesc = t.ShortProfileDesc,
+                          StageID = t.StageID,
+                          StageName = t.StageName,
+                          StageDescription = t.StageDescription,
                           IdeaID = t.IdeaID
                       };
             ViewBag.IdeaID = new SelectList(this.IdeaRepo.GetAll(), "IdeaID", "IdeaName");
@@ -72,12 +70,12 @@ namespace Web.Areas.UserArea.Controllers
 
 
         [HttpPost]
-        public IActionResult Edit(Member rec)
+        public IActionResult Edit(Stages rec)
         {
             ViewBag.IdeaID = new SelectList(this.IdeaRepo.GetAll(), "IdeaID", "IdeaName");
             if (ModelState.IsValid)
             {
-                this.MemberRepo.Edit(rec);
+                this.StagesRepo.Edit(rec);
                 return RedirectToAction("Index");
             }
             return View(rec);
@@ -86,7 +84,7 @@ namespace Web.Areas.UserArea.Controllers
         [HttpGet]
         public IActionResult Delete(Int64 id)
         {
-            this.MemberRepo.Delete(id);
+            this.StagesRepo.Delete(id);
             return RedirectToAction("Index");
         }
     }

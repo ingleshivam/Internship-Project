@@ -34,6 +34,7 @@ builder.Services.AddScoped<IIdea, IdeaRepo>();
 builder.Services.AddScoped<IBudget, BudgetRepo>();
 builder.Services.AddScoped<IRisk, RiskRepo>();
 builder.Services.AddScoped<IMember,MemberRepo>();
+builder.Services.AddScoped<IStages,StagesRepo>();
 
 var app = builder.Build();
 app.UseStaticFiles();

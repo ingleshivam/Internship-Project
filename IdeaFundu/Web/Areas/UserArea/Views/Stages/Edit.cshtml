@@ -1,4 +1,4 @@
-﻿@model MemberVM
+﻿@model StagesVM
 @*@{
     ViewBag.Title = "ADMIN | ADD CATEGORY";
     ViewBag.MainState = "active";
@@ -11,25 +11,19 @@
             <form asp-action="Edit" method="Post" class="row g-3 mt-3">
                 <div class="row">
                     <div class="col-3">
-                        <label class="form-label">Member Name</label>
-                        <input asp-for="MemberName" type="text" class="form-control" />
-                        <span asp-validation-for="MemberName" class="text-danger"></span>
+                        <label class="form-label">Stage Name</label>
+                        <input asp-for="StageName" type="text" class="form-control" />
+                        <span asp-validation-for="StageName" class="text-danger"></span>
                     </div>
 
                     <div class="col-3">
-                        <label class="form-label">Member Role</label>
-                        <input asp-for="MemberRole" type="text" class="form-control" />
-                        <span asp-validation-for="MemberRole" class="text-danger"></span>
+                        <label class="form-label">Stage Description</label>
+                        <input asp-for="StageDescription" type="text" class="form-control" />
+                        <span asp-validation-for="StageDescription" class="text-danger"></span>
                     </div>
 
                     <div class="col-3">
-                        <label class="form-label">Short Profile Description</label>
-                        <input asp-for="ShortProfileDesc" type="text" class="form-control" />
-                        <span asp-validation-for="ShortProfileDesc" class="text-danger"></span>
-                    </div>
-
-                    <div class="col-3">
-                        <label class="form-label">User Name</label>
+                        <label class="form-label">Idea Name</label>
                         <select asp-for="IdeaID" asp-items="@ViewBag.IdeaID" class="form-select">
                             <option>Select Idea</option>
                         </select>
@@ -43,7 +37,7 @@
                 {
                     <h6 class="text-info fw-bold">@ViewBag.Message</h6>
                 }
-                <input type="hidden" asp-for="MemberID"/>
+                <input type="hidden" asp-for="StageID"/>
             </form>
         </div>
     </div>
