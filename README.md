@@ -1,6 +1,6 @@
-<img src="https://github.com/ingleshivam/Internship-Project/assets/75012378/a732e577-6091-4e4e-adb5-dbf7904ab873" width="400"/>
+<img src="https://github.com/ingleshivam/Internship-Project/assets/75012378/a732e577-6091-4e4e-adb5-dbf7904ab873" width="400"/><br>
 
-<img src="https://github.com/ingleshivam/Internship-Project/assets/75012378/37dfecfb-5fb1-4505-aa5c-97c084dbd3d1" width="400"/>
+<img src="https://github.com/ingleshivam/Internship-Project/assets/75012378/37dfecfb-5fb1-4505-aa5c-97c084dbd3d1" width="400"/><br>
 
 <img src="https://github.com/ingleshivam/Internship-Project/assets/75012378/00b872e8-fefd-4606-b384-0e482a216961" width="400"/>
 
