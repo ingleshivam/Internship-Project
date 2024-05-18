@@ -13,7 +13,14 @@ namespace Core
     {
         [Key]
         public Int64 InvestorTCID { set; get; }
+        [Required(ErrorMessage = "Terms & Condition Title is required")]
         public string InvestorTCTitle { set; get; }
-        public string InvestorTCDesc { set; get; }         
+
+        [Required(ErrorMessage ="Terms & Condition Description is Required")]
+        [MinLength(70,ErrorMessage = "Minimum length of the description is 70 Characters")]
+        public string InvestorTCDesc { set; get; }
     }
 }
+
+
+

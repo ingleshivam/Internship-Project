@@ -28,7 +28,31 @@
                     <tr>
                         <td>@srno</td>
                         <td>@temp.UserTCTitle</td>
-                        <td>@temp.USerTCDesc</td>
+                        <td>
+
+                            <a class="text-primary" data-bs-toggle="modal" data-bs-target="#UserID_@temp.UserTCID" style="cursor:pointer;">
+                                @temp.USerTCDesc.Substring(0,60)...
+                            </a>
+
+                            <div class="modal fade" id="UserID_@temp.UserTCID" tabindex="-1" style="display: none;" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col mb-3">
+                                                    <h6 for="nameWithTitle" class="text-wrap" style="line-height:2;">@temp.USerTCDesc</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                                Close
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
                         <td colspan="5">
                             <a class="btn btn-outline-primary btn-sm" asp-action="Edit" asp-route-id="@temp.UserTCID">Edit</a>
                             |

@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Repository.ValidationAttributes;
 namespace Repository.ViewModels
 {
     public class InvestorRegistrationVM
@@ -25,14 +25,17 @@ namespace Repository.ViewModels
         [DataType(DataType.Password)]
         public string Password { set; get; }
 
-        [Required(ErrorMessage ="City Name Required")]
+        [SelectRequired(ErrorMessage ="City Name Required")]
         public Int64 CityID { set; get; }
 
-        [Required(ErrorMessage = "Country Name Required")]
+        [SelectRequired(ErrorMessage = "Country Name Required")]
         public Int64 CountryID { set; get; }
 
-        [Required(ErrorMessage = "State Name Required")]
+        [SelectRequired(ErrorMessage = "State Name Required")]
         public Int64 StateID { set; get; }
+        
+        [CheckboxRequired(ErrorMessage ="Please agree to all the terms and conditions")]
+        public bool isChecked { set; get; }
 
     }
 }
