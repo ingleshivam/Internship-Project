@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Stages>
+
+@*RisksVC*@
+
+
+<div class="col-lg-12">
+    @*<div class="card">*@
+        @*<div class="card-body">*@
+            <button class="accordion"><b>Stages Details</b></button>
+            <div class="panel mt-1">
+                @*<table class="table table-stripped col-md-12">*@
+                    @foreach (var record in Model)
+                    {
+                        <div class="card shadow-none bg-transparent border border-secondary mb-3 mt-3">
+                            <div class="card-body">
+                                <label class="card-title"><b>Stage Name</b> : @record.StageName</label>
+                                <p class="card-text"><b>Stage Description :</b> @record.StageDescription</p>
+                            </div>
+                        </div>
+
+@*                        <tr>
+                            <td><b><label class="form-label-lg" asp-for="@record.RiskTitle"></label></b></td>
+                            <td> <label>@Html.DisplayFor(p=> record.RiskTitle)</label></td>
+                        </tr>
+
+                        <tr>
+                            <td><b><label class="form-label-lg" asp-for="@record.RiskDescription"></label></b></td>
+                            <td><p>@Html.DisplayFor(p=> record.RiskDescription)</p></td>
+                        </tr>
+
+                        <tr>
+                            <td><b><label class="form-label-lg" asp-for="@record.RiskLevel"></label></b></td>
+                            <td><label>@Enum.GetName(typeof(RiskLevel),record.RiskLevel) </label></td>
+                        </tr>*@
+                    }
+                @*</table>*@
+            </div>
+        </div>
+    @*</div>*@
+@*</div>*@
+
+
+
+

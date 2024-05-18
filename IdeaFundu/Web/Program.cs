@@ -35,6 +35,15 @@ builder.Services.AddScoped<IBudget, BudgetRepo>();
 builder.Services.AddScoped<IRisk, RiskRepo>();
 builder.Services.AddScoped<IMember,MemberRepo>();
 builder.Services.AddScoped<IStages,StagesRepo>();
+builder.Services.AddScoped<IIdeaDocuments,IdeaDocumentsRepo>();
+builder.Services.AddScoped<IInvestor, InvestorRepo>();
+builder.Services.AddScoped<IIVRequest, IVRequestRepo>();
+builder.Services.AddScoped<IInvestorDocument, InvestorDocumentRepo>();
+builder.Services.AddScoped<IInvestmentPayment,InvestmentPaymentRepo>();
+builder.Services.AddScoped<IQuery,QueryRepo>();
+builder.Services.AddScoped<IWorkProgress,WorkProgressRepo>();
+builder.Services.AddScoped<IWorkClosure,WorkClosureRepo>();
+builder.Services.AddScoped<IAcceptInvestment,AcceptInvestmentRepo>();
 
 var app = builder.Build();
 app.UseStaticFiles();

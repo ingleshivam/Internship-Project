@@ -14,7 +14,8 @@ namespace Web.ViewComponents
 
         public IViewComponentResult Invoke()
         {
-            var rec = this.RiskRepo.GetAll();
+            Int64 GetSessionUserId = Convert.ToInt64(HttpContext.Session.GetString("UserID"));
+            var rec = this.RiskRepo.GetAllByUserID(GetSessionUserId);
             return View(rec);
         }
     }

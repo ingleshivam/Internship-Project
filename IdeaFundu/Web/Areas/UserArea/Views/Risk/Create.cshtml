@@ -43,7 +43,7 @@
                     for (var i = 0; i < result.length; i++) {
                         //str = "<tr><td>" + (i + 1) + "</td><td>" + result[i].riskTitle + "</td><td>" + result[i].riskDescription + "</td><td>" + result[i].riskLevel + "</td> <td> <a href="'/UserArea/Risk/Edit/'+result[i].riskID+">EDIT</a> | <a>DELETE</a></td> </tr>";
 
-                        str = "<tr>" + "<td>" + (i + 1) + "</td>" + "<td>" + result[i].riskTitle + "</td>" + "<td>" + result[i].riskDescription.substring(0, 60) + "...</td>" + "<td>" + result[i].riskLevel + "</td>" + "<td>" + '<a class="btn btn-outline-success btn-sm" href="/UserArea/Risk/Edit/' + result[i].riskID + '"/> Edit </a> | <a class="btn btn-outline-info btn-sm" href="/UserArea/Risk/Details/' + result[i].riskID + '"/> Details </a> |  <a class="btn btn-outline-danger btn-sm" href="/UserArea/Risk/Delete/' + result[i].riskID + '"/> Delete </a> ' + "</td>" + "</tr>";
+                        str = "<tr>" + "<td>" + (i + 1) + "</td>" + "<td>" + result[i].riskTitle + "</td>" + "<td>" + result[i].riskDescription.substring(0, 200) + "...</td>" + "<td>" + result[i].riskLevel + "</td>" + "<td>" + '<a class="btn btn-outline-success btn-sm" href="/UserArea/Risk/Edit/' + result[i].riskID + '"/> Edit </a> | <a class="btn btn-outline-info btn-sm" href="/UserArea/Risk/Details/' + result[i].riskID + '"/> Details </a> |  <a class="btn btn-outline-danger btn-sm" href="/UserArea/Risk/Delete/' + result[i].riskID + '"/> Delete </a> ' + "</td>" + "</tr>";
                         $("#tb").append(str);
                     }
                 },

@@ -1,0 +1,46 @@
+﻿@model WorkProgress
+
+<div class="col-lg-6">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Update Work Progress</h5>
+            <form class="row g-3" asp-action="UpdateProgress" method="Post">
+                <div class="col-12">
+                    <label class="form-label">Start Date</label>
+                    <input asp-for="StartDate" type="date" class="form-control" />
+                    <span asp-validation-for="StartDate" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">Current Status</label>
+                    <textarea asp-for="CurrentStatus" class="form-control" rows="8"></textarea>
+                    <span asp-validation-for="CurrentStatus" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">Expected Completion Date</label>
+                    <input asp-for="ExpectedCompletionDate" type="date" class="form-control" />
+                    <span asp-validation-for="ExpectedCompletionDate" class="text-danger"></span>
+                </div>
+
+
+                <div class="col-12">
+                    <label class="form-label">Remarks</label>
+                    <input asp-for="Remarks" class="form-control" />
+                    <span asp-validation-for="Remarks" class="text-danger"></span>
+                </div>
+
+
+                <input type="hidden" asp-for="IdeaID" value="@ViewBag.IdeaID" />
+
+                <div>
+                    <button type="submit" class="btn btn-primary btn-sm">Update Progress</button>
+                </div>
+                @if (ViewBag.Message != null)
+                {
+                    <h6 class="text-info fw-bold">@ViewBag.Message</h6>
+                }
+            </form>
+        </div>
+    </div>
+</div>

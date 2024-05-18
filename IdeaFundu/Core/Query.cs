@@ -18,6 +18,10 @@ namespace Core
         [ForeignKey("Idea")]
         public Int64 IdeaID { set; get; }
         public DateTime QueryDate { set; get; }
+
+        [ForeignKey("Investor")]
+        public Int64 InvestorID { set; get; }
         public virtual Idea Idea { set; get; }
+        public virtual Investor Investor { set; get; }
     }
 }

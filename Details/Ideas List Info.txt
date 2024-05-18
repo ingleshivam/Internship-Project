@@ -1,0 +1,125 @@
+IdeaName: SmartHomeAssistant
+Category Name: Technology
+Sub Category Name: IoT
+Budget Amount: $100,000
+Max Investment Amount: $1,000,000
+Min Investment Amount: $50,000
+
+IdeaName: EcoFriendlyPackaging
+Category Name: Sustainability
+Sub Category Name: Packaging
+Budget Amount: $50,000
+Max Investment Amount: $500,000
+Min Investment Amount: $25,000
+
+IdeaName: VirtualFitnessCoach
+Category Name: Health & Wellness
+Sub Category Name: Fitness
+Budget Amount: $200,000
+Max Investment Amount: $1,500,000
+Min Investment Amount: $100,000
+
+IdeaName: LocalFarmersMarketApp
+Category Name: Agriculture
+Sub Category Name: Technology
+Budget Amount: $75,000
+Max Investment Amount: $750,000
+Min Investment Amount: $30,000
+
+IdeaName: SustainableTransportation
+Category Name: Transportation
+Sub Category Name: Green Energy
+Budget Amount: $150,000
+Max Investment Amount: $1,200,000
+Min Investment Amount: $75,000
+
+IdeaName: AI-PoweredCustomerSupport
+Category Name: Technology
+Sub Category Name: Artificial Intelligence
+Budget Amount: $120,000
+Max Investment Amount: $900,000
+Min Investment Amount: $60,000
+
+IdeaName: EducationalMobileApp
+Category Name: Education
+Sub Category Name: Mobile Applications
+Budget Amount: $80,000
+Max Investment Amount: $600,000
+Min Investment Amount: $40,000
+
+IdeaName: RenewableEnergyStorage
+Category Name: Energy
+Sub Category Name: Storage Solutions
+Budget Amount: $250,000
+Max Investment Amount: $2,000,000
+Min Investment Amount: $125,000
+
+IdeaName: HealthTrackingWearable
+Category Name: Health & Wellness
+Sub Category Name: Wearable Technology
+Budget Amount: $180,000
+Max Investment Amount: $1,300,000
+Min Investment Amount: $90,000
+
+IdeaName: OnlineSkillDevelopmentPlatform
+Category Name: Education
+Sub Category Name: Online Learning
+Budget Amount: $100,000
+Max Investment Amount: $800,000
+Min Investment Amount: $50,000
+
+
+// Store deleted records for re-adding later
+List<IdeaRisk> deletedIdeaRisks = new List<IdeaRisk>();
+List<Member> deletedMembers = new List<Member>();
+List<Stages> deletedStages = new List<Stages>();
+List<Budget> deletedBudgets = new List<Budget>();
+List<IdeaDocument> deletedIdeaDocuments = new List<IdeaDocument>();
+
+// Delete existing records and store them for re-adding later
+foreach (var temp in allRecords)
+{
+    deletedIdeaRisks.Add(temp.ideaRisk);
+    deletedMembers.Add(temp.member);
+    deletedStages.Add(temp.stages);
+    deletedBudgets.Add(temp.budget);
+    deletedIdeaDocuments.Add(temp.ideaDoc);
+
+    this.cc.IdeaRisks.Remove(temp.ideaRisk);
+    this.cc.Budgets.Remove(temp.budget);
+    this.cc.Members.Remove(temp.member);
+    this.cc.Stages.Remove(temp.stages);
+    this.cc.IdeaDocuments.Remove(temp.ideaDoc);
+}
+
+// Save changes to the database after deletion
+this.cc.SaveChanges();
+
+// Re-add the deleted records
+foreach (var ideaRisk in deletedIdeaRisks)
+{
+    this.cc.IdeaRisks.Add(ideaRisk);
+}
+
+foreach (var member in deletedMembers)
+{
+    this.cc.Members.Add(member);
+}
+
+foreach (var stages in deletedStages)
+{
+    this.cc.Stages.Add(stages);
+}
+
+foreach (var budget in deletedBudgets)
+{
+    this.cc.Budgets.Add(budget);
+}
+
+foreach (var ideaDoc in deletedIdeaDocuments)
+{
+    this.cc.IdeaDocuments.Add(ideaDoc);
+}
+
+// Save changes to the database after re-adding
+this.cc.SaveChanges();

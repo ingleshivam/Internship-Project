@@ -36,7 +36,7 @@ namespace Web.Controllers
                 {
                     HttpContext.Session.SetString("UserID", getLoginData.LoggedInID.ToString());
                     HttpContext.Session.SetString("UserName", getLoginData.LoggedInName);
-                    return RedirectToAction("Index", "UserHome", new { area = "UserArea" });
+                    return RedirectToAction("Index", "Home", new { area = "" }); // Changes -> Controller : UserHome, area : UserArea
                 }
                 else
                 {

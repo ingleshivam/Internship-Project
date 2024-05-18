@@ -18,7 +18,8 @@ namespace Core
         [ForeignKey("Idea")]
         public Int64 IdeaID {set;get;}
         public string RiskTitle { set; get; }
-        [StringLength(800,MinimumLength =60,ErrorMessage ="Description should be maximum of 60 chars.")]
+        [Required]
+        [StringLength(1000,MinimumLength =200,ErrorMessage ="Description should be maximum of 200 chars.")]
         public string RiskDescription { set; get; }
         public int RiskLevel { set; get; }
         public virtual Idea Idea { set; get; }

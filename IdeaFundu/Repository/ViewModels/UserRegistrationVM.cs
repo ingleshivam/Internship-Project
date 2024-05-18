@@ -16,6 +16,7 @@ namespace Repository.ViewModels
 
         [Required(ErrorMessage = "Last Name Required")]
         public string LastName { set; get; }
+        
         [Required(ErrorMessage = "Email ID Required")]
         [EmailAddress(ErrorMessage = "Email Id is not Valid !")]
         public string EmailID { set; get; }
@@ -25,18 +26,13 @@ namespace Repository.ViewModels
         public string Password { set; get; }
 
         [Required(ErrorMessage ="City Name Required")]
-        //[ForeignKey("City")]
         public Int64 CityID { set; get; }
 
         [Required(ErrorMessage = "Country Name Required")]
-        //[ForeignKey("Country")]
         public Int64 CountryID { set; get; }
 
         [Required(ErrorMessage = "State Name Required")]
-        //[ForeignKey("State")]
         public Int64 StateID { set; get; }
-        //public City City { set; get; }
-        //public Country Country { set; get; }
-        //public State State { set; get; }
+
     }
 }

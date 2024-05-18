@@ -9,5 +9,6 @@ namespace Repository
 {
     public interface IStages : IGeneric<Stages>
     {
+        List<Stages> GetAllByUserID(Int64 userid);
     }
 }

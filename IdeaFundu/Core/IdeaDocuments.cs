@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -15,6 +16,10 @@ namespace Core
         public Int64 IdeaDocumentID { set; get; }
 
         public string Attachments { set; get; }
+        [NotMapped]
+        public IFormFile ActualFile { set; get; }
+        [NotMapped]
+        public string FetchDocumentTypeName { set; get; }
 
         [ForeignKey("DocumentType")]
         public Int64 DocumentTypeID { set; get; }

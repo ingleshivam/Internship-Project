@@ -20,12 +20,12 @@
             }
             @foreach (var temp in Model)
             {
-                    if (Convert.ToInt32(@Context.Session.GetString("UserID")) == temp.Idea.UserID)
-                    {
+@*                    if (Convert.ToInt32(@Context.Session.GetString("UserID")) == temp.Idea.UserID)
+                    {*@
                     <tr>
                         <td>@srno</td>
                         <td>@temp.RiskTitle</td>
-                        <td>@temp.RiskDescription.Substring(0,60) ...</td>
+                        <td>@temp.RiskDescription.Substring(0,200) ...</td>
                         <td>@Enum.GetName(typeof(RiskLevel),temp.RiskLevel)</td>
                         <td colspan="5">
                             <a class="btn btn-outline-success btn-sm" asp-action="Edit" asp-route-id="@temp.RiskID">Edit</a>
@@ -35,7 +35,7 @@
                             <a class="btn btn-outline-danger btn-sm" asp-action="Delete" asp-route-id="@temp.RiskID">Delete</a>
                         </td>
                     </tr>
-                    }
+@*                    }*@
 
                 srno++;
             }

@@ -15,6 +15,14 @@ namespace Core
         public Int64 InvestorID { set; get; }
         public string FirstName { set; get; }
         public string LastName { set; get; }
+        [NotMapped]
+        public string FullName
+        {
+            get
+            {
+                return FirstName + " " + LastName;
+            }
+        }
         public string InvestorAddress { set; get; }
         public string InvestorMobile { set; get; }
 

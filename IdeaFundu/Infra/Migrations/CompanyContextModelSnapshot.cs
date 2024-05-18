@@ -200,12 +200,18 @@ namespace Infra.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("IVRequestDesc")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("IdeaID")
+                        .HasColumnType("bigint");
 
                     b.Property<long>("InvestorID")
                         .HasColumnType("bigint");
 
                     b.HasKey("IVRequestID");
+
+                    b.HasIndex("IdeaID");
 
                     b.HasIndex("InvestorID");
 
@@ -225,6 +231,9 @@ namespace Infra.Migrations
 
                     b.Property<string>("IdeaName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IdeaStatus")
+                        .HasColumnType("bit");
 
                     b.Property<string>("PhotoFilePath")
                         .HasColumnType("nvarchar(max)");
@@ -282,7 +291,9 @@ namespace Infra.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("RiskDescription")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
 
                     b.Property<int>("RiskLevel")
                         .HasColumnType("int");
@@ -477,6 +488,9 @@ namespace Infra.Migrations
                     b.Property<long>("IdeaID")
                         .HasColumnType("bigint");
 
+                    b.Property<long>("InvestorID")
+                        .HasColumnType("bigint");
+
                     b.Property<DateTime>("QueryDate")
                         .HasColumnType("datetime2");
 
@@ -486,6 +500,8 @@ namespace Infra.Migrations
                     b.HasKey("QueryID");
 
                     b.HasIndex("IdeaID");
+
+                    b.HasIndex("InvestorID");
 
                     b.ToTable("QueryTbl");
                 });
@@ -733,11 +749,19 @@ namespace Infra.Migrations
 
             modelBuilder.Entity("Core.IVRequest", b =>
                 {
+                    b.HasOne("Core.Idea", "Idea")
+                        .WithMany("IVRequests")
+                        .HasForeignKey("IdeaID")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("Core.Investor", "Investor")
                         .WithMany()
                         .HasForeignKey("InvestorID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.Navigation("Idea");
 
                     b.Navigation("Investor");
                 });
@@ -783,7 +807,7 @@ namespace Infra.Migrations
             modelBuilder.Entity("Core.IdeaRisk", b =>
                 {
                     b.HasOne("Core.Idea", "Idea")
-                        .WithMany()
+                        .WithMany("IdeaRisks")
                         .HasForeignKey("IdeaID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -854,7 +878,15 @@ namespace Infra.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("Core.Investor", "Investor")
+                        .WithMany()
+                        .HasForeignKey("InvestorID")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.Navigation("Idea");
+
+                    b.Navigation("Investor");
                 });
 
             modelBuilder.Entity("Core.Solution", b =>
@@ -947,6 +979,10 @@ namespace Infra.Migrations
             modelBuilder.Entity("Core.Idea", b =>
                 {
                     b.Navigation("Budget");
+
+                    b.Navigation("IVRequests");
+
+                    b.Navigation("IdeaRisks");
                 });
 #pragma warning restore 612, 618
         }

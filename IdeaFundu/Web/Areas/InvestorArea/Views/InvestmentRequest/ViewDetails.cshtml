@@ -1,0 +1,53 @@
+﻿@model AcceptInvestmentVM
+
+<div class="col-lg-8 mx-auto">
+    <div class="card">
+        <div class="card-body">
+            @if (TempData["AlreadyInvested"] != null)
+            {
+                <div class="alert alert-danger text-center"><b>@TempData["AlreadyInvested"]</b></div>
+            }
+            <h5 class="card-title">Accepted Details</h5>
+            
+            <form asp-action="ViewDetails" method="Post">
+                <table class="table table-stripped col-md-6">
+                    <tr>
+                        <td><b><label class="form-label-lg">Investment Request ID</label></b></td>
+                        <td> <input asp-for="IVRequestID" class="border-0" readonly/></td>
+                    </tr>
+
+                    <tr>
+                        <td><b><label class="form-label-lg">Investment Accept Description</label></b></td>
+                        <td><textarea asp-for="AcceptIVDesc" cols="35" rows="5" class="border-0" readonly></textarea></td>
+                    </tr>
+
+                    <tr>
+                        <td><b><label class="form-label-lg">Investment Amount Accepted</label></b></td>
+                        <td><input class="border-0" asp-for="AmountAccepted" readonly/></td>
+                    </tr>
+
+                    <tr>
+                        <td><b><label>Payment Mode</label></b></td>
+                        <td>
+                            <div class="col-12">
+                                <select asp-for="PaymentMode" asp-items="Html.GetEnumSelectList<PaymentMode>()" class="form-select" required>
+                                    <option>Select Payment Mode</option>
+                                </select>
+                                <span asp-validation-for="PaymentMode" class="text-danger"></span>
+                            </div>
+                        </td>
+                    </tr>
+
+                </table>
+
+                <div class="mx-auto text-center">
+                    <button type="submit" class="btn btn-success text-white mt-4">Make Payment</button>
+                    <a class="btn btn-primary mt-4" asp-action="Index">Back</a>
+                </div>
+                <input type="hidden" asp-for="AcceptIVID"/>
+            </form>
+            
+        </div>
+    </div>
+</div>
+

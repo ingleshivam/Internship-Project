@@ -6,11 +6,17 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Add Idea</h5>
-            <form class="row g-3" asp-action="Create" method="Post">
+            <form class="row g-3" enctype="multipart/form-data" asp-action="Create" method="Post">
                 <div class="col-12">
                     <label class="form-label">Idea Name</label>
                     <input asp-for="IdeaName" class="form-control" />
                     <span asp-validation-for="IdeaName" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">Idea Description</label>
+                    <textarea asp-for="IdeaDescription" class="form-control" ></textarea>
+                    <span asp-validation-for="IdeaDescription" class="text-danger"></span>
                 </div>
 
                 <div class="col-12">
@@ -45,6 +51,12 @@
                     <label class="form-label">Minimum Investment Limit</label>
                     <input asp-for="MinimumInvestmentLimit" class="form-control" />
                     <span asp-validation-for="MinimumInvestmentLimit" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">Idea Icon</label>
+                    <input type="file" asp-for="ActualFile" class="form-control" />
+                    <span asp-validation-for="ActualFile" class="text-danger"></span>
                 </div>
 
                 <input type="hidden" asp-for="UserID" value="@Context.Session.GetString("UserID")"/>

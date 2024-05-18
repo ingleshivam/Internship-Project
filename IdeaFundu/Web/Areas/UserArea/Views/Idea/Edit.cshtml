@@ -5,8 +5,8 @@
 <div class="col-lg-6">
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">EDIT Idea</h5>
-            <form class="row g-3" asp-action="Edit" method="Post">
+            <h5 class="card-title">Edit Idea</h5>
+            <form class="row g-3" enctype="multipart/form-data" asp-action="Edit" method="Post">
                 <div class="col-12">
                     <label class="form-label">Idea Name</label>
                     <input asp-for="IdeaName" class="form-control" />
@@ -14,11 +14,17 @@
                 </div>
 
                 <div class="col-12">
+                    <label class="form-label">Idea Description</label>
+                    <textarea asp-for="IdeaDescription" class="form-control" ></textarea>
+                    <span asp-validation-for="IdeaDescription" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
                     <label class="form-label">Category Name</label>
                     <select asp-for="SubCategory.CategoryID" asp-items="@ViewBag.CategoryID" class="form-select" id="CategoryID">
                         <option>Select Category</option>
                     </select>
-                    @*                    <span asp-validation-for="" class="text-danger"></span>*@
+@*                    <span asp-validation-for="" class="text-danger"></span>*@
                 </div>
 
                 <div class="col-12">
@@ -47,10 +53,18 @@
                     <span asp-validation-for="Budget.MinimumInvestmentLimit" class="text-danger"></span>
                 </div>
 
-                <input type="hidden" asp-for="UserID" value="@Context.Session.GetString("UserID")" />
+                <div class="col-12">
+                    <label class="form-label">Idea Icon</label><br />
+                    <img class="object-fit-cover rounded-circle" width="100" height="100" src="@Model.PhotoFilePath"/>
+                    <input type="file" asp-for="ActualFile" class="form-control mt-2" />
+                    <span asp-validation-for="ActualFile" class="text-danger"></span>
+                </div>
+
+                <input type="hidden" asp-for="UserID" value="@Context.Session.GetString("UserID")"/>
                 <input type="hidden" asp-for="IdeaID"/>
+                <input type="hidden" asp-for="PhotoFilePath"/>
                 <div>
-                    <button type="submit" class="btn btn-primary btn-sm">Create</button>
+                    <button type="submit" class="btn btn-primary btn-sm">Update</button>
                 </div>
                 @if (ViewBag.Message != null)
                 {

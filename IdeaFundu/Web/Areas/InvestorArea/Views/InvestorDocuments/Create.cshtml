@@ -1,0 +1,39 @@
+﻿@model InvestorDocument
+
+<div class="col-lg-6">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Add Investor Documents</h5>
+
+            <form class="row g-3" asp-action="Create" method="Post">
+                <div class="col-12">
+                    <label class="form-label">Is Organization</label>
+                    <input asp-for="isOrganization" class="form-check-input ms-2" />
+                    <span asp-validation-for="isOrganization" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">Is NRI</label>
+                    <input asp-for="isNRI" class="form-check-input ms-2" />
+                    <span asp-validation-for="isNRI" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">CIN</label>
+                    <input asp-for="CIN" class="form-control" />
+                    <span asp-validation-for="CIN" class="text-danger"></span>
+                </div>
+
+                <div>
+                    <button type="submit" class="btn btn-primary btn-sm">Create</button>
+                    <a asp-action="Index" class="btn btn-primary btn-sm">Back</a>
+                </div>
+                @if (ViewBag.Message != null)
+                {
+                    <h6 class="text-info fw-bold">@ViewBag.Message</h6>
+                }
+                <input type="hidden" asp-for="InvestorID" value="@Context.Session.GetString("InvestorID")"/>
+            </form>
+        </div>
+    </div>
+</div>

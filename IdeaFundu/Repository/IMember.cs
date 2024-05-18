@@ -9,6 +9,6 @@ namespace Repository
 {
     public interface IMember : IGeneric<Member>
     {
-
+        List<Member> GetAllByUserID(Int64 userid);
     }
 }

@@ -10,7 +10,7 @@ using Web.CustFilter;
 namespace Web.Areas.UserArea.Controllers
 {
     [Area("UserArea")]
-    //[UserAuthroization]
+    [UserAuthroization]
     public class StagesController : Controller
     {
         IIdea IdeaRepo;
@@ -20,21 +20,33 @@ namespace Web.Areas.UserArea.Controllers
             IdeaRepo = _IdeaRepo;
             StagesRepo = _StagesRepo;
         }
+
+        [NonAction]
+        public Int64 GetSessionUserId()
+        {
+            if (HttpContext.Session.GetString("UserID") != null)
+            {
+                return Convert.ToInt64(HttpContext.Session.GetString("UserID"));
+            }
+            return 0;
+        }
+
         public IActionResult Index()
         {
-            return View(this.StagesRepo.GetAll());
+            return View(this.StagesRepo.GetAllByUserID(GetSessionUserId()));
         }
 
         [HttpGet]
         public IActionResult Create()
         {
-            ViewBag.IdeaID = new SelectList(this.IdeaRepo.GetAll(), "IdeaID", "IdeaName");
+            ViewBag.IdeaID = new SelectList(this.IdeaRepo.GetAllByUserID(GetSessionUserId()), "IdeaID", "IdeaName");
             return View();
         }
 
         [HttpPost]
         public IActionResult Create(StagesVM rec)
         {
+            ViewBag.IdeaID = new SelectList(this.IdeaRepo.GetAllByUserID(GetSessionUserId()), "IdeaID", "IdeaName");
             if (ModelState.IsValid)
             {
                 for (int i = 0; i < rec.Stagess.StageName.Count(); i++)
@@ -64,7 +76,7 @@ namespace Web.Areas.UserArea.Controllers
                           StageDescription = t.StageDescription,
                           IdeaID = t.IdeaID
                       };
-            ViewBag.IdeaID = new SelectList(this.IdeaRepo.GetAll(), "IdeaID", "IdeaName");
+            ViewBag.IdeaID = new SelectList(this.IdeaRepo.GetAllByUserID(GetSessionUserId()), "IdeaID", "IdeaName");
             return View(rec.FirstOrDefault());
         }
 
@@ -72,7 +84,7 @@ namespace Web.Areas.UserArea.Controllers
         [HttpPost]
         public IActionResult Edit(Stages rec)
         {
-            ViewBag.IdeaID = new SelectList(this.IdeaRepo.GetAll(), "IdeaID", "IdeaName");
+            ViewBag.IdeaID = new SelectList(this.IdeaRepo.GetAllByUserID(GetSessionUserId()), "IdeaID", "IdeaName");
             if (ModelState.IsValid)
             {
                 this.StagesRepo.Edit(rec);

@@ -19,15 +19,26 @@ namespace Web.Areas.UserArea.Controllers
             IdeaRepo = _IdeaRepo;
             RiskRepo = _RiskRepo;
         }
+
+        [NonAction]
+        public Int64 GetSessionUserId()
+        {
+            if(HttpContext.Session.GetString("UserID")!= null)
+            {
+                return Convert.ToInt64(HttpContext.Session.GetString("UserID"));
+            }
+            return 0;
+        }
+
         public IActionResult Index()
         {
-            return View(this.RiskRepo.GetAll());
+            return View(this.RiskRepo.GetAllByUserID(GetSessionUserId()));
         }
 
         [HttpGet]
         public IActionResult Create()
         {
-            ViewBag.IdeaID = new SelectList(this.IdeaRepo.GetAll(), "IdeaID", "IdeaName");
+            ViewBag.IdeaID = new SelectList(this.IdeaRepo.GetAllByUserID(GetSessionUserId()), "IdeaID", "IdeaName");
             return View();
         }
 
@@ -45,14 +56,14 @@ namespace Web.Areas.UserArea.Controllers
         [HttpGet]
         public IActionResult AddRisk()
         {
-            ViewBag.IdeaID = new SelectList(this.IdeaRepo.GetAll(), "IdeaID", "IdeaName");
+            ViewBag.IdeaID = new SelectList(this.IdeaRepo.GetAllByUserID(GetSessionUserId()), "IdeaID", "IdeaName");
             return View();
         }
 
         [HttpPost]
         public IActionResult AddRisk(IdeaRisk rec)
         {
-            ViewBag.IdeaID = new SelectList(this.IdeaRepo.GetAll(), "IdeaID", "IdeaName");
+            ViewBag.IdeaID = new SelectList(this.IdeaRepo.GetAllByUserID(GetSessionUserId()), "IdeaID", "IdeaName");
             if (ModelState.IsValid)
             {
                 this.RiskRepo.Add(rec);
@@ -65,7 +76,7 @@ namespace Web.Areas.UserArea.Controllers
         public IActionResult Edit(Int64 id)
         {
             var rec = this.RiskRepo.GetById(id);
-            ViewBag.IdeaID = new SelectList(this.IdeaRepo.GetAll(), "IdeaID", "IdeaName",rec.IdeaID);
+            ViewBag.IdeaID = new SelectList(this.IdeaRepo.GetAllByUserID(GetSessionUserId()), "IdeaID", "IdeaName",rec.IdeaID);
             return View(rec);
         }
 
@@ -73,7 +84,7 @@ namespace Web.Areas.UserArea.Controllers
         [HttpPost]
         public IActionResult Edit(IdeaRisk rec)
         {
-            ViewBag.IdeaID = new SelectList(this.IdeaRepo.GetAll(), "IdeaID", "IdeaName");
+            ViewBag.IdeaID = new SelectList(this.IdeaRepo.GetAllByUserID(GetSessionUserId()), "IdeaID", "IdeaName");
             if (ModelState.IsValid)
             {
                 this.RiskRepo.Edit(rec);
@@ -87,14 +98,14 @@ namespace Web.Areas.UserArea.Controllers
         {
             //var rec = this.RiskRepo.GetById(id);
             var rec = this.RiskRepo.GetIdeasByIdeaId(id);
-            ViewBag.IdeaID = new SelectList(this.IdeaRepo.GetAll(), "IdeaID", "IdeaName", rec.Any(p=>p.IdeaID == id));
+            ViewBag.IdeaID = new SelectList(this.IdeaRepo.GetAllByUserID(GetSessionUserId()), "IdeaID", "IdeaName", rec.Any(p=>p.IdeaID == id));
             return View(rec);
         }
 
         [HttpPost]                                                     
         public IActionResult EditRisks(IdeaRisk rec)
         {
-            ViewBag.IdeaID = new SelectList(this.IdeaRepo.GetAll(), "IdeaID", "IdeaName");
+            ViewBag.IdeaID = new SelectList(this.IdeaRepo.GetAllByUserID(GetSessionUserId()), "IdeaID", "IdeaName");
             if (ModelState.IsValid)
             {
                 this.RiskRepo.Edit(rec);

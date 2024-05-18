@@ -1,4 +1,5 @@
 ﻿using Core;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -15,6 +16,8 @@ namespace Repository.ViewModels
         [Required(ErrorMessage ="Idea Name is Required")]
         public string IdeaName { set; get; }
 
+        [Required(ErrorMessage ="Idea Description is Required")]
+        public string IdeaDescription { set; get; }
         public string SubCategoryName { set; get; }
         [Required(ErrorMessage ="Sub Category Required")]
         [ForeignKey("SubCategory")]
@@ -28,6 +31,9 @@ namespace Repository.ViewModels
 
         [Required(ErrorMessage ="Minimum Investment Limit Required")]
         public decimal MinimumInvestmentLimit { set; get; }
+        public string PhotoFilePath { set; get; }
+        [NotMapped]
+        public IFormFile ActualFile { set; get; }
 
         [ForeignKey("User")]
         public Int64 UserID { set; get; }

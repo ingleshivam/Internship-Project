@@ -23,12 +23,7 @@ namespace Core
 
         [ForeignKey("User")]
         public Int64 UserID { set; get; }
-        public bool IdeaStatus {
-            get 
-            {
-                return true ;
-            }
-        }
+        public bool IdeaStatus { set; get; }
         public string PhotoFilePath { set; get; }
         [NotMapped]
         public IFormFile ActualFile { set; get; }
@@ -36,6 +31,7 @@ namespace Core
         public virtual List<IdeaRisk> IdeaRisks { set; get; }
         public virtual SubCategory SubCategory { set; get; }
         public virtual Budget Budget { set; get; }
+        public virtual List<IVRequest> IVRequests { set; get; }
 
         public Idea() {
             IdeaRisks = new List<IdeaRisk>();

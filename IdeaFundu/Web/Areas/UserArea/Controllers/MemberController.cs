@@ -10,31 +10,43 @@ using Web.CustFilter;
 namespace Web.Areas.UserArea.Controllers
 {
     [Area("UserArea")]
-    //[UserAuthroization]
+    [UserAuthroization]
     public class MemberController : Controller
     {
         IIdea IdeaRepo;
-        IMember MemberRepo;    
+        IMember MemberRepo;
         public MemberController(IIdea _IdeaRepo, IMember _MemberRepo)
         {
             IdeaRepo = _IdeaRepo;
             MemberRepo = _MemberRepo;
         }
+
+        [NonAction]
+        public Int64 GetSessionUserId()
+        {
+            if (HttpContext.Session.GetString("UserID") != null)
+            {
+                return Convert.ToInt64(HttpContext.Session.GetString("UserID"));
+            }
+            return 0;
+        }
+
         public IActionResult Index()
         {
-            return View(this.MemberRepo.GetAll());
+            return View(this.MemberRepo.GetAllByUserID(GetSessionUserId()));
         }
 
         [HttpGet]
         public IActionResult Create()
         {
-            ViewBag.IdeaID = new SelectList(this.IdeaRepo.GetAll(), "IdeaID", "IdeaName");
+            ViewBag.IdeaID = new SelectList(this.IdeaRepo.GetAllByUserID(GetSessionUserId()), "IdeaID", "IdeaName");
             return View();
         }
 
         [HttpPost]
         public IActionResult Create(MemberVM rec)
         {
+            ViewBag.IdeaID = new SelectList(this.IdeaRepo.GetAllByUserID(GetSessionUserId()), "IdeaID", "IdeaName");
             if (ModelState.IsValid)
             {
                 for (int i = 0; i < rec.Members.MemberName.Count(); i++)
@@ -66,7 +78,7 @@ namespace Web.Areas.UserArea.Controllers
                           ShortProfileDesc = t.ShortProfileDesc,
                           IdeaID = t.IdeaID
                       };
-            ViewBag.IdeaID = new SelectList(this.IdeaRepo.GetAll(), "IdeaID", "IdeaName");
+            ViewBag.IdeaID = new SelectList(this.IdeaRepo.GetAllByUserID(GetSessionUserId()), "IdeaID", "IdeaName");
             return View(rec.FirstOrDefault());
         }
 
@@ -74,7 +86,7 @@ namespace Web.Areas.UserArea.Controllers
         [HttpPost]
         public IActionResult Edit(Member rec)
         {
-            ViewBag.IdeaID = new SelectList(this.IdeaRepo.GetAll(), "IdeaID", "IdeaName");
+            ViewBag.IdeaID = new SelectList(this.IdeaRepo.GetAllByUserID(GetSessionUserId()), "IdeaID", "IdeaName");
             if (ModelState.IsValid)
             {
                 this.MemberRepo.Edit(rec);

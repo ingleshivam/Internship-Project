@@ -87,18 +87,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXEludmVzdG9yVENcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Shivam/MainProject/IdeaFundu/Web/Areas/AdminArea/Views/PreviousWork/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXFByZXZpb3VzV29ya1xDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Shivam/MainProject/IdeaFundu/Web/Areas/AdminArea/Views/PreviousWork/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXFByZXZpb3VzV29ya1xFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Shivam/MainProject/IdeaFundu/Web/Areas/AdminArea/Views/PreviousWork/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXFByZXZpb3VzV29ya1xJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/Shivam/MainProject/IdeaFundu/Web/Areas/AdminArea/Views/Shared/_AdminLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXFNoYXJlZFxfQWRtaW5MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -147,6 +135,58 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5BcmVhXFZpZXdzXF9WaWV3U3RhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/InvestorArea/Views/InvestmentRequest/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZXN0b3JBcmVhXFZpZXdzXEludmVzdG1lbnRSZXF1ZXN0XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/InvestorArea/Views/InvestmentRequest/InvestmentPayment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZXN0b3JBcmVhXFZpZXdzXEludmVzdG1lbnRSZXF1ZXN0XEludmVzdG1lbnRQYXltZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/InvestorArea/Views/InvestmentRequest/ViewDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZXN0b3JBcmVhXFZpZXdzXEludmVzdG1lbnRSZXF1ZXN0XFZpZXdEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/InvestorArea/Views/InvestorDocuments/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZXN0b3JBcmVhXFZpZXdzXEludmVzdG9yRG9jdW1lbnRzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/InvestorArea/Views/InvestorDocuments/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZXN0b3JBcmVhXFZpZXdzXEludmVzdG9yRG9jdW1lbnRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/InvestorArea/Views/InvestorHome/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZXN0b3JBcmVhXFZpZXdzXEludmVzdG9ySG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/InvestorArea/Views/Query/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZXN0b3JBcmVhXFZpZXdzXFF1ZXJ5XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/InvestorArea/Views/Query/ViewAcceptedSolution.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZXN0b3JBcmVhXFZpZXdzXFF1ZXJ5XFZpZXdBY2NlcHRlZFNvbHV0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/InvestorArea/Views/Shared/_InvestorLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZXN0b3JBcmVhXFZpZXdzXFNoYXJlZFxfSW52ZXN0b3JMYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/InvestorArea/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZXN0b3JBcmVhXFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/InvestorArea/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZXN0b3JBcmVhXFZpZXdzXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Idea/CloseWork.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcSWRlYVxDbG9zZVdvcmsuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Idea/ClosureViewDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcSWRlYVxDbG9zdXJlVmlld0RldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Idea/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcSWRlYVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -163,6 +203,50 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcSWRlYVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Idea/UpdateProgress.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcSWRlYVxVcGRhdGVQcm9ncmVzcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Idea/Upload.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcSWRlYVxVcGxvYWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Idea/WorkProgress.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcSWRlYVxXb3JrUHJvZ3Jlc3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Idea/WorkProgressDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcSWRlYVxXb3JrUHJvZ3Jlc3NEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Idea/WorkProgressEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcSWRlYVxXb3JrUHJvZ3Jlc3NFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/InvestmentRequest/Accept.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcSW52ZXN0bWVudFJlcXVlc3RcQWNjZXB0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/InvestmentRequest/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcSW52ZXN0bWVudFJlcXVlc3RcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/InvestmentRequest/ViewAcceptedInv.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcSW52ZXN0bWVudFJlcXVlc3RcVmlld0FjY2VwdGVkSW52LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Investments/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcSW52ZXN0bWVudHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Investments/ViewDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcSW52ZXN0bWVudHNcVmlld0RldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Investments/WorkProgressDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcSW52ZXN0bWVudHNcV29ya1Byb2dyZXNzRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Member/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcTWVtYmVyXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -173,6 +257,30 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Member/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcTWVtYmVyXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/PreviousWork/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcUHJldmlvdXNXb3JrXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/PreviousWork/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcUHJldmlvdXNXb3JrXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/PreviousWork/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcUHJldmlvdXNXb3JrXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Query/Accept.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcUXVlcnlcQWNjZXB0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Query/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcUXVlcnlcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Query/ViewAcceptedSolution.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcUXVlcnlcVmlld0FjY2VwdGVkU29sdXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Risk/AddRisk.cshtml]
@@ -235,12 +343,36 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Shivam/MainProject/IdeaFundu/Web/Views/Home/AskQuery.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBc2tRdWVyeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Views/Home/IdeaListView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJZGVhTGlzdFZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Shivam/MainProject/IdeaFundu/Web/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Shivam/MainProject/IdeaFundu/Web/Views/Home/MakeRequest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNYWtlUmVxdWVzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Views/Home/ViewDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxWaWV3RGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Shivam/MainProject/IdeaFundu/Web/Views/ManageAdmins/SignIn.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlQWRtaW5zXFNpZ25Jbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Views/ManageInvestors/SignIn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlSW52ZXN0b3JzXFNpZ25Jbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Views/ManageInvestors/SignUp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlSW52ZXN0b3JzXFNpZ25VcC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Shivam/MainProject/IdeaFundu/Web/Views/ManageUsers/SignIn.cshtml]
@@ -251,12 +383,96 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlVXNlcnNcU2lnblVwLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Shivam/MainProject/IdeaFundu/Web/Views/Shared/Components/AcceptedInvestmentsVC/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQWNjZXB0ZWRJbnZlc3RtZW50c1ZDXERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Views/Shared/Components/BudgetVC/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQnVkZ2V0VkNcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Views/Shared/Components/ClosedIdeasVC/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQ2xvc2VkSWRlYXNWQ1xEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Views/Shared/Components/DropDownSearchVC/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRHJvcERvd25TZWFyY2hWQ1xEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Shivam/MainProject/IdeaFundu/Web/Views/Shared/Components/EditRiskListVC/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRWRpdFJpc2tMaXN0VkNcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Shivam/MainProject/IdeaFundu/Web/Views/Shared/Components/IdeaListVC/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcSWRlYUxpc3RWQ1xEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Views/Shared/Components/InProgressIdeasVC/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcSW5Qcm9ncmVzc0lkZWFzVkNcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Views/Shared/Components/InvestorNewQueriesVC/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcSW52ZXN0b3JOZXdRdWVyaWVzVkNcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Views/Shared/Components/InvestorSolvedQueriesVC/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcSW52ZXN0b3JTb2x2ZWRRdWVyaWVzVkNcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Views/Shared/Components/MembersVC/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTWVtYmVyc1ZDXERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Views/Shared/Components/PendingInvestmentsVC/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcUGVuZGluZ0ludmVzdG1lbnRzVkNcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Shivam/MainProject/IdeaFundu/Web/Views/Shared/Components/RiskListVC/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcUmlza0xpc3RWQ1xEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Views/Shared/Components/RisksVC/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcUmlza3NWQ1xEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Views/Shared/Components/ShowAcceptedInvestmentsVC/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2hvd0FjY2VwdGVkSW52ZXN0bWVudHNWQ1xEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Views/Shared/Components/ShowDocumentsVC/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2hvd0RvY3VtZW50c1ZDXERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Views/Shared/Components/ShowNewInvestmentsVC/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2hvd05ld0ludmVzdG1lbnRzVkNcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Views/Shared/Components/StagesVC/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU3RhZ2VzVkNcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Views/Shared/Components/TotalInvestmentDetailsVC/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcVG90YWxJbnZlc3RtZW50RGV0YWlsc1ZDXERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Views/Shared/Components/UploadDocumentsVC/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcVXBsb2FkRG9jdW1lbnRzVkNcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Views/Shared/Components/UserNewQueriesVC/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcVXNlck5ld1F1ZXJpZXNWQ1xEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Views/Shared/Components/UserSolvedQueriesVC/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcVXNlclNvbHZlZFF1ZXJpZXNWQ1xEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Views/Shared/Components/WorkClosureDetailsVC/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcV29ya0Nsb3N1cmVEZXRhaWxzVkNcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Views/Shared/Components/WorkProgressDetailsVC/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcV29ya1Byb2dyZXNzRGV0YWlsc1ZDXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Shivam/MainProject/IdeaFundu/Web/Views/Shared/_Layout.cshtml]

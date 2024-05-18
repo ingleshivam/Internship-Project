@@ -15,5 +15,10 @@ namespace Repository
         {
             this.cc = cc;
         }
+
+        public List<Member> GetAllByUserID(long userid)
+        {
+            return this.cc.Members.Where(p => p.Idea.UserID == userid).ToList();
+        }
     }
 }

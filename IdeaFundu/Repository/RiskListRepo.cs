@@ -17,6 +17,11 @@ namespace Repository
             this.cc = cc;
         }
 
+        public List<IdeaRisk> GetAllByUserID(long userid)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<RiskListVM> GetIdeasByIdeaId(long id)
         {
             throw new NotImplementedException();

@@ -13,12 +13,18 @@ namespace Core
     {
         [Key]
         public Int64 IVRequestID { set; get; }
+        [Required(ErrorMessage ="Investment Request Description Required")]
         public string IVRequestDesc { set; get; }
 
         [ForeignKey("Investor")]
         public Int64 InvestorID { set; get; }
+        [Required]
         public decimal AmountToBeInvested { set; get; }
         public virtual Investor Investor { set; get; }
+
+        [ForeignKey("Idea")]
+        public Int64 IdeaID { set; get; }
+        public virtual Idea Idea { set; get; }
 
     }
 }

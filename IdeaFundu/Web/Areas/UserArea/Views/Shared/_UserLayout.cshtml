@@ -104,10 +104,16 @@
             <!-- Dashboards -->
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <i class="menu-icon tf-icons bx bx-edit-alt"></i>
                 <div data-i18n="Manage Idea">Manage Idea</div>
               </a>
               <ul class="menu-sub">
+                <li class="menu-item">
+                    <a asp-action="Index" asp-controller="PreviousWork" class="menu-link">
+                        <div data-i18n="Previous Work">Previous Work</div>
+                    </a>
+                </li>
+
                 <li class="menu-item">
                   <a asp-action="Index" asp-controller="Idea" class="menu-link">
                     <div data-i18n="Idea">Idea</div>
@@ -133,6 +139,24 @@
                 </li>
 
               </ul>
+            </li>
+            <li class="menu-item">
+                <a asp-action="Index" asp-controller="InvestmentRequest" class="menu-link">
+                    <i class='menu-icon bx bx-envelope'></i>
+                    <div data-i18n="InvestmentRequest">Investment Request</div>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a asp-action="Index" asp-controller="Query" class="menu-link">
+                    <i class='menu-icon bx bx-question-mark'></i>
+                    <div data-i18n="Query">Query</div>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a asp-action="Index" asp-controller="Investments" class="menu-link">
+                    <i class='menu-icon bx bx-rupee'></i>
+                    <div data-i18n="Investments">Investments</div>
+                </a>
             </li>
           </ul>
         </aside>
@@ -174,7 +198,7 @@
                           </div>
                           <div class="flex-grow-1">
                             <span class="fw-medium d-block">@Context.Session.GetString("UserName")</span>
-                            <small class="text-muted">User</small>
+                            <small class="text-muted">User ID : @Context.Session.GetString("UserID")</small>
                           </div>
                         </div>
                       </a>
@@ -198,7 +222,7 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" asp-action="SignOut" asp-controller="ManageUsers" asp-area="">
+                      <a class="dropdown-item" asp-action="SignOut" asp-controller="Home" asp-area="">
                         <i class="bx bx-power-off me-2"></i>
                         <span class="align-middle">Log Out</span>
                       </a>

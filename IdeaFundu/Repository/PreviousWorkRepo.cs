@@ -31,5 +31,11 @@ namespace Repository
             }
             this.cc.SaveChanges();
         }
+
+        public List<PreviousWork> GetAllByUserID(long userid)
+        {
+            return this.cc.PreviousWorks.Where(p => p.UserID == userid).ToList();
+        }
     }
 }
+

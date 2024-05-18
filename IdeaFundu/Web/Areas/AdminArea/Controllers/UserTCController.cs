@@ -6,7 +6,7 @@ using Web.CustFilter;
 namespace Web.Areas.AdminArea.Controllers
 {
     [Area("AdminArea")]
-    //[AdminAuthroization]
+    [AdminAuthroization]
     public class UserTCController : Controller
     {
         IUserTC UserTcRepo;

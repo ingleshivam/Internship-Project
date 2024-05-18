@@ -18,6 +18,11 @@ namespace Repository
             this.cc = cc;
         }
 
+        public List<IdeaRisk> GetAllByUserID(long userid)
+        {
+            return this.cc.IdeaRisks.Where(p => p.Idea.UserID == userid).ToList();
+        }
+
         public List<RiskListVM> GetIdeasByIdeaId(long id)
         {
             if(id != 0)

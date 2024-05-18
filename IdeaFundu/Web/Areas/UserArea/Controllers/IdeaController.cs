@@ -5,6 +5,8 @@ using Repository;
 using Web.CustFilter;
 using Repository.ViewModels;
 using Microsoft.AspNetCore.Components;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
+using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 
 namespace Web.Areas.UserArea.Controllers
 {
@@ -16,32 +18,37 @@ namespace Web.Areas.UserArea.Controllers
         ICategory CategoryRepo;
         ISubCategory SubCategoryRepo;
         IBudget BudgetRepo;
-        public IdeaController(IIdea _IdeaRepo, ICategory _CategoryRepo, ISubCategory _SubCategoryRepo, IBudget _BudgetRepo)
+        IIdeaDocuments IdeaDocumentsRepo;
+        IWebHostEnvironment env;
+        IDocumentType DocumentTypeRepo;
+        IWorkProgress WorkProgressRepo;
+        IWorkClosure WorkClosureRepo;
+        public IdeaController(IIdea _IdeaRepo, ICategory _CategoryRepo, ISubCategory _SubCategoryRepo, IBudget _BudgetRepo, IWebHostEnvironment env, IIdeaDocuments _IdeaDocumentsRepo, IDocumentType _DocumentTypeRepo, IWorkProgress _WorkProgressRepo, IWorkClosure _WorkClosureRepo)
         {
             IdeaRepo = _IdeaRepo;
             CategoryRepo = _CategoryRepo;
             SubCategoryRepo = _SubCategoryRepo;
             BudgetRepo = _BudgetRepo;
+            this.env = env;
+            IdeaDocumentsRepo = _IdeaDocumentsRepo;
+            DocumentTypeRepo = _DocumentTypeRepo;
+            WorkProgressRepo = _WorkProgressRepo;
+            WorkClosureRepo = _WorkClosureRepo;
+        }
+        
+        [NonAction]
+        public Int64 GetSessionUserId()
+        {
+            if (HttpContext.Session.GetString("UserID") != null)
+            {
+                return Convert.ToInt64(HttpContext.Session.GetString("UserID"));
+            }
+            return 0;
         }
 
         public IActionResult Index()
         {
-            Int64 GetSessionUserId = Convert.ToInt64(HttpContext.Session.GetString("UserID"));
-            //var IdeaBudgetList = from t in this.IdeaRepo.GetAll()
-            //                     join t1 in this.BudgetRepo.GetAll()
-            //                     on t.IdeaID equals t1.IdeaID
-            //                     where t.UserID == GetSessionUserId
-            //                     select new IdeaBudgetVM
-            //                     {
-            //                         IdeaID = t.IdeaID,
-            //                         IdeaName = t.IdeaName,
-            //                         SubCategoryName = t.SubCategory.SubCategoryName,
-            //                         BudgetAmount = t1.BudgetAmount,
-            //                         MaximumInvestmentLimit = t1.MaximumInvestmentLimit,
-            //                         MinimumInvestmentLimit = t1.MinimumInvestmentLimit
-            //                     };
-
-            return View(this.IdeaRepo.GetAll());
+            return View(this.IdeaRepo.GetAllByUserID(GetSessionUserId()));
         }
 
         [HttpGet]
@@ -57,19 +64,66 @@ namespace Web.Areas.UserArea.Controllers
         {
             ViewBag.CategoryID = new SelectList(this.CategoryRepo.GetAll(), "CategoryID", "CategoryName");
             ViewBag.SubCategoryID = new SelectList(this.SubCategoryRepo.GetAll(), "SubCategoryID", "SubCategoryName");
+            string photoFilePath = "";
             if (ModelState.IsValid)
             {
-                Idea idea = new Idea();
-                idea.IdeaName = rec.IdeaName;
-                idea.SubCategoryID = rec.SubCategoryID;
-                idea.Budget = new Budget();
-                idea.Budget.BudgetAmount = rec.BudgetAmount;
-                idea.Budget.MaximumInvestmentLimit = rec.MaximumInvestmentLimit;
-                idea.Budget.MinimumInvestmentLimit = rec.MinimumInvestmentLimit;
-                idea.UserID = rec.UserID;
-                this.IdeaRepo.Add(idea);
-                //this.IdeaRepo.AddRecords(rec);
+
+                if (rec.ActualFile != null)
+                {
+                    if (rec.ActualFile.Length > 0)
+                    {
+                        string filename = rec.ActualFile.FileName;
+                        string UpdatedFileName = filename.Replace(" ", "_");
+                        string folderpath = Path.Combine(this.env.WebRootPath, "IdeaImages");
+                        string uploadpath = Path.Combine(folderpath, UpdatedFileName);
+                        FileStream fs = new FileStream(uploadpath, FileMode.Create);
+                        rec.ActualFile.CopyTo(fs);
+                        string logicalpath = Path.Combine("\\IdeaImages", UpdatedFileName);
+                        photoFilePath = logicalpath;
+                    }
+                }
+
+                this.IdeaRepo.AddRecord(rec,photoFilePath);
                 return RedirectToAction("Index");
+            }
+            return View(rec);
+        }
+
+        [HttpGet]
+        public IActionResult Upload(Int64 id)
+        {
+            ViewBag.IdeaID = id;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Upload(IdeaDocuments rec)
+        {
+            if (ModelState.IsValid)
+            {
+                if (rec.ActualFile != null)
+                {
+                    if (rec.ActualFile.Length > 0)
+                    {
+                        string filename = rec.ActualFile.FileName;
+                        string UpdatedFileName = filename.Replace(" ", "_");
+                        var extensions = UpdatedFileName.Split(".");
+                        var docType = extensions[1];
+                        if(docType == rec.FetchDocumentTypeName)
+                        {
+                            string folderpath = Path.Combine(this.env.WebRootPath, "Documents");
+                            string uploadpath = Path.Combine(folderpath, UpdatedFileName);
+                            FileStream fs = new FileStream(uploadpath, FileMode.Create);
+                            rec.ActualFile.CopyTo(fs);
+                            string logicalpath = Path.Combine("\\Documents", UpdatedFileName);
+                            rec.Attachments = logicalpath;
+                        }
+                    }
+                }
+                //Int64 userid = Convert.ToInt64(HttpContext.Session.GetString("IdeaID"));
+                //rec.Idea.UserID = userid;
+                this.IdeaDocumentsRepo.Add(rec);
+                return RedirectToAction("Upload");
             }
             return View(rec);
         }
@@ -88,11 +142,29 @@ namespace Web.Areas.UserArea.Controllers
         {
             ViewBag.CategoryID = new SelectList(this.CategoryRepo.GetAll(), "CategoryID", "CategoryName");
             ViewBag.SubCategoryID = new SelectList(this.SubCategoryRepo.GetAll(), "SubCategoryID", "SubCategoryName");
+            string photoFilePath = "";
             if (ModelState.IsValid)
             {
-                //this.IdeaRepo.Edit(rec);
-                this.IdeaRepo.DeleteRecord(rec.IdeaID);
-                this.IdeaRepo.EditRecord(rec);
+                if (rec.ActualFile != null)
+                {
+                    if (rec.ActualFile.Length > 0)
+                    {
+                        string filename = rec.ActualFile.FileName;
+                        string UpdatedFileName = filename.Replace(" ", "_");
+                        string folderpath = Path.Combine(this.env.WebRootPath, "IdeaImages");
+                        string uploadpath = Path.Combine(folderpath, UpdatedFileName);
+                        FileStream fs = new FileStream(uploadpath, FileMode.Create);
+                        rec.ActualFile.CopyTo(fs);
+                        string logicalpath = Path.Combine("\\IdeaImages", UpdatedFileName);
+                        photoFilePath = logicalpath;                        
+                    }
+                }
+                else
+                {
+                    photoFilePath = rec.PhotoFilePath;
+                }
+
+                this.IdeaRepo.EditRecord(rec,photoFilePath);
                 return RedirectToAction("Index");
             }
             return View(rec);
@@ -110,6 +182,77 @@ namespace Web.Areas.UserArea.Controllers
         {
             //this.IdeaRepo.Delete(id);
             this.IdeaRepo.DeleteRecord(id);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult UpdateProgress(Int64 id)
+        {
+            ViewBag.IdeaID = id;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult UpdateProgress(WorkProgress rec)
+        {
+            if (ModelState.IsValid)
+            {
+                this.WorkProgressRepo.Add(rec);
+                TempData["WorkProgressStatus"] = "Work Progress has been Updated Successfully !";
+                return RedirectToAction("Index");
+            }
+            return View(rec);
+        }
+
+        [HttpGet]
+        public IActionResult CloseWork(Int64 id)
+        {
+            ViewBag.IdeaID = id;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CloseWork(WorkClosure rec)
+        {
+            this.WorkClosureRepo.Add(rec);
+            TempData["WorkClosureStatus"] = "Work Closure has been submitted Successfully !";
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult ClosureViewDetails(Int64 id)
+        {
+            ViewBag.IdeaID = id;
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult WorkProgress(Int64 id)
+        {
+            var workProgressResult = this.WorkProgressRepo.GetAll().Where(p=>p.IdeaID == id).OrderBy(p=>p.Remarks).OrderByDescending(p=>p.ExpectedCompletionDate);
+            return View(workProgressResult.ToList());
+        }
+
+        [HttpGet]
+        public IActionResult WorkProgressDetails(Int64 id)
+        {
+            ViewBag.WorkProgressID = id;
+            var v = this.WorkProgressRepo.GetAll().Where(p => p.WorkProgressID == id).FirstOrDefault();
+            return View(v);
+        }
+
+        [HttpGet]
+        public IActionResult WorkProgressEdit(Int64 id)
+        {
+            var v = this.WorkProgressRepo.GetAll().Where(p=>p.WorkProgressID == id).FirstOrDefault();
+            return View(v);
+        }
+
+        [HttpPost]
+        public IActionResult WorkProgressEdit(WorkProgress rec)
+        {
+            this.WorkProgressRepo.Edit(rec);
+            TempData["WorkProgressUpdate"] = "Work Progress Updated Successfully !";
             return RedirectToAction("Index");
         }
     }

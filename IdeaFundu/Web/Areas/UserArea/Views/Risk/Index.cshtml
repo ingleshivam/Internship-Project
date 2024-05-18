@@ -24,8 +24,8 @@
 
                 @foreach (var temp in Model)
                 {
-                    if (Convert.ToInt32(@Context.Session.GetString("UserID")) == temp.Idea.UserID)
-                    {
+@*                    if (Convert.ToInt32(@Context.Session.GetString("UserID")) == temp.Idea.UserID)
+                    {*@
                         if (temp.Idea.IdeaName != previousIdeaName)
                         {
                             <tr>
@@ -39,7 +39,7 @@
                             </tr>
                             previousIdeaName = temp.Idea.IdeaName;
                         }
-                    }
+@*                    }*@
 
                     srno++;
                 }

@@ -1,0 +1,39 @@
+﻿@model List<InvestorDocument>
+
+<div class="card">
+    <h5 class="card-header">Ideas List</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th colspan="7"><a class="btn btn-primary btn-sm" asp-action="Create" asp-controller="InvestorDocuments">CREATE</a></th>
+                </tr>
+                <tr>
+                    <th>Sr.No</th>
+                    <th>Is Organization</th>
+                    <th>Is NRI</th>
+                    <th>CIN</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int srno = 1;
+                }
+                @foreach (var temp in Model)
+                {
+                    <tr>
+                        <td>@srno</td>
+                        <td>@temp.isOrganization</td>
+                        <td>@temp.isNRI</td>
+                        <td>@temp.CIN</td>
+                        <td colspan="5">
+                            <a class="btn btn-outline-primary btn-sm" asp-action="Delete" asp-route-id="@temp.InvestorDocumentID">Delete</a>
+                        </td>
+                    </tr>
+                    srno++;
+                }
+            </tbody>
+        </table>
+    </div>
+    </di
