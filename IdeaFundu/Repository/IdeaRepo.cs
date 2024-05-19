@@ -38,7 +38,6 @@ namespace Repository
 
         public void DeleteRecord(long id) 
         {
-            //Clear Budget Record from DB
             var budgetRecord = this.cc.Budgets.Where(p => p.IdeaID == id);
 
             foreach(var temp in budgetRecord)
@@ -49,28 +48,6 @@ namespace Repository
 
             this.cc.Ideas.Remove(ideaRecord);
             this.cc.SaveChanges();
-
-            //Multiple Deletion of Records
-
-            //var allRecords = from ideaRisk in this.cc.IdeaRisks
-            //                 join member in this.cc.Members
-            //                 on ideaRisk.IdeaID equals member.IdeaID
-            //                 join stages in this.cc.Stages
-            //                 on ideaRisk.IdeaID equals stages.IdeaID
-            //                 join budget in this.cc.Budgets
-            //                 on ideaRisk.IdeaID equals budget.IdeaID
-            //                 join ideaDoc in this.cc.IdeaDocuments
-            //                 on ideaRisk.IdeaID equals ideaDoc.IdeaID
-            //                 select new { ideaRisk, member, stages, budget, ideaDoc };
-            //foreach (var temp in allRecords)
-            //{
-            //    this.cc.IdeaRisks.Remove(temp.ideaRisk);
-            //    this.cc.Budgets.Remove(temp.budget);
-            //    this.cc.Members.Remove(temp.member);
-            //    this.cc.Stages.Remove(temp.stages);
-            //    this.cc.IdeaDocuments.Remove(temp.ideaDoc);
-
-            //}
         }
 
         public void EditRecord(Idea rec, string photoFilePath)
@@ -90,6 +67,46 @@ namespace Repository
         public List<Idea> GetAllByUserID(long userid)
         {
             return this.cc.Ideas.Where(p => p.UserID == userid).ToList();
+        }
+
+        public List<TotalInvestmentDetailsVM> GetIdeaWiseReport(long IdeaID)
+        {
+            var v = from t1 in this.cc.Investors.ToList()
+                    join t2 in this.cc.IVRequests.ToList()
+                    on t1.InvestorID equals t2.InvestorID
+                    join t3 in this.cc.AcceptInvestments.ToList()
+                    on t2.IVRequestID equals t3.IVRequestID
+                    join t4 in this.cc.InvestmentPayments.ToList()
+                    on t3.AcceptIVID equals t4.AcceptIVID
+                    where t2.IdeaID == IdeaID
+                    group t4 by new
+                    {
+                        t1.FullName,
+                        t1.InvestorMobile,
+                        t1.InvestorEmail,
+                        t1.InvestorAddress,
+                        t2.Idea.IdeaName,
+                        t1.City.CityName,
+                        t4.PaymentAmount,
+                        t4.PaymentDate,
+                        t4.PaymentMode
+
+                    } into g
+                    select new TotalInvestmentDetailsVM
+                    {
+                        FullName = g.Key.FullName,
+                        InvestorMobile = g.Key.InvestorMobile,
+                        InvestorEmail = g.Key.InvestorEmail,
+                        InvestorAddress = g.Key.InvestorAddress,
+                        CityName = g.Key.CityName,
+                        PaymentAmount = g.Key.PaymentAmount,
+                        PaymentDate = g.Key.PaymentDate,
+                        PaymentMode = g.Key.PaymentMode,
+                        TotalInvAmount = g.Sum(p => p.PaymentAmount),
+                        IdeaName = g.Key.IdeaName
+                    };
+
+            return v.ToList();
         }
     }
 }

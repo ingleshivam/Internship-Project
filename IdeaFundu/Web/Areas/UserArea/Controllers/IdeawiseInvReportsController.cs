@@ -23,7 +23,8 @@ namespace Web.Areas.UserArea.Controllers
 
         public IActionResult IdeaWiseInvReportsAction(Int64 IdeaID)
         {
-            return View();
+            var record = this.IdeaRepo.GetIdeaWiseReport(IdeaID);
+            return View(record.ToList());
         }
     }
 }

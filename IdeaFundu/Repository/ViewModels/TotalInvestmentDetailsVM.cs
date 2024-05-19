@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,9 @@ namespace Repository.ViewModels
         public decimal PaymentAmount { set; get; }
         public int PaymentMode { set; get; }
         public DateTime PaymentDate { set; get; }
+        public string InvestorName { set; get; }
         public decimal TotalInvAmount { set; get; }
         public Int64 IdeaID { set; get; }
+        public string IdeaName { set; get; }
     }
 }

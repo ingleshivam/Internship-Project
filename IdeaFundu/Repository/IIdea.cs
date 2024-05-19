@@ -14,5 +14,6 @@ namespace Repository
         void EditRecord(Idea rec,string photoFilePath);
         void DeleteRecord(Int64 id);
         List<Idea> GetAllByUserID(Int64 userid);
+        List<TotalInvestmentDetailsVM> GetIdeaWiseReport(Int64 IdeaID);
     }
 }
