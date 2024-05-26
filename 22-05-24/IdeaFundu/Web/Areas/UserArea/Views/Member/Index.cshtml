@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Member>
+@*@{
+    ViewBag.Title = "ADMIN | CATEGORY";
+    ViewBag.MainState = "active";
+    ViewBag.CategoryState = "active";
+}*@
+<div class="card">
+    <h5 class="card-header">Category List</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th colspan="7"><a class="btn btn-primary btn-sm" asp-action="Create" asp-controller="Member">CREATE</a></th>
+                </tr>
+                <tr>
+                    <th>Sr.No</th>
+                    <th>Member Name</th>
+                    <th>Member Role</th>
+                    <th>Short Profile Description</th>
+                    <th>Idea Name</th>
+                    <th>Edit / Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int srno = 1;
+                }
+                @foreach (var temp in Model)
+                {
+                    if (Convert.ToInt32(@Context.Session.GetString("UserID")) == temp.Idea.UserID)
+                    {
+                        <tr>
+                            <td>@srno</td>
+                            <td>@temp.MemberName</td>
+                            <td>@temp.MemberRole</td>
+                            <td>@temp.ShortProfileDesc</td>
+                            <td>@temp.Idea.IdeaName</td>
+                            <td colspan="5">
+                                <a class="btn btn-outline-primary btn-sm" asp-action="Edit" asp-route-id="@temp.MemberID">Edit</a>
+                                |
+                                <a class="btn btn-outline-primary btn-sm" asp-action="Delete" asp-route-id="@temp.MemberID">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                    srno++;
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

@@ -1,0 +1,51 @@
+﻿@section DropDown{
+    @if(ViewBag.requestMessage != null){
+    <div class="alert alert-success text-center"><b>@ViewBag.requestMessage</b></div>
+    }
+    <div class="our-services">
+        <div class="container-fluid" style="background-color:#EAEDFF;">
+            <!-- Section Tittle -->
+            <div class="row" style="padding:13% 0;">
+                <div class="col-lg-8 mx-auto">
+                    <h1 class="display-3" style="font-weight:900;color:#28395a;">Find <br /> Best Ideas</h1>
+                    <!-- form -->
+                    <form asp-action="SearchIdea" method="Post" class="search-box mt-3" style="background-color:#fff;">
+                        <div class="select-form">
+                            <div class="select-itms">
+                                <select name="CategoryID" asp-items="@ViewBag.CategoryID">
+                                    <option value="0"><b>Select Category</b></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="select-form">
+                            <div class="select-itms">
+                                <select name="SubCategoryID" asp-items="@ViewBag.SubCategoryID">
+                                    <option value=""><b>Sub Category</b></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="search-form">
+                            <input type="submit" value="Search" style="padding:22px 80px; background-color:#fb246a; outline:none; border:none; color:#fff;cursor:pointer;" />
+                        </div>
+                    </form>
+                    @* @await Component.InvokeAsync("DropDownSearchVC")*@
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="row mt-5">
+    <div class="col-lg-12">
+        <div class="section-tittle text-center">
+            <h2>Ideas</h2>
+        </div>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-xl-11">
+        <!-- single-job-content -->
+        @await Component.InvokeAsync("IdeaListVC",new  {records = ViewBag.records})
+        @*@await Component.InvokeAsync("DisplayIdeasVC")*@
+    </div>
+</div>

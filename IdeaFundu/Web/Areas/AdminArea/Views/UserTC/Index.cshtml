@@ -4,6 +4,22 @@
     ViewBag.MainState = "active";
     ViewBag.CategoryState = "active";
 }*@
+
+@if(TempData["UserTCAlreadyExists"] != null){
+    <div class="alert alert-danger fw-bold text-center">@TempData["UserTCAlreadyExists"]</div>
+}
+
+@if (TempData["UserTCAddedSuccessfully"] != null){
+    <div class="alert alert-success fw-bold text-center">@TempData["UserTCAddedSuccessfully"]</div>
+}
+
+@if (TempData["UserTCDeleted"] != null){
+    <div class="alert alert-danger fw-bold text-center">@TempData["UserTCDeleted"]</div>
+}
+@if(TempData["UserTCUpdated"] != null){
+    <div class="alert alert-success fw-bold text-center">@TempData["UserTCUpdated"]</div>
+}
+
 <div class="card">
     <h5 class="card-header">User TC List</h5>
     <div class="table-responsive text-nowrap">

@@ -11,5 +11,6 @@ namespace Repository
     public interface IState:IGeneric<State>
     {
         List<StateVM> GetStatesByCountryId(Int64 countryID);
+        bool GetByName(string name);
     }
 }

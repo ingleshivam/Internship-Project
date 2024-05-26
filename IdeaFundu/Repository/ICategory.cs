@@ -9,5 +9,6 @@ namespace Repository
 {
     public interface ICategory:IGeneric<Category>
     {
+        bool GetByName(string name);
     }
 }

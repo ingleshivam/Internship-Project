@@ -40,8 +40,16 @@ namespace Web.Areas.InvestorArea.Controllers
         [HttpGet]
         public IActionResult ViewDetails(Int64 id)
         {
-            var rec = this.IVRequestRepo.GetInvestmentByRequestID(id);
-            return View(rec);
+            var record = this.IVRequestRepo.CheckInvestorPaidAmount(id);
+            if (record != null)
+            {
+                return View("PaymentReport",record);
+            }
+            else
+            {
+                var rec = this.IVRequestRepo.GetInvestmentByRequestID(id);
+                return View(rec);
+            }
         }
 
         [HttpPost]

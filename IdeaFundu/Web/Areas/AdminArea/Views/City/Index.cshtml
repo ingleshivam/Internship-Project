@@ -5,6 +5,21 @@
     ViewBag.CityState = "active";
 }
 
+@if(TempData["CityAlreadyExists"] != null){
+    <div class="alert alert-danger fw-bold text-center">@TempData["CityAlreadyExists"]</div>
+}
+
+@if (TempData["CityAddedSuccessfully"] != null){
+    <div class="alert alert-success fw-bold text-center">@TempData["CityAddedSuccessfully"]</div>
+}
+
+@if (TempData["CityDeleted"] != null){
+    <div class="alert alert-danger fw-bold text-center">@TempData["CityDeleted"]</div>
+}
+@if(TempData["CityUpdated"] != null){
+    <div class="alert alert-success fw-bold text-center">@TempData["CityUpdated"]</div>
+}
+
 <div class="card">
     <h5 class="card-header">City List</h5>
     <div class="table-responsive text-nowrap">

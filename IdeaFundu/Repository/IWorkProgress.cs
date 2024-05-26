@@ -1,4 +1,5 @@
 ﻿using Core;
+using Repository.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,6 @@ namespace Repository
     {
         List<WorkProgress> GetAllWorkInProgressIdeas(Int64 UserID);
         List<WorkProgress> GetAllWorkClosedIdeas(Int64 UserID);
+        void AddRecord(WorkProgressVM rec);
     }
 }

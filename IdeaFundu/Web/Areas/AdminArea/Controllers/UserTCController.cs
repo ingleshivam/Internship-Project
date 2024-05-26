@@ -30,7 +30,17 @@ namespace Web.Areas.AdminArea.Controllers
         {
             if (ModelState.IsValid)
             {
-                this.UserTcRepo.Add(rec);
+                var record = this.UserTcRepo.GetByName(rec.UserTCTitle);
+                if (record)
+                {
+                    TempData["UserTCAlreadyExists"] = "Terms and Condition Already Exists !";
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    TempData["UserTCAddedSuccessfully"] = "Terms and Condition Added Successfully !";
+                    this.UserTcRepo.Add(rec);
+                }
                 return RedirectToAction("Index");
             }
             return View(rec);
@@ -49,6 +59,7 @@ namespace Web.Areas.AdminArea.Controllers
             if (ModelState.IsValid)
             {
                 this.UserTcRepo.Edit(rec);
+                TempData["UserTCUpdated"] = "Terms and Condition Updated Successfully !";
                 return RedirectToAction("Index");
             }
             return View(rec);
@@ -58,6 +69,7 @@ namespace Web.Areas.AdminArea.Controllers
         public IActionResult Delete(Int64 id)
         {
             this.UserTcRepo.Delete(id);
+            TempData["UserTCDeleted"] = "Terms and Condition Deleted Successfully !";
             return RedirectToAction("Index");
         }
     }

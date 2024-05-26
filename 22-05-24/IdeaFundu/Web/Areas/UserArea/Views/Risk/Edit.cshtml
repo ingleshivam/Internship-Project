@@ -1,0 +1,51 @@
+﻿@model IdeaRisk
+@*@{
+    ViewBag.Title = "USER | ADD IDEA";
+}*@
+<div class="col-lg-6">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Edit Risk</h5>
+            <form class="row g-3" asp-action="Edit" method="Post">
+                <div class="col-12">
+                    <label class="form-label">Idea Name</label>
+                    <select asp-for="IdeaID" asp-items="@ViewBag.IdeaID" class="form-select">
+                        <option>Select Idea Name</option>
+                    </select>
+                    <span asp-validation-for="IdeaID" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">Risk Title</label>
+                    <input asp-for="RiskTitle" class="form-control" />
+                    <span asp-validation-for="RiskTitle" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">Risk Description</label>
+                    <textarea asp-for="RiskDescription" class="form-control"> </textarea>
+                    <span asp-validation-for="RiskDescription" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">Risk Level</label>
+                    <select asp-for="RiskLevel" asp-items="Html.GetEnumSelectList<RiskLevel>()" class="form-select">
+                        <option>Select Risk Level</option>
+                    </select>
+                    <span asp-validation-for="RiskLevel" class="text-danger"></span>
+                </div>
+
+                <div>
+                        <button type="submit" class="btn btn-primary btn-sm">Update</button>
+                        <a class="btn btn-primary btn-sm ms-2" asp-action="Create" asp-controller="Risk" asp-area="UserArea">Back</a>
+                </div>
+                @if (ViewBag.Message != null)
+                {
+                    <h6 class="text-info fw-bold">@ViewBag.Message</h6>
+                }
+                <input type="hidden" asp-for="RiskID"/>
+            </form>
+        </div>
+    </div>
+</div>
+

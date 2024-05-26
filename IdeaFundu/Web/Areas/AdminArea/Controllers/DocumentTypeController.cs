@@ -33,7 +33,17 @@ namespace Web.Areas.AdminArea.Controllers
         {
             if (ModelState.IsValid)
             {
-                this.DocumentTypeRepo.Add(rec);
+                var record = this.DocumentTypeRepo.GetByName(rec.DocumentTypeName);
+                if (record)
+                {
+                    TempData["DocTypeAlreadyExists"] = "This Document Type Already Exists !";
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    TempData["DocTypeAddedSuccessfully"] = "Document Type Added Successfully !";
+                    this.DocumentTypeRepo.Add(rec);
+                }
                 return RedirectToAction("Index");
             }
             return View(rec);
@@ -52,6 +62,7 @@ namespace Web.Areas.AdminArea.Controllers
             if (ModelState.IsValid)
             {
                 this.DocumentTypeRepo.Edit(rec);
+                TempData["DocTypeUpdated"] = "Document Type Updated Successfully !";
                 return RedirectToAction("Index");
             }
             return View(rec);
@@ -61,6 +72,7 @@ namespace Web.Areas.AdminArea.Controllers
         public IActionResult Delete(Int64 id)
         {
             this.DocumentTypeRepo.Delete(id);
+            TempData["DocTypeDeleted"] = "Document Type Deleted Successfully !";
             return RedirectToAction("Index");
         }
 

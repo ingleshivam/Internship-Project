@@ -15,5 +15,18 @@ namespace Repository
         {
             this.cc = cc;
         }
+
+        public bool GetByName(string name)
+        {
+            var record = this.cc.UserTCs.SingleOrDefault(p => p.UserTCTitle == name);
+            if (record != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

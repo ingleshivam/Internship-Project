@@ -1,0 +1,30 @@
+﻿@model Investor
+
+@if(TempData["DetailsNotFound"] != null){
+    <div class="col-6 alert alert-danger fw-bold mx-auto text-center">@TempData["DetailsNotFound"]</div>
+}
+<div class="col-lg-6 mx-auto">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Investment Report (Investorwise)</h5>
+            <form class="row g-3" asp-action="InvestorWiseInvReportsAction" method="Post">
+                <div class="col-12">
+                    <label class="form-label">Investor Name</label>
+                    <select asp-for="InvestorID" asp-items="@ViewBag.InvestorID" class="form-select" id="IdeaID">
+                        <option value="0">Select Investor Name</option>
+                    </select>
+                    <span asp-validation-for="InvestorID" class="text-danger"></span>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Ok</button>
+                </div>
+                @if (ViewBag.Message != null)
+                {
+                    <h6 class="text-info fw-bold">@ViewBag.Message</h6>
+                }
+
+            </form>
+        </div>
+    </div>
+</div>

@@ -18,7 +18,7 @@
 
                     <tr>
                         <td><b><label class="form-label-lg">Investment Accept Description</label></b></td>
-                        <td><textarea asp-for="AcceptIVDesc" cols="35" rows="5" class="border-0" readonly></textarea></td>
+                        <td><textarea asp-for="AcceptIVDesc" cols="40" rows="8" class="border-0" readonly></textarea></td>
                     </tr>
 
                     <tr>
@@ -31,7 +31,7 @@
                         <td>
                             <div class="col-12">
                                 <select asp-for="PaymentMode" asp-items="Html.GetEnumSelectList<PaymentMode>()" class="form-select" required>
-                                    <option>Select Payment Mode</option>
+                                    <option value="0">Select Payment Mode</option>
                                 </select>
                                 <span asp-validation-for="PaymentMode" class="text-danger"></span>
                             </div>

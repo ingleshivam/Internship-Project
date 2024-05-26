@@ -15,6 +15,8 @@ namespace Core
         public Int64 InvestorDocumentID { set; get; }
         public bool isOrganization { set; get; }
         public bool isNRI { set; get; }
+
+        [Required(ErrorMessage ="CIN Number Required")]
         public string CIN { set; get; }
         
         [ForeignKey("Investor")]

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using NuGet.Protocol.Plugins;
 using Repository;
+using Repository.ViewModels;
 using Web.CustFilter;
 
 namespace Web.Areas.AdminArea.Controllers
@@ -32,7 +33,17 @@ namespace Web.Areas.AdminArea.Controllers
         {
             if (ModelState.IsValid)
             {
-                this.CRepo.Add(rec);
+                var record = this.CRepo.GetByName(rec.CountryName);
+                if (record)
+                {
+                    TempData["CountryAlreadyExists"] = "This Country Already Exists !";
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    TempData["CountryAddedSuccessfully"] = "Country Added Successfully !";
+                    this.CRepo.Add(rec);
+                }
                 return RedirectToAction("Index");
             }
             return View(rec);
@@ -51,6 +62,7 @@ namespace Web.Areas.AdminArea.Controllers
             if (ModelState.IsValid)
             {
                 this.CRepo.Edit(rec);
+                TempData["CountryUpdated"] = "Country Updated Successfully !";
                 return RedirectToAction("Index");
             }
             return View(rec);
@@ -60,6 +72,7 @@ namespace Web.Areas.AdminArea.Controllers
         public IActionResult Delete(Int64 id)
         {
             this.CRepo.Delete(id);
+            TempData["CountryDeleted"] = "Country Deleted Successfully !";
             return RedirectToAction("Index");
         }
 

@@ -29,5 +29,18 @@ namespace Repository
 
             return v.ToList();
         }
+
+        public bool GetByName(string name)
+        {
+            var record = this.cc.SubCategories.SingleOrDefault(p => p.SubCategoryName == name);
+            if (record != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

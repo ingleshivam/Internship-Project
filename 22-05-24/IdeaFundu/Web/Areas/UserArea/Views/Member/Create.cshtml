@@ -1,0 +1,163 @@
+﻿@model MemberVM
+@*@{
+    ViewBag.Title = "ADMIN | ADD CATEGORY";
+    ViewBag.MainState = "active";
+    ViewBag.CategoryState = "active";
+}*@
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Add Member Details</h5>
+            <form asp-action="Create" method="Post" class="row g-3 mt-3">
+                    <div class="row">
+                        <div class="col-3">
+                            <label class="form-label">Member Name</label>
+                            <input name="Members.MemberName" type="text" class="form-control" />
+                            <span asp-validation-for="MemberName" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-3">
+                            <label class="form-label">Member Role</label>
+                            <input name="Members.MemberRole" type="text" class="form-control" />
+                            <span asp-validation-for="MemberRole" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-3">
+                            <label class="form-label">Short Profile Description</label>
+                            <input name="Members.ShortProfileDesc" type="text" class="form-control" />
+                            <span asp-validation-for="ShortProfileDesc" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-3">
+                            <label class="form-label">User Name</label>
+                            <select name="Members.IdeaID" asp-items="@ViewBag.IdeaID" class="form-select">
+                                <option>Select Idea</option>
+                            </select>
+                            <span asp-validation-for="IdeaID" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                <div class="row">
+                    <div class="col-3">
+                        <label class="form-label">Member Name</label>
+                        <input name="Members.MemberName" type="text" class="form-control" />
+                        <span asp-validation-for="MemberName" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-3">
+                        <label class="form-label">Member Role</label>
+                        <input name="Members.MemberRole" type="text" class="form-control" />
+                        <span asp-validation-for="MemberRole" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-3">
+                        <label class="form-label">Short Profile Description</label>
+                        <input name="Members.ShortProfileDesc" type="text" class="form-control" />
+                        <span asp-validation-for="ShortProfileDesc" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-3">
+                        <label class="form-label">User Name</label>
+                        <select name="Members.IdeaID" asp-items="@ViewBag.IdeaID" class="form-select">
+                            <option>Select Idea</option>
+                        </select>
+                        <span asp-validation-for="IdeaID" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-3">
+                        <label class="form-label">Member Name</label>
+                        <input name="Members.MemberName" type="text" class="form-control" />
+                        <span asp-validation-for="MemberName" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-3">
+                        <label class="form-label">Member Role</label>
+                        <input name="Members.MemberRole" type="text" class="form-control" />
+                        <span asp-validation-for="MemberRole" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-3">
+                        <label class="form-label">Short Profile Description</label>
+                        <input name="Members.ShortProfileDesc" type="text" class="form-control" />
+                        <span asp-validation-for="ShortProfileDesc" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-3">
+                        <label class="form-label">User Name</label>
+                        <select name="Members.IdeaID" asp-items="@ViewBag.IdeaID" class="form-select">
+                            <option>Select Idea</option>
+                        </select>
+                        <span asp-validation-for="IdeaID" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-3">
+                        <label class="form-label">Member Name</label>
+                        <input name="Members.MemberName" type="text" class="form-control" />
+                        <span asp-validation-for="MemberName" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-3">
+                        <label class="form-label">Member Role</label>
+                        <input name="Members.MemberRole" type="text" class="form-control" />
+                        <span asp-validation-for="MemberRole" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-3">
+                        <label class="form-label">Short Profile Description</label>
+                        <input name="Members.ShortProfileDesc" type="text" class="form-control" />
+                        <span asp-validation-for="ShortProfileDesc" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-3">
+                        <label class="form-label">User Name</label>
+                        <select name="Members.IdeaID" asp-items="@ViewBag.IdeaID" class="form-select">
+                            <option>Select Idea</option>
+                        </select>
+                        <span asp-validation-for="IdeaID" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-3">
+                        <label class="form-label">Member Name</label>
+                        <input name="Members.MemberName" type="text" class="form-control" />
+                        <span asp-validation-for="MemberName" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-3">
+                        <label class="form-label">Member Role</label>
+                        <input name="Members.MemberRole" type="text" class="form-control" />
+                        <span asp-validation-for="MemberRole" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-3">
+                        <label class="form-label">Short Profile Description</label>
+                        <input name="Members.ShortProfileDesc" type="text" class="form-control" />
+                        <span asp-validation-for="ShortProfileDesc" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-3">
+                        <label class="form-label">User Name</label>
+                        <select name="Members.IdeaID" asp-items="@ViewBag.IdeaID" class="form-select">
+                            <option>Select Idea</option>
+                        </select>
+                        <span asp-validation-for="IdeaID" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+                <div>
+                    <button type="submit" class="btn btn-primary btn-sm">Create</button>
+                </div>
+                @if (ViewBag.Message != null)
+                {
+                    <h6 class="text-info fw-bold">@ViewBag.Message</h6>
+                }
+            </form>
+        </div>
+    </div>
+</div>

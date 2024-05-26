@@ -4,6 +4,20 @@
     ViewBag.MainState = "active";
     ViewBag.CountryState = "active";
 }
+@if(TempData["CountryAlreadyExists"] != null){
+    <div class="alert alert-danger fw-bold text-center">@TempData["CountryAlreadyExists"]</div>
+}
+
+@if (TempData["CountryAddedSuccessfully"] != null){
+    <div class="alert alert-success fw-bold text-center">@TempData["CountryAddedSuccessfully"]</div>
+}
+
+@if (TempData["CountryDeleted"] != null){
+    <div class="alert alert-danger fw-bold text-center">@TempData["CountryDeleted"]</div>
+}
+@if(TempData["CountryUpdated"] != null){
+    <div class="alert alert-success fw-bold text-center">@TempData["CountryUpdated"]</div>
+}
     <div class="card">
         <h5 class="card-header">Country List</h5>
         <div class="table-responsive text-nowrap">

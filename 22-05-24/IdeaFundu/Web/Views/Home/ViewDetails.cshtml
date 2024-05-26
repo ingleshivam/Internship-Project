@@ -1,0 +1,122 @@
+﻿@section DropDown{
+    <div class="our-services">
+        <div class="container-fluid" style="background-color:#EAEDFF;">
+            <!-- Section Tittle -->
+            <div class="row" style="padding:13% 0;">
+                <div class="col-lg-8 mx-auto">
+                    <h1 class="display-3" style="font-weight:900;color:#28395a;">Find <br /> Best Ideas</h1>
+                    <!-- form -->
+                    <form asp-action="SearchIdea" method="Post" class="search-box mt-3" style="background-color:#fff;">
+                        <div class="select-form">
+                            <div class="select-itms">
+                                <select name="CategoryID" asp-items="@ViewBag.CategoryID">
+                                    <option value="0"><b>Select Category</b></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="select-form">
+                            <div class="select-itms">
+                                <select name="SubCategoryID" asp-items="@ViewBag.SubCategoryID">
+                                    <option value=""><b>Sub Category</b></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="search-form">
+                            <input type="submit" value="Search" style="padding:22px 80px; background-color:#fb246a; outline:none; border:none; color:#fff;cursor:pointer;" />
+                        </div>
+                    </form>
+                    @* @await Component.InvokeAsync("DropDownSearchVC")*@
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+    <style>
+        .accordion {
+            background-color: #fff;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 16px;
+            transition: 0.4s;
+        }
+
+            .active, .accordion:hover {
+                background-color: #F5F5F9;
+            }
+
+            .accordion:after {
+                content: '\002B';
+                color: #777;
+                font-weight: bold;
+                float: right;
+                margin-left: 5px;
+            }
+
+        .active:after {
+            content: "\2212";
+        }
+
+        .panel {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in;
+        }
+    </style>
+
+
+<div class="row mt-5">
+    <div class="col-lg-12">
+        <div class="section-tittle text-center">
+            <h2>Idea Details</h2>
+        </div>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-xl-11">
+        <div class="text-right mb-3">
+                <a class="" style="padding:10px 40px; background-color:#fb246a;color:#fff;" asp-action="Index">Back</a> <a class="" style="padding:10px 40px; background-color:#fb246a;color:#fff;" asp-action="AskQuery">Ask Query</a> <a class="" style="padding:10px 40px; background-color:#fb246a;color:#fff;" asp-action="MakeRequest">Make Investment</a>
+        </div>
+        <!-- single-job-content -->
+        <div class="card">
+
+            <div class="card-body">
+                @await Component.InvokeAsync("RisksVC",new {id = ViewBag.IdeaID})
+                @await Component.InvokeAsync("StagesVC",new {id = ViewBag.IdeaID})
+                @await Component.InvokeAsync("MembersVC",new {id = ViewBag.IdeaID})
+                @await Component.InvokeAsync("BudgetVC",new {id = ViewBag.IdeaID})
+            </div>
+        </div>
+
+        @*@await Component.InvokeAsync("DisplayIdeasVC")*@
+    </div>
+</div>
+<input type="hidden" id="GetIdeaID" value="@ViewBag.IdeaID"/>
+<input type="hidden" id="GetIdeaName" value="@ViewBag.IdeaName"/>
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+
+    sessionStorage.IdeaID = document.getElementById("GetIdeaID").value;
+    sessionStorage.IdeaName = document.getElementById("GetIdeaName").value;
+</script>

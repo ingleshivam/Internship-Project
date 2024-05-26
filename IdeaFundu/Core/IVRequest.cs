@@ -18,8 +18,8 @@ namespace Core
 
         [ForeignKey("Investor")]
         public Int64 InvestorID { set; get; }
-        [Required]
-        public decimal AmountToBeInvested { set; get; }
+        [Required(ErrorMessage ="Amount Required")]
+        public decimal? AmountToBeInvested { set; get; }
         public virtual Investor Investor { set; get; }
 
         [ForeignKey("Idea")]

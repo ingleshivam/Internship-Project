@@ -12,5 +12,6 @@ namespace Repository
     {
         List<RiskListVM> GetIdeasByIdeaId(Int64 id);
         List<IdeaRisk> GetAllByUserID(Int64 userid);
+        void AddRecord(IdeaRiskVM rec);
     }
 }

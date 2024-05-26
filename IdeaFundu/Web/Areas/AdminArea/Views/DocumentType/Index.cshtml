@@ -4,6 +4,26 @@
     ViewBag.MainState = "active";
     ViewBag.DocumentTypeState = "active";
 }
+
+@if (TempData["DocTypeAlreadyExists"] != null)
+{
+    <div class="alert alert-danger fw-bold text-center">@TempData["DocTypeAlreadyExists"]</div>
+}
+
+@if (TempData["DocTypeAddedSuccessfully"] != null)
+{
+    <div class="alert alert-success fw-bold text-center">@TempData["DocTypeAddedSuccessfully"]</div>
+}
+
+@if (TempData["DocTypeDeleted"] != null)
+{
+    <div class="alert alert-danger fw-bold text-center">@TempData["DocTypeDeleted"]</div>
+}
+@if (TempData["DocTypeUpdated"] != null)
+{
+    <div class="alert alert-success fw-bold text-center">@TempData["DocTypeUpdated"]</div>
+}
+
 <div class="card">
     <h5 class="card-header">Document Type List</h5>
     <div class="table-responsive text-nowrap">

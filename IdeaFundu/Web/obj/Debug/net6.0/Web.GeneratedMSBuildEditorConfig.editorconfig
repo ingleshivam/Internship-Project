@@ -143,6 +143,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZXN0b3JBcmVhXFZpZXdzXEludmVzdG1lbnRSZXF1ZXN0XEludmVzdG1lbnRQYXltZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/InvestorArea/Views/InvestmentRequest/PaymentReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZXN0b3JBcmVhXFZpZXdzXEludmVzdG1lbnRSZXF1ZXN0XFBheW1lbnRSZXBvcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Shivam/MainProject/IdeaFundu/Web/Areas/InvestorArea/Views/InvestmentRequest/ViewDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZXN0b3JBcmVhXFZpZXdzXEludmVzdG1lbnRSZXF1ZXN0XFZpZXdEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -179,12 +183,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZXN0b3JBcmVhXFZpZXdzXF9WaWV3U3RhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/AllInvReports/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcQWxsSW52UmVwb3J0c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/AllInvReports/printAllInvReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcQWxsSW52UmVwb3J0c1xwcmludEFsbEludlJlcG9ydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/IdeawiseInvReports/IdeaWiseInvReportsAction.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcSWRlYXdpc2VJbnZSZXBvcnRzXElkZWFXaXNlSW52UmVwb3J0c0FjdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/IdeawiseInvReports/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcSWRlYXdpc2VJbnZSZXBvcnRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/IdeawiseInvReports/printIdeawiseReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcSWRlYXdpc2VJbnZSZXBvcnRzXHByaW50SWRlYXdpc2VSZXBvcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Idea/CloseWork.cshtml]
@@ -253,6 +269,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Investments/WorkProgressDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcSW52ZXN0bWVudHNcV29ya1Byb2dyZXNzRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/InvestorwiseInvReports/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcSW52ZXN0b3J3aXNlSW52UmVwb3J0c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/InvestorwiseInvReports/InvestorWiseInvReportsAction.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcSW52ZXN0b3J3aXNlSW52UmVwb3J0c1xJbnZlc3Rvcldpc2VJbnZSZXBvcnRzQWN0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/InvestorwiseInvReports/printInvestorwiseReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcSW52ZXN0b3J3aXNlSW52UmVwb3J0c1xwcmludEludmVzdG9yd2lzZVJlcG9ydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/Member/Create.cshtml]
@@ -349,6 +377,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Shivam/MainProject/IdeaFundu/Web/Areas/UserArea/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlckFyZWFcVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Shivam/MainProject/IdeaFundu/Web/Views/CustomError/ShowError.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tRXJyb3JcU2hvd0Vycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Shivam/MainProject/IdeaFundu/Web/Views/Home/AskQuery.cshtml]

@@ -11,6 +11,8 @@ namespace Repository
     public interface IPreviousWork:IGeneric<PreviousWork>
     {
         void AddRecord(List<PreviousWorkVM> rec);
+        public void AddWorkRecord(PreviousWorkVM rec,Int64 UserID);
+        public List<PreviousWorkVM> EditWorkRecord(Int64 id);
         List<PreviousWork> GetAllByUserID(Int64 userid);
     }
 }

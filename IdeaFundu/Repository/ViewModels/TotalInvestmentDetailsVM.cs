@@ -21,5 +21,6 @@ namespace Repository.ViewModels
         public decimal TotalInvAmount { set; get; }
         public Int64 IdeaID { set; get; }
         public string IdeaName { set; get; }
+        public Int64 InvestorID { set; get; }
     }
 }

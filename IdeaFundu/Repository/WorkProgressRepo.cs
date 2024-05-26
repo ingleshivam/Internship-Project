@@ -1,5 +1,6 @@
 ﻿using Core;
 using Infra;
+using Repository.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +39,18 @@ namespace Repository
                     select t;
 
             return v.ToList();
+        }
+
+        public void AddRecord(WorkProgressVM rec)
+        {
+            WorkProgress wp = new WorkProgress();
+            wp.StartDate = rec.StartDate;
+            wp.CurrentStatus = rec.CurrentStatus;
+            wp.ExpectedCompletionDate = rec.ExpectedCompletionDate;
+            wp.Remarks = rec.Remarks;
+            wp.IdeaID = rec.IdeaID;
+            this.cc.WorkProgresses.Add(wp);
+            this.cc.SaveChanges();
         }
     }
 }

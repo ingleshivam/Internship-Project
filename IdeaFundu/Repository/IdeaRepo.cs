@@ -85,6 +85,7 @@ namespace Repository
                         t1.InvestorMobile,
                         t1.InvestorEmail,
                         t1.InvestorAddress,
+                        t2.IdeaID,
                         t2.Idea.IdeaName,
                         t1.City.CityName,
                         t4.PaymentAmount,
@@ -103,7 +104,8 @@ namespace Repository
                         PaymentDate = g.Key.PaymentDate,
                         PaymentMode = g.Key.PaymentMode,
                         TotalInvAmount = g.Sum(p => p.PaymentAmount),
-                        IdeaName = g.Key.IdeaName
+                        IdeaName = g.Key.IdeaName,
+                        IdeaID = g.Key.IdeaID
                     };
 
             return v.ToList();

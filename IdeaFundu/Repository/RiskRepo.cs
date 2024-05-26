@@ -23,6 +23,17 @@ namespace Repository
             return this.cc.IdeaRisks.Where(p => p.Idea.UserID == userid).ToList();
         }
 
+        public void AddRecord(IdeaRiskVM rec)
+        {
+            IdeaRisk ir = new IdeaRisk();
+            ir.IdeaID = rec.IdeaID;
+            ir.RiskLevel = rec.RiskLevel;
+            ir.RiskTitle = rec.RiskTitle;
+            ir.RiskDescription = rec.RiskDescription;
+            this.cc.IdeaRisks.Add(ir);
+            this.cc.SaveChanges();
+        }
+
         public List<RiskListVM> GetIdeasByIdeaId(long id)
         {
             if(id != 0)

@@ -31,7 +31,17 @@ namespace Web.Areas.InvestorArea.Controllers
         {
             if (ModelState.IsValid)
             {
-                this.InvestorDocumentRepo.Add(rec);
+                var record = this.InvestorDocumentRepo.GetByName(rec.CIN);
+                if (record)
+                {
+                    TempData["InvestorDocumentAlreadyExists"] = "Investor Document Already Exists !";
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    TempData["InvestorDocumentAddedSuccessfully"] = "Investor Document Added Successfully !";
+                    this.InvestorDocumentRepo.Add(rec);
+                }
                 return RedirectToAction("Index");
             }
             return View(rec);
@@ -41,6 +51,7 @@ namespace Web.Areas.InvestorArea.Controllers
         public IActionResult Delete(Int64 id)
         {
             this.InvestorDocumentRepo.Delete((id));
+            TempData["InvestorDocumentDeleted"] = "Investor Document Deleted Successfully !";
             return RedirectToAction("Index");
         }
     }

@@ -9,145 +9,150 @@
         <div class="card-body">
             <h5 class="card-title">Add Member Details</h5>
             <form asp-action="Create" method="Post" class="row g-3 mt-3">
-                    <div class="row">
-                        <div class="col-3">
-                            <label class="form-label">Member Name</label>
-                            <input name="Members.MemberName" type="text" class="form-control" />
-                            <span asp-validation-for="MemberName" class="text-danger"></span>
-                        </div>
-
-                        <div class="col-3">
-                            <label class="form-label">Member Role</label>
-                            <input name="Members.MemberRole" type="text" class="form-control" />
-                            <span asp-validation-for="MemberRole" class="text-danger"></span>
-                        </div>
-
-                        <div class="col-3">
-                            <label class="form-label">Short Profile Description</label>
-                            <input name="Members.ShortProfileDesc" type="text" class="form-control" />
-                            <span asp-validation-for="ShortProfileDesc" class="text-danger"></span>
-                        </div>
-
-                        <div class="col-3">
-                            <label class="form-label">User Name</label>
-                            <select name="Members.IdeaID" asp-items="@ViewBag.IdeaID" class="form-select">
-                                <option>Select Idea</option>
-                            </select>
-                            <span asp-validation-for="IdeaID" class="text-danger"></span>
-                        </div>
-                    </div>
-
                 <div class="row">
                     <div class="col-3">
                         <label class="form-label">Member Name</label>
-                        <input name="Members.MemberName" type="text" class="form-control" />
-                        <span asp-validation-for="MemberName" class="text-danger"></span>
+                        <input asp-for="Members.MemberName" class="form-control" />
+                    <span asp-validation-for="Members.MemberName" class="text-danger"></span>
                     </div>
 
                     <div class="col-3">
                         <label class="form-label">Member Role</label>
-                        <input name="Members.MemberRole" type="text" class="form-control" />
-                        <span asp-validation-for="MemberRole" class="text-danger"></span>
+                        <input asp-for="Members.MemberRole" class="form-control" />
+                        <span asp-validation-for="Members.MemberRole" class="text-danger"></span>
                     </div>
 
                     <div class="col-3">
                         <label class="form-label">Short Profile Description</label>
-                        <input name="Members.ShortProfileDesc" type="text" class="form-control" />
-                        <span asp-validation-for="ShortProfileDesc" class="text-danger"></span>
+                        <input asp-for="Members.ShortProfileDesc" class="form-control" />
+                        <span asp-validation-for="Members.ShortProfileDesc" class="text-danger"></span>
                     </div>
 
                     <div class="col-3">
                         <label class="form-label">User Name</label>
                         <select name="Members.IdeaID" asp-items="@ViewBag.IdeaID" class="form-select">
-                            <option>Select Idea</option>
+                            <option value="0">Select Idea</option>
                         </select>
-                        <span asp-validation-for="IdeaID" class="text-danger"></span>
+                        <span asp-validation-for="Members.IdeaID" class="text-danger"></span>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-3">
                         <label class="form-label">Member Name</label>
-                        <input name="Members.MemberName" type="text" class="form-control" />
-                        <span asp-validation-for="MemberName" class="text-danger"></span>
+                        <input asp-for="Members.MemberName" class="form-control" />
+                        <span asp-validation-for="Members.MemberName" class="text-danger"></span>
                     </div>
 
                     <div class="col-3">
                         <label class="form-label">Member Role</label>
-                        <input name="Members.MemberRole" type="text" class="form-control" />
-                        <span asp-validation-for="MemberRole" class="text-danger"></span>
+                        <input asp-for="Members.MemberRole" class="form-control" />
+                        <span asp-validation-for="Members.MemberRole" class="text-danger"></span>
                     </div>
 
                     <div class="col-3">
                         <label class="form-label">Short Profile Description</label>
-                        <input name="Members.ShortProfileDesc" type="text" class="form-control" />
-                        <span asp-validation-for="ShortProfileDesc" class="text-danger"></span>
+                        <input asp-for="Members.ShortProfileDesc" class="form-control" />
+                        <span asp-validation-for="Members.ShortProfileDesc" class="text-danger"></span>
                     </div>
 
                     <div class="col-3">
                         <label class="form-label">User Name</label>
                         <select name="Members.IdeaID" asp-items="@ViewBag.IdeaID" class="form-select">
-                            <option>Select Idea</option>
+                            <option value="0">Select Idea</option>
                         </select>
-                        <span asp-validation-for="IdeaID" class="text-danger"></span>
+                        <span asp-validation-for="Members.IdeaID" class="text-danger"></span>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-3">
                         <label class="form-label">Member Name</label>
-                        <input name="Members.MemberName" type="text" class="form-control" />
-                        <span asp-validation-for="MemberName" class="text-danger"></span>
+                        <input asp-for="Members.MemberName" class="form-control" />
+                        <span asp-validation-for="Members.MemberName" class="text-danger"></span>
                     </div>
 
                     <div class="col-3">
                         <label class="form-label">Member Role</label>
-                        <input name="Members.MemberRole" type="text" class="form-control" />
-                        <span asp-validation-for="MemberRole" class="text-danger"></span>
+                        <input asp-for="Members.MemberRole" class="form-control" />
+                        <span asp-validation-for="Members.MemberRole" class="text-danger"></span>
                     </div>
 
                     <div class="col-3">
                         <label class="form-label">Short Profile Description</label>
-                        <input name="Members.ShortProfileDesc" type="text" class="form-control" />
-                        <span asp-validation-for="ShortProfileDesc" class="text-danger"></span>
+                        <input asp-for="Members.ShortProfileDesc" class="form-control" />
+                        <span asp-validation-for="Members.ShortProfileDesc" class="text-danger"></span>
                     </div>
 
                     <div class="col-3">
                         <label class="form-label">User Name</label>
                         <select name="Members.IdeaID" asp-items="@ViewBag.IdeaID" class="form-select">
-                            <option>Select Idea</option>
+                            <option value="0">Select Idea</option>
                         </select>
-                        <span asp-validation-for="IdeaID" class="text-danger"></span>
+                        <span asp-validation-for="Members.IdeaID" class="text-danger"></span>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-3">
                         <label class="form-label">Member Name</label>
-                        <input name="Members.MemberName" type="text" class="form-control" />
-                        <span asp-validation-for="MemberName" class="text-danger"></span>
+                        <input asp-for="Members.MemberName" class="form-control" />
+                        <span asp-validation-for="Members.MemberName" class="text-danger"></span>
                     </div>
 
                     <div class="col-3">
                         <label class="form-label">Member Role</label>
-                        <input name="Members.MemberRole" type="text" class="form-control" />
-                        <span asp-validation-for="MemberRole" class="text-danger"></span>
+                        <input asp-for="Members.MemberRole" class="form-control" />
+                        <span asp-validation-for="Members.MemberRole" class="text-danger"></span>
                     </div>
 
                     <div class="col-3">
                         <label class="form-label">Short Profile Description</label>
-                        <input name="Members.ShortProfileDesc" type="text" class="form-control" />
-                        <span asp-validation-for="ShortProfileDesc" class="text-danger"></span>
+                        <input asp-for="Members.ShortProfileDesc" class="form-control" />
+                        <span asp-validation-for="Members.ShortProfileDesc" class="text-danger"></span>
                     </div>
 
                     <div class="col-3">
                         <label class="form-label">User Name</label>
                         <select name="Members.IdeaID" asp-items="@ViewBag.IdeaID" class="form-select">
-                            <option>Select Idea</option>
+                            <option value="0">Select Idea</option>
                         </select>
-                        <span asp-validation-for="IdeaID" class="text-danger"></span>
+                        <span asp-validation-for="Members.IdeaID" class="text-danger"></span>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="col-3">
+                        <label class="form-label">Member Name</label>
+                        <input asp-for="Members.MemberName" class="form-control" />
+                        <span asp-validation-for="Members.MemberName" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-3">
+                        <label class="form-label">Member Role</label>
+                        <input asp-for="Members.MemberRole" class="form-control" />
+                        <span asp-validation-for="Members.MemberRole" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-3">
+                        <label class="form-label">Short Profile Description</label>
+                        <input asp-for="Members.ShortProfileDesc" class="form-control" />
+                        <span asp-validation-for="Members.ShortProfileDesc" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-3">
+                        <label class="form-label">User Name</label>
+                        <select name="Members.IdeaID" asp-items="@ViewBag.IdeaID" class="form-select">
+                            <option value="0">Select Idea</option>
+                        </select>
+                        <span asp-validation-for="Members.IdeaID" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+
+
+
 
 
                 <div>

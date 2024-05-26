@@ -1,0 +1,64 @@
+﻿@model IEnumerable<IdeaInvestmentTotalVM>
+
+@*<div class="w-100 mx-auto">
+    <a class="btn btn-primary btn-sm mb-3" asp-action="Index">Back</a>
+</div>*@
+<div class="card w-100 mx-auto">
+    <div class="card-body">
+        <div class="table-responsive text-nowrap">
+
+            <table class="table table-bordered">
+                <thead valign="middle">
+                    <tr style="border-style:none;">
+                        <th class="border-0">
+                            <h6 class="text-dark fw-bold">Date : @DateTime.Now.ToString("dd-MM-yyyy")</h6>
+                        </th>
+                        <th class="border-0"></th>
+                        <th class="border-0">
+                            @*<h6 class="text-dark fw-bold">Idea Name : @Model.FirstOrDefault().IdeaName</h6>*@
+                        </th>
+                    </tr>
+                    <tr>
+                        <th><b>Sr.No</b></th>
+                        <th><b>Idea Name</b></th>
+                        <th><b>Required Investment</b></th>
+                        <th><b>Total Investment</b></th>
+                        <th><b>Balance</b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int srno = 1;
+                        decimal TotalAmount = 0;
+                        decimal RequiredAmount = 0;
+                    }
+
+                    @foreach (var temp in Model)
+                    {
+                        <tr>
+                            <td>@srno</td>
+                            <td>@temp.IdeaName</td>
+                            <td>@temp.MinimumInvestmentLimit</td>
+                            <td>@temp.TotalAmount</td>
+                            <td></td>
+                        </tr>
+                        srno++;
+                        TotalAmount = TotalAmount + temp.TotalAmount;
+                        RequiredAmount = RequiredAmount + temp.MinimumInvestmentLimit;
+                    }
+
+                    <tr>
+                        <td></td>
+                        <td class="text-dark"><b>Total</b></td>
+                        <td class="text-dark"><b>@RequiredAmount</b></td>
+                        <td class="text-dark"><b>@TotalAmount</b></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="mt-4 text-center">
+                <a class="btn btn-primary btn-sm mb-3" asp-action="#">Print</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -9,5 +9,6 @@ namespace Repository
 {
     public interface ICountry:IGeneric<Country>
     {
+        bool GetByName(string name);
     }
 }

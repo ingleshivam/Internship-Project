@@ -4,6 +4,22 @@
     ViewBag.MainState = "active";
     ViewBag.CategoryState = "active";
 }
+
+@if(TempData["CategoryAlreadyExists"] != null){
+    <div class="alert alert-danger fw-bold text-center">@TempData["CategoryAlreadyExists"]</div>
+}
+
+@if (TempData["CategoryAddedSuccessfully"] != null){
+    <div class="alert alert-success fw-bold text-center">@TempData["CategoryAddedSuccessfully"]</div>
+}
+
+@if (TempData["CategoryDeleted"] != null){
+    <div class="alert alert-danger fw-bold text-center">@TempData["CategoryDeleted"]</div>
+}
+@if(TempData["CategoryUpdated"] != null){
+    <div class="alert alert-success fw-bold text-center">@TempData["CategoryUpdated"]</div>
+}
+
     <div class="card">
         <h5 class="card-header">Category List</h5>
         <div class="table-responsive text-nowrap">

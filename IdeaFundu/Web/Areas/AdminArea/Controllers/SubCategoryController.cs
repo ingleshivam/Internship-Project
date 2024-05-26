@@ -37,7 +37,17 @@ namespace Web.Areas.AdminArea.Controllers
             ViewBag.CategoryID = new SelectList(this.CategoryRepo.GetAll(), "CategoryID", "CategoryName");
             if (ModelState.IsValid)
             {
-                this.SubCategoryRepo.Add(rec);
+                var record = this.SubCategoryRepo.GetByName(rec.SubCategoryName);
+                if (record)
+                {
+                    TempData["SubCategoryAlreadyExists"] = "This SubCategory Already Exists !";
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    TempData["SubCategoryAddedSuccessfully"] = "SubCategory Added Successfully !";
+                    this.SubCategoryRepo.Add(rec);
+                }
                 return RedirectToAction("Index");
             }
             return View(rec);
@@ -58,6 +68,7 @@ namespace Web.Areas.AdminArea.Controllers
             if (ModelState.IsValid)
             {
                 this.SubCategoryRepo.Edit(rec);
+                TempData["SubCategoryUpdated"] = "SubCategory Updated Successfully !";
                 return RedirectToAction("Index");
             }
             return View(rec);
@@ -67,6 +78,7 @@ namespace Web.Areas.AdminArea.Controllers
         public IActionResult Delete(Int64 id)
         {
             this.SubCategoryRepo.Delete(id);
+            TempData["SubCategoryDeleted"] = "Category Deleted Successfully !";
             return RedirectToAction("Index");
         }
 

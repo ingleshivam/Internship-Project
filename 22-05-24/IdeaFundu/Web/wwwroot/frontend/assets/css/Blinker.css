@@ -1,0 +1,9 @@
+﻿.Blinker{
+    animation : Blinker 1s linear infinite;
+}
+
+@keyframes Blinker{
+    50%{
+        opacity:0;
+    }
+}

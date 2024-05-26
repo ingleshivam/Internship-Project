@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Repository.ValidationAttributes;
 
 namespace Repository.ViewModels
 {
@@ -21,7 +22,7 @@ namespace Repository.ViewModels
         public DateTime CloseBeforeDate { set; get; }
         public virtual IVRequest IVRequest { set; get; }
 
-        [Required(ErrorMessage ="Please, Select Payment Mode..")]
-        public PaymentMode PaymentMode { set; get; }
+        [SelectRequired(ErrorMessage ="Please, Select Payment Mode")]
+        public int PaymentMode { set; get; }
     }
 }

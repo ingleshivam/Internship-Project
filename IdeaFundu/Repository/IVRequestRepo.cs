@@ -89,5 +89,21 @@ namespace Repository
 
             return aivm;
         }
+
+        public List<InvestmentPayment> CheckInvestorPaidAmount(Int64 IVRequestID)
+        {
+            var AcceptID = this.cc.AcceptInvestments.Where(p => p.IVRequestID == IVRequestID).Select(p => p.AcceptIVID).FirstOrDefault();
+            
+            var record = (from t in this.cc.InvestmentPayments.Where(p => p.AcceptIVID == AcceptID) select t).ToList();
+
+            if(record.Count != 0)
+            {
+                return record.ToList();
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

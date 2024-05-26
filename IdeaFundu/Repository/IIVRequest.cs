@@ -16,5 +16,6 @@ namespace Repository
         AcceptInvestmentVM GetInvestmentByRequestID(Int64 IVRequestID);
         List<IVRequest> GetAllPendingInvestmentsByInvestorID(Int64 InvestorID);
         List<IVRequest> GetAllAcceptedInvestmentsByInvestorID(Int64 InvestorID);
+        List<InvestmentPayment> CheckInvestorPaidAmount(Int64 IVRequestID);
     }
 }

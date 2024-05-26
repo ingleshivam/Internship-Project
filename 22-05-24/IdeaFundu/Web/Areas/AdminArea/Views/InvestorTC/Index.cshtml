@@ -1,0 +1,69 @@
+﻿@model IEnumerable<InvestorTC>
+@*@{
+    ViewBag.Title = "ADMIN | CATEGORY";
+    ViewBag.MainState = "active";
+    ViewBag.CategoryState = "active";
+}*@
+<div class="card">
+    <h5 class="card-header">Investor TC List</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th colspan="4"><a class="btn btn-primary btn-sm" asp-action="Create" asp-controller="InvestorTC">CREATE</a></th>
+                </tr>
+                <tr>
+                    <th>Sr.No</th>
+                    <th>Investor TC Title</th>
+                    <th>Investor TC Description</th>
+                    <th>Edit / Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int srno = 1;
+                }
+                @foreach (var temp in Model)
+                {
+                    <tr>
+                        <td>@srno</td>
+                        <td>@temp.InvestorTCTitle</td>
+                        <td>
+
+                            <a class="text-primary" data-bs-toggle="modal" data-bs-target="#InvestorID_@temp.InvestorTCID" style="cursor:pointer;">
+                                @temp.InvestorTCDesc.Substring(0,60)...
+                            </a>
+
+                            <div class="modal fade" id="InvestorID_@temp.InvestorTCID" tabindex="-1" style="display: none;" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col mb-3">
+                                                    <h6 for="nameWithTitle" class="text-wrap" style="line-height:2;">@temp.InvestorTCDesc</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                                Close
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td colspan="5">
+                            <a class="btn btn-outline-primary btn-sm" asp-action="Edit" asp-route-id="@temp.InvestorTCID">Edit</a>
+                            |
+                            <a class="btn btn-outline-primary btn-sm" asp-action="Delete" asp-route-id="@temp.InvestorTCID">Delete</a>
+                        </td>
+                    </tr>
+                    srno++;
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

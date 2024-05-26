@@ -15,5 +15,18 @@ namespace Repository
         {
             this.cc = cc;
         }
+
+        public bool GetByName(string name)
+        {
+            var record = this.cc.InvestorDocuments.SingleOrDefault(p => p.CIN == name);
+            if (record != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

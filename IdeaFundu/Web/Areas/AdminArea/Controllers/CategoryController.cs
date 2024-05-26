@@ -33,7 +33,17 @@ namespace Web.Areas.AdminArea.Controllers
         {
             if (ModelState.IsValid)
             {
-                this.CategoryRepo.Add(rec);
+                var record = this.CategoryRepo.GetByName(rec.CategoryName);
+                if (record)
+                {
+                    TempData["CategoryAlreadyExists"] = "This Category Already Exists !";
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    TempData["CategoryAddedSuccessfully"] = "Category Added Successfully !";
+                    this.CategoryRepo.Add(rec);
+                }
                 return RedirectToAction("Index");
             }
             return View(rec);
@@ -52,6 +62,7 @@ namespace Web.Areas.AdminArea.Controllers
             if (ModelState.IsValid)
             {
                 this.CategoryRepo.Edit(rec);
+                TempData["CategoryUpdated"] = "Category Updated Successfully !";
                 return RedirectToAction("Index");
             }
             return View(rec);
@@ -61,6 +72,7 @@ namespace Web.Areas.AdminArea.Controllers
         public IActionResult Delete(Int64 id)
         {
             this.CategoryRepo.Delete(id);
+            TempData["CategoryDeleted"] = "Category Deleted Successfully !";
             return RedirectToAction("Index");
         }
 

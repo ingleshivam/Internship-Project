@@ -1,0 +1,100 @@
+﻿@model IdeaBudgetVM
+@{
+    ViewBag.Title = "USER | ADD IDEA";
+}
+<div class="col-lg-6">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Add Idea</h5>
+            <form class="row g-3" enctype="multipart/form-data" asp-action="Create" method="Post">
+                <div class="col-12">
+                    <label class="form-label">Idea Name</label>
+                    <input asp-for="IdeaName" class="form-control" />
+                    <span asp-validation-for="IdeaName" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">Idea Description</label>
+                    <textarea asp-for="IdeaDescription" class="form-control" ></textarea>
+                    <span asp-validation-for="IdeaDescription" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">Category Name</label>
+                    <select asp-for="SubCategory.CategoryID" asp-items="@ViewBag.CategoryID" class="form-select" id="CategoryID">
+                        <option>Select Category</option>
+                    </select>
+@*                    <span asp-validation-for="" class="text-danger"></span>*@
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">Subcategory Name</label>
+                    <select asp-for="SubCategoryID" asp-items="@ViewBag.SubCategoryID" class="form-select" name="SubCategoryID" id="SubCategoryID">
+                        <option>Select SubCategory</option>
+                    </select>
+                    <span asp-validation-for="SubCategoryID" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">Budget Amount</label>
+                    <input asp-for="BudgetAmount" class="form-control" />
+                    <span asp-validation-for="BudgetAmount" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">Maximum Investment Limit</label>
+                    <input asp-for="MaximumInvestmentLimit" class="form-control" />
+                    <span asp-validation-for="MaximumInvestmentLimit" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">Minimum Investment Limit</label>
+                    <input asp-for="MinimumInvestmentLimit" class="form-control" />
+                    <span asp-validation-for="MinimumInvestmentLimit" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">Idea Icon</label>
+                    <input type="file" asp-for="ActualFile" class="form-control" />
+                    <span asp-validation-for="ActualFile" class="text-danger"></span>
+                </div>
+
+                <input type="hidden" asp-for="UserID" value="@Context.Session.GetString("UserID")"/>
+
+                <div>
+                    <button type="submit" class="btn btn-primary btn-sm">Create</button>
+                </div>
+                @if (ViewBag.Message != null)
+                {
+                    <h6 class="text-info fw-bold">@ViewBag.Message</h6>
+                }
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $("#CategoryID").change(function () {
+
+            $.ajax({
+                url: "/Home/GetSubCategories/" + $("#CategoryID").val(),
+                type: "Get",
+                contentType: "application/json",
+                success: function (result) {
+                    //alert(JSON.stringify(result));
+                    $("#SubCategoryID").empty();
+                    for (var i = 0; i < result.length; i++) {
+                        var str = "<option value='" + result[i].subCategoryID + "'>" + result[i].subCategoryName + "</option>";
+                        $("#SubCategoryID").append(str);
+                    }
+                },
+                error: function (err) {
+                    alert(JSON.stringify(err));
+                }
+            });
+
+        });
+
+    });
+</script>

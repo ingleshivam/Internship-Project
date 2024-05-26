@@ -9,5 +9,6 @@ namespace Repository
 {
     public interface IInvestorTC : IGeneric<InvestorTC>
     {
+        bool GetByName(string name);
     }
 }

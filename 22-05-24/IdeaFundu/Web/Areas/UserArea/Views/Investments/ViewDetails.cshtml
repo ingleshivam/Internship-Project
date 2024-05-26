@@ -1,0 +1,48 @@
+﻿@model IEnumerable<InvestmentPaymentsVM>
+
+<a class="btn btn-primary btn-sm mb-3" asp-action="Index">Back</a>
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive text-nowrap">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th colspan="3"><h5><b>@Model.FirstOrDefault().IdeaName</b></h5></th>
+                    </tr>
+                    <tr>
+                        <th>Payment Date / Time</th>
+                        <th>Payment Mode</th>
+                        <th>Total Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int srno = 1;
+                        decimal TotalAmount = 0;
+                    }
+
+                    @foreach (var temp in Model)
+                    {
+                        <tr>
+                            <td>@temp.PaymentDate</td>
+                            <td>@Enum.GetName(typeof(PaymentMode),temp.PaymentMode)</td>
+                            <td>@temp.TotalAmount</td>
+                        </tr>
+                        srno++;
+                        TotalAmount = TotalAmount + temp.TotalAmount;
+                    }
+
+                    <tr>
+                        <td></td>
+                        <td class="text-dark"><b>Total</b></td>
+                        <td class="text-dark"><b>@TotalAmount</b></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+

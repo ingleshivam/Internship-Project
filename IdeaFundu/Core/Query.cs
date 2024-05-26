@@ -13,6 +13,8 @@ namespace Core
     {
         [Key]
         public Int64 QueryID { set; get; }
+
+        [Required(ErrorMessage ="Query Description Required")]
         public string QueryDescription { set; get; }
         
         [ForeignKey("Idea")]

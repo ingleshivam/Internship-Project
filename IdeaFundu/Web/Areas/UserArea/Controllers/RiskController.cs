@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Repository;
+using Repository.ViewModels;
 using Web.CustFilter;
 
 namespace Web.Areas.UserArea.Controllers
@@ -61,12 +62,13 @@ namespace Web.Areas.UserArea.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddRisk(IdeaRisk rec)
+        public IActionResult AddRisk(IdeaRiskVM rec)
         {
             ViewBag.IdeaID = new SelectList(this.IdeaRepo.GetAllByUserID(GetSessionUserId()), "IdeaID", "IdeaName");
             if (ModelState.IsValid)
             {
-                this.RiskRepo.Add(rec);
+                //this.RiskRepo.Add(rec);
+                this.RiskRepo.AddRecord(rec);
                 return RedirectToAction("Index");
             }
             return View(rec);

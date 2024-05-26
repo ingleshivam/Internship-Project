@@ -1,0 +1,44 @@
+﻿@model IEnumerable<IdeaRisk>
+
+<div class="table-responsive text-nowrap mt-3">
+    <table class="table">
+        <thead>
+            <tr>
+                <th colspan="7"><a class="btn btn-primary btn-sm" asp-action="AddRisk" asp-controller="Risk">CREATE</a> <a class="btn btn-primary btn-sm" asp-action="Index" asp-controller="Risk" asp-area="UserArea">Back</a></th>
+            </tr>
+            <tr>
+                <th>Sr.No</th>
+                <th>Risk Title</th>
+                <th>Risk Description</th>
+                <th>Risk Level</th>
+                <th>Edit / Delete</th>
+            </tr>
+        </thead>
+        <tbody id="tb">
+            @{
+                int srno = 1;
+            }
+            @foreach (var temp in Model)
+            {
+@*                    if (Convert.ToInt32(@Context.Session.GetString("UserID")) == temp.Idea.UserID)
+                    {*@
+                    <tr>
+                        <td>@srno</td>
+                        <td>@temp.RiskTitle</td>
+                        <td>@temp.RiskDescription.Substring(0,200) ...</td>
+                        <td>@Enum.GetName(typeof(RiskLevel),temp.RiskLevel)</td>
+                        <td colspan="5">
+                            <a class="btn btn-outline-success btn-sm" asp-action="Edit" asp-route-id="@temp.RiskID">Edit</a>
+                            |
+                            <a class="btn btn-outline-info btn-sm" asp-action="Details" asp-route-id="@temp.RiskID">Details</a>
+                            |
+                            <a class="btn btn-outline-danger btn-sm" asp-action="Delete" asp-route-id="@temp.RiskID">Delete</a>
+                        </td>
+                    </tr>
+@*                    }*@
+
+                srno++;
+            }
+        </tbody>
+    </table>
+</div>

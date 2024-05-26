@@ -128,6 +128,7 @@ namespace Infra.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("CategoryID"));
 
                     b.Property<string>("CategoryName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CategoryID");
@@ -144,6 +145,7 @@ namespace Infra.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("CityID"));
 
                     b.Property<string>("CityName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<long>("StateID")
@@ -181,6 +183,7 @@ namespace Infra.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("DocumentTypeId"));
 
                     b.Property<string>("DocumentTypeName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("DocumentTypeId");
@@ -196,7 +199,8 @@ namespace Infra.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("IVRequestID"));
 
-                    b.Property<decimal>("AmountToBeInvested")
+                    b.Property<decimal?>("AmountToBeInvested")
+                        .IsRequired()
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("IVRequestDesc")
@@ -299,6 +303,7 @@ namespace Infra.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("RiskTitle")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("RiskID");
@@ -383,6 +388,7 @@ namespace Infra.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("InvestorDocumentID"));
 
                     b.Property<string>("CIN")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<long>("InvestorID")
@@ -497,6 +503,7 @@ namespace Infra.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("QueryDescription")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("QueryID");
@@ -568,6 +575,7 @@ namespace Infra.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("StateName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("StateID");
@@ -589,6 +597,7 @@ namespace Infra.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("SubCategoryName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("SubCategoryID");
@@ -652,9 +661,11 @@ namespace Infra.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("UserTCID"));
 
                     b.Property<string>("USerTCDesc")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserTCTitle")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserTCID");

@@ -13,8 +13,12 @@ namespace Core
     {
         [Key]
         public Int64 CityID { set; get; }
+        
+        [Required(ErrorMessage ="City Name Required")]
         public string CityName { set; get; }
         [ForeignKey("State")]
+
+        [Range(1, int.MaxValue, ErrorMessage = "State Name Required")]
         public Int64 StateID { set; get; }
         public virtual State State { set; get; }
     }

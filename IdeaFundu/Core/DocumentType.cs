@@ -12,7 +12,8 @@ namespace Core
     public class DocumentType
     {
         [Key]
-        public Int64 DocumentTypeId { get; set; }   
+        public Int64 DocumentTypeId { get; set; }
+        [Required(ErrorMessage ="Document Type Required")]
         public string DocumentTypeName { set; get; }
     }
 }

@@ -1,0 +1,40 @@
+﻿@model AcceptInvestment
+<div class="col-lg-6">
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Pending Request Acceptance</h5>
+            <h5>Investment Request ID:@ViewBag.IVRequestID </h5>
+            <div>
+                @if (ViewBag.Message != null)
+                {
+                    <div class="alert alert-info">@ViewBag.Message</div>
+                }
+
+            </div>
+            <!-- Vertical Form -->
+            <form class="row g-3" asp-action="Accept" method="Post">
+                <input type="hidden" asp-for="IVRequestID" value="@ViewBag.IVRequestID" />
+
+                <div class="col-12">
+                    <label class="form-label">Accept Investment Description</label>
+                    <textarea asp-for="AcceptIVDesc" class="form-control"> </textarea>
+                    <span asp-validation-for="AcceptIVDesc" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">Amount Accepted</label>
+                    <input asp-for="AmountAccepted" class="form-control"/>
+                    <span asp-validation-for="AmountAccepted" class="text-danger"></span>
+                </div>
+
+                <div class="">
+                    <button type="submit" class="btn btn-primary">Accept</button>
+                </div>
+            </form><!-- Vertical Form -->
+
+        </div>
+    </div>
+
+
+</div>

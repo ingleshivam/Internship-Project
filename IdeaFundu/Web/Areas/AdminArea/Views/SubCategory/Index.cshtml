@@ -4,6 +4,26 @@
     ViewBag.MainState = "active";
     ViewBag.SubCategoryState = "active";
 }
+
+@if (TempData["SubCategoryAlreadyExists"] != null)
+{
+    <div class="alert alert-danger fw-bold text-center">@TempData["SubCategoryAlreadyExists"]</div>
+}
+
+@if (TempData["SubCategoryAddedSuccessfully"] != null)
+{
+    <div class="alert alert-success fw-bold text-center">@TempData["SubCategoryAddedSuccessfully"]</div>
+}
+
+@if (TempData["SubCategoryDeleted"] != null)
+{
+    <div class="alert alert-danger fw-bold text-center">@TempData["SubCategoryDeleted"]</div>
+}
+@if (TempData["SubCategoryUpdated"] != null)
+{
+    <div class="alert alert-success fw-bold text-center">@TempData["SubCategoryUpdated"]</div>
+}
+
 <div class="card">
     <h5 class="card-header">Sub Category List</h5>
     <div class="table-responsive text-nowrap">

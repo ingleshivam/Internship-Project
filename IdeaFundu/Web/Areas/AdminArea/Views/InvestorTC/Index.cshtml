@@ -4,6 +4,26 @@
     ViewBag.MainState = "active";
     ViewBag.CategoryState = "active";
 }*@
+
+@if (TempData["InvestorTCAlreadyExists"] != null)
+{
+    <div class="alert alert-danger fw-bold text-center">@TempData["InvestorTCAlreadyExists"]</div>
+}
+
+@if (TempData["InvestorTCAddedSuccessfully"] != null)
+{
+    <div class="alert alert-success fw-bold text-center">@TempData["InvestorTCAddedSuccessfully"]</div>
+}
+
+@if (TempData["InvestorTCDeleted"] != null)
+{
+    <div class="alert alert-danger fw-bold text-center">@TempData["InvestorTCDeleted"]</div>
+}
+@if (TempData["InvestorTCUpdated"] != null)
+{
+    <div class="alert alert-success fw-bold text-center">@TempData["InvestorTCUpdated"]</div>
+}
+
 <div class="card">
     <h5 class="card-header">Investor TC List</h5>
     <div class="table-responsive text-nowrap">

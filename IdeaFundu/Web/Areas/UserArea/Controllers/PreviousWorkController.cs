@@ -8,7 +8,7 @@ using Web.CustFilter;
 namespace Web.Areas.UserArea.Controllers
 {
     [Area("UserArea")]
-    //[UserAuthroization]
+    [UserAuthroization]
     public class PreviousWorkController : Controller
     {
         IUser UserRepo;
@@ -46,16 +46,7 @@ namespace Web.Areas.UserArea.Controllers
             Int64 UserID = Convert.ToInt32(HttpContext.Session.GetString("UserID"));
             if (ModelState.IsValid)
             {
-                for (int i = 0; i < rec.PreviousWorks.WorkTitle.Count(); i++)
-                {
-                    PreviousWork pw = new PreviousWork();
-                    pw.WorkTitle = rec.PreviousWorks.WorkTitle[i];
-                    pw.WorkDescription = rec.PreviousWorks.WorkDescription[i];
-                    pw.Duration = rec.PreviousWorks.Duration[i];
-                    pw.TentativeBudget = rec.PreviousWorks.TentativeBudget[i];
-                    pw.UserID = UserID;
-                    this.PreviousWorkRepo.Add(pw);
-                }
+                this.PreviousWorkRepo.AddWorkRecord(rec,UserID);
                 return RedirectToAction("Index");
             }
             return View(rec);
@@ -64,20 +55,14 @@ namespace Web.Areas.UserArea.Controllers
         [HttpGet]
         public IActionResult Edit(Int64 id)
         {
-            //var rec = this.MemberRepo.GetById(id);
-            var rec = from t in this.PreviousWorkRepo.GetAll()
-                      where t.PreviousWorkID == id
-                      select new PreviousWorkVM
-                      {
-                          PreviousWorkID = t.PreviousWorkID,
-                          WorkTitle = t.WorkTitle,
-                          WorkDescription = t.WorkDescription,
-                          Duration = t.Duration,
-                          TentativeBudget = t.TentativeBudget,
-                          UserID = t.UserID
-                      };
             ViewBag.UserID = new SelectList(this.UserRepo.GetAllUsers(), "UserID", "FullName");
-            return View(rec.FirstOrDefault());
+            //var rec = this.MemberRepo.GetById(id);
+            if (ModelState.IsValid)
+            {
+                var rec = this.PreviousWorkRepo.EditWorkRecord(id);
+                return View(rec.FirstOrDefault());
+            }
+            return View();
         }
 
         [HttpPost]

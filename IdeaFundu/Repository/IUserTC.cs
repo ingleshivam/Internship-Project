@@ -9,5 +9,6 @@ namespace Repository
 {
     public interface IUserTC : IGeneric<UserTC>
     {
+        bool GetByName(string name);
     }
 }

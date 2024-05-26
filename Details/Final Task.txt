@@ -1,0 +1,13 @@
+            var record = from t in this.cc.Ideas
+                         join t1 in this.cc.IVRequests
+                         on t.IdeaID equals t1.IdeaID
+                         join t2 in this.cc.Investors
+                         on t1.InvestorID equals t2.InvestorID
+                         where t.UserID == UserID && t1.IdeaID == t.IdeaID
+                         select new InvestorIdNameVM
+                         {
+                             InvestorID = t2.InvestorID,
+                             FullName = t2.FullName
+                         };
+
+            return record.ToList();

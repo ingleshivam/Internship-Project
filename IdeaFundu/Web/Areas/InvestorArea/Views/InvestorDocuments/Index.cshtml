@@ -1,7 +1,22 @@
 ﻿@model List<InvestorDocument>
 
+@if (TempData["InvestorDocumentAlreadyExists"] != null)
+{
+    <div class="alert alert-danger fw-bold text-center">@TempData["InvestorDocumentAlreadyExists"]</div>
+}
+
+@if (TempData["InvestorDocumentAddedSuccessfully"] != null)
+{
+    <div class="alert alert-success fw-bold text-center">@TempData["InvestorDocumentAddedSuccessfully"]</div>
+}
+
+@if (TempData["InvestorDocumentDeleted"] != null)
+{
+    <div class="alert alert-danger fw-bold text-center">@TempData["InvestorDocumentDeleted"]</div>
+}
+
 <div class="card">
-    <h5 class="card-header">Ideas List</h5>
+    <h5 class="card-header">Investor Documents List</h5>
     <div class="table-responsive text-nowrap">
         <table class="table">
             <thead>
@@ -36,4 +51,4 @@
             </tbody>
         </table>
     </div>
-    </di
+</div>

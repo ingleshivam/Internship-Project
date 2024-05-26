@@ -35,14 +35,24 @@ namespace Web.Areas.AdminArea.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(City rec)
+        public IActionResult Create(CityVM rec)
         {
             ViewBag.CountryID = new SelectList(this.CRepo.GetAll(), "CountryID", "CountryName");
             ViewBag.StateID = new SelectList(this.SRepo.GetAll(), "StateID", "StateName");
             if (ModelState.IsValid)
             {
-                this.CityRepo.Add(rec);
-                return RedirectToAction("Index");
+                var record = this.CityRepo.GetByName(rec.CityName);
+                if (record)
+                {
+                    TempData["CityAlreadyExists"] = "This City Already Exists !";
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    this.CityRepo.AddRecord(rec);
+                    TempData["CityAddedSuccessfully"] = "City Added Successfully !";
+                    return RedirectToAction("Index");
+                }
             }
             return View(rec);
         }
@@ -50,20 +60,21 @@ namespace Web.Areas.AdminArea.Controllers
         [HttpGet]
         public IActionResult Edit(Int64 id)
         {
-            var rec = this.CityRepo.GetById(id);
-            ViewBag.CountryID = new SelectList(this.CRepo.GetAll(), "CountryID", "CountryName",rec.State.CountryID);
+            var rec = this.CityRepo.GetCityById(id);
+            ViewBag.CountryID = new SelectList(this.CRepo.GetAll(), "CountryID", "CountryName",rec.CountryID);
             ViewBag.StateID = new SelectList(this.SRepo.GetAll(), "StateID", "StateName",rec.StateID);
             return View(rec);
         }
 
         [HttpPost]
-        public IActionResult Edit(City rec)
+        public IActionResult Edit(CityVM rec)
         {
             ViewBag.CountryID = new SelectList(this.CRepo.GetAll(), "CountryID", "CountryName");
             ViewBag.StateID = new SelectList(this.SRepo.GetAll(), "StateID", "StateName");
             if (ModelState.IsValid)
             {
-                this.CityRepo.Edit(rec);
+                this.CityRepo.EditRecord(rec);
+                TempData["CityUpdated"] = "City Updated Successfully !";
                 return RedirectToAction("Index");
             }
             return View(rec);
@@ -73,6 +84,7 @@ namespace Web.Areas.AdminArea.Controllers
         public IActionResult Delete(Int64 id)
         {
             this.CityRepo.Delete(id);
+            TempData["CityDeleted"] = "City Deleted Successfully !";
             return RedirectToAction("Index");
         }
 

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<TotalInvestmentDetailsVM>
+@{
+    Layout = null;
+}
+<style>
+    table{
+        border-collapse:collapse;
+        width:60%;
+        margin:0 auto;
+    }
+</style>
+<div>
+    <div>
+        <div style="width:60%; margin:10px auto;text-align:center;"><h3>InvestorWise Investment Report</h3></div>
+        <div style="width:60%;margin:20px auto;display:flex;justify-content:space-between;">
+            <span>
+                <b>Date : @DateTime.Now.ToString("dd-MM-yyyy")</b>
+            </span>
+
+@*            <span style="float-right">
+                <b>Idea Name : @Model.FirstOrDefault().InvestorName</b>
+            </span>*@
+        </div>
+        <table border="1" cellpadding="10" cellspacing="10" style="margin-top:20px;">
+            <thead valign="middle">
+                <tr>
+                    <th><b>Sr.No</b></th>
+                    <th><b>Idea Name</b></th>
+                    <th><b>Investment Amount</b></th>
+                    <th><b>Date / Time</b></th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int srno = 1;
+                    decimal TotalAmount = 0;
+                }
+
+                @foreach (var temp in Model)
+                {
+                    <tr>
+                        <td>@srno</td>
+                        <td>@temp.IdeaName</td>
+                        <td>@temp.PaymentAmount</td>
+                        <td>@temp.PaymentDate</td>
+                    </tr>
+                    srno++;
+                    TotalAmount = TotalAmount + temp.TotalInvAmount;
+                }
+
+                <tr>
+                    <td></td>
+                    <td><b>Total</b></td>
+                    <td><b>@TotalAmount</b></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<script>
+        window.print();
+</script>

@@ -16,5 +16,18 @@ namespace Repository
         {
             this.cc = cc;
         }
+
+        public bool GetByName(string name)
+        {
+            var record = this.cc.Categories.SingleOrDefault(p => p.CategoryName == name);
+            if (record != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

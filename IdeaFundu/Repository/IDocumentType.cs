@@ -9,6 +9,6 @@ namespace Repository
 {
     public interface IDocumentType:IGeneric<DocumentType>
     {
-
+        bool GetByName(string name);
     }
 }

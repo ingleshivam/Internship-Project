@@ -1,0 +1,36 @@
+﻿@model UserTC
+@*@{
+    ViewBag.Title = "ADMIN | ADD CATEGORY";
+    ViewBag.MainState = "active";
+    ViewBag.CategoryState = "active";
+}*@
+<div class="col-lg-6">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Edit User TC</h5>
+            <form class="row g-3" asp-action="Edit" method="Post">
+                <div class="col-12">
+                    <label class="form-label">User TC Title</label>
+                    <input asp-for="UserTCTitle" class="form-control" />
+                    <span asp-validation-for="UserTCTitle" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">User TC Description</label>
+                    <textarea asp-for="USerTCDesc" rows="8" class="form-control"></textarea>
+                    <span asp-validation-for="USerTCDesc" class="text-danger"></span>
+                </div>
+
+                <div>
+                    <button type="submit" class="btn btn-primary btn-sm">Update</button>
+                    <a asp-action="Index" class="btn btn-sm btn-primary">Back</a>
+                </div>
+                @if (ViewBag.Message != null)
+                {
+                    <h6 class="text-info fw-bold">@ViewBag.Message</h6>
+                }
+                <input type="hidden" asp-for="UserTCID"/>
+            </form>
+        </div>
+    </div>
+</div>

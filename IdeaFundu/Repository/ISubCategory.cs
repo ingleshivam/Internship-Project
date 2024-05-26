@@ -11,5 +11,6 @@ namespace Repository
     public interface ISubCategory:IGeneric<SubCategory>
     {
         List<GetSubCategoriesVM> GetSubCategoriesByCategoryId(Int64 id);
+        bool GetByName(string name);
     }
 }

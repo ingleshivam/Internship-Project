@@ -1,0 +1,35 @@
+﻿@model IEnumerable<IdeaDocuments>
+<div class="table-responsive text-nowrap mt-3">
+    <table class="table">
+        <thead>
+@*                <tr>
+                <th colspan="7"><a class="btn btn-primary btn-sm" asp-action="Create" asp-controller="Idea">CREATE</a></th>
+            </tr>*@
+            <tr>
+                <th>ID</th>
+                <th>Old Document</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+@*                @{
+                int srno = 1;
+            }*@
+            @foreach (var temp in Model)
+            {
+                if (Convert.ToInt32(@Context.Session.GetString("UserID")) == temp.Idea.UserID)
+                {
+                    <tr>
+                        <td>@temp.IdeaDocumentID</td>
+                        <td>@temp.Attachments</td>
+                        <td colspan="5">
+                            <a class="btn btn-outline-primary btn-sm" asp-action="Delete" asp-route-id="@temp.IdeaID">Delete</a>
+                        </td>
+                    </tr>
+                }
+
+                @*srno++;*@
+            }
+        </tbody>
+    </table>
+</div>

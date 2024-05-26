@@ -30,5 +30,18 @@ namespace Repository
 
             return v.ToList();
         }
+
+        public bool GetByName(string name)
+        {
+            var record = this.cc.States.SingleOrDefault(p => p.StateName == name);
+            if (record != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

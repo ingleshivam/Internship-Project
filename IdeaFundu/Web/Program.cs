@@ -46,11 +46,26 @@ builder.Services.AddScoped<IWorkClosure,WorkClosureRepo>();
 builder.Services.AddScoped<IAcceptInvestment,AcceptInvestmentRepo>();
 
 var app = builder.Build();
+
 app.UseStaticFiles();
 app.UseSession();
+
+if (app.Environment.IsDevelopment() || app.Environment.IsStaging())
+{
+    app.UseDeveloperExceptionPage();
+}
+else if (app.Environment.IsProduction())
+{
+    app.UseExceptionHandler("/CustomError");
+}
+
 app.MapControllerRoute(
       name: "areas",
       pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
     );
+
+
+
+
 app.MapDefaultControllerRoute();
 app.Run();

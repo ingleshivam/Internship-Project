@@ -1,0 +1,46 @@
+﻿@model IEnumerable<City>
+@{
+    ViewBag.Title = "ADMIN | CITY";
+    ViewBag.MainState = "active";
+    ViewBag.CityState = "active";
+}
+
+<div class="card">
+    <h5 class="card-header">City List</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th colspan="5"><a class="btn btn-primary btn-sm" asp-action="Create" asp-controller="City">CREATE</a></th>
+                </tr>
+                <tr>
+                    <th>Sr.No</th>
+                    <th>City Name</th>
+                    <th>State Name</th>
+                    <th>Country Name</th>
+                    <th>Edit / Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int srno = 1;
+                }
+                @foreach (var temp in Model)
+                {
+                    <tr>
+                        <td>@srno</td>
+                        <td>@temp.CityName</td>
+                        <td>@temp.State.StateName</td>
+                        <td>@temp.State.Country.CountryName</td>
+                        <td>
+                            <a class="btn btn-outline-primary btn-sm" asp-action="Edit" asp-route-id="@temp.CityID">Edit</a>
+                            |
+                            <a class="btn btn-outline-primary btn-sm" asp-action="Delete" asp-route-id="@temp.CityID">Delete</a>
+                        </td>
+                    </tr>
+                    srno++;
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

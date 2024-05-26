@@ -29,5 +29,53 @@ namespace Repository
 
             return v.ToList();
         }
+
+        public void AddRecord(CityVM rec)
+        {
+            City city = new City();
+            city.CityName = rec.CityName;
+            city.StateID = rec.StateID;
+            this.cc.Cities.Add(city);
+            this.cc.SaveChanges();
+        }
+
+        public void EditRecord(CityVM rec)
+        {
+            City city = new City();
+            city.CityID = rec.CityID;
+            city.CityName = rec.CityName;
+            city.StateID = rec.StateID;
+            this.cc.Entry(city).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            this.cc.SaveChanges();
+
+        }
+
+        public CityVM GetCityById(long id)
+        {
+            var record = from t in this.cc.Cities
+                         where t.CityID == id
+                         select new CityVM
+                         {
+                             CityID = t.CityID,
+                             CityName = t.CityName,
+                             StateID = t.StateID,
+                             CountryID = t.State.CountryID
+                         };
+
+            return record.FirstOrDefault();
+        }
+
+        public bool GetByName(string name)
+        {
+            var record = this.cc.Cities.SingleOrDefault(p => p.CityName == name);
+            if (record != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

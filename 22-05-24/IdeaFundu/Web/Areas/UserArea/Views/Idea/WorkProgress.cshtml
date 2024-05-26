@@ -1,0 +1,43 @@
+﻿@model IEnumerable<WorkProgress>
+
+<div class="card">
+    <h5 class="card-header">Work Progress List</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th colspan="6"><a class="btn btn-primary btn-sm" asp-action="UpdateProgress" asp-route-id="@Model.FirstOrDefault().IdeaID">INSERT NEW WORK PROGRESS</a></th>
+                </tr>
+                <tr>
+                    <th>Sr.No</th>
+                    <th>Start Date</th>
+                    <th>Expected Completion Date</th>
+                    <th>Remarks</th>
+                    <th>Edit / Delete / Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int srno = 1;
+                }
+                @foreach (var temp in Model)
+                {
+                    <tr>
+                        <td>@srno</td>
+                        <td>@temp.StartDate.ToString("dd-MM-yyyy")</td>
+                        <td>@temp.ExpectedCompletionDate.ToString("dd-MM-yyyy")</td>
+                        <td>@temp.Remarks</td>
+                        <td>
+                            <a class="btn btn-outline-primary btn-sm" asp-action="WorkProgressEdit" asp-route-id="@temp.WorkProgressID">Edit</a>
+                            |
+                            <a class="btn btn-outline-primary btn-sm" asp-action="Delete" asp-route-id="@temp.WorkProgressID">Delete</a>
+                            |
+                            <a class="btn btn-outline-primary btn-sm" asp-action="WorkProgressDetails" asp-route-id="@temp.WorkProgressID">Details</a>
+                        </td>
+                    </tr>
+                    srno++;
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

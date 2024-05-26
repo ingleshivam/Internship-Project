@@ -152,7 +152,7 @@ namespace Web.Controllers
             if (ModelState.IsValid)
             {
                 rec.QueryDate = DateTime.Now;
-                this.QueryRepo.Add(rec);
+                //this.QueryRepo.Add(rec);
                 ViewBag.requestMessage = "Your Query has been sent Successfully !";
                 return View("Index");
             }

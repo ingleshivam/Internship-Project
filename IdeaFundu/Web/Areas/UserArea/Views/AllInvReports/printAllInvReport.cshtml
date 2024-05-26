@@ -1,0 +1,68 @@
+﻿@model IEnumerable<IdeaInvestmentTotalVM>
+
+@{
+    Layout = null;
+}
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 60%;
+        margin: 0 auto;
+    }
+</style>
+
+    <div>
+        <div>
+            <div style="width:60%; margin:10px auto;text-align:center;"><h3>All Investments Report</h3></div>
+            <div style="width:60%;margin:20px auto;display:flex;justify-content:space-between;">
+                <span>
+                    <b>Date : @DateTime.Now.ToString("dd-MM-yyyy")</b>
+                </span>
+            </div>
+            <table border="1" cellpadding="10" cellspacing="10" style="margin-top:20px;">
+                <thead valign="middle">
+                    <tr>
+                        <th><b>Sr.No</b></th>
+                        <th><b>Idea Name</b></th>
+                        <th><b>Required Investment</b></th>
+                        <th><b>Total Investment</b></th>
+                        <th><b>Balance</b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int srno = 1;
+                        decimal TotalAmount = 0;
+                        decimal RequiredAmount = 0;
+                    }
+
+                    @foreach (var temp in Model)
+                    {
+                        <tr>
+                            <td>@srno</td>
+                            <td>@temp.IdeaName</td>
+                            <td>@temp.MinimumInvestmentLimit</td>
+                            <td>@temp.TotalAmount</td>
+                            <td></td>
+                        </tr>
+                        srno++;
+                        TotalAmount = TotalAmount + temp.TotalAmount;
+                        RequiredAmount = RequiredAmount + temp.MinimumInvestmentLimit;
+                    }
+
+                    <tr>
+                        <td></td>
+                        <td class="text-dark"><b>Total</b></td>
+                        <td class="text-dark"><b>@RequiredAmount</b></td>
+                        <td class="text-dark"><b>@TotalAmount</b></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+<script>
+    window.print();
+</script>

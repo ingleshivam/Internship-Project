@@ -17,6 +17,11 @@ namespace Repository
             this.cc = cc;
         }
 
+        public void AddRecord(IdeaRiskVM rec)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<IdeaRisk> GetAllByUserID(long userid)
         {
             throw new NotImplementedException();

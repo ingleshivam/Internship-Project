@@ -1,9 +1,9 @@
 ﻿@model IEnumerable<TotalInvestmentDetailsVM>
 
-<div class="w-75 mx-auto">
+<div class="w-100 mx-auto">
     <a class="btn btn-primary btn-sm mb-3" asp-action="Index">Back</a>
 </div>
-<div class="card w-75 mx-auto">
+<div class="card w-100 mx-auto">
     <div class="card-body">
         <div class="table-responsive text-nowrap">
 
@@ -49,8 +49,16 @@
                 </tbody>
             </table>
             <div class="mt-4 text-center">
-                <a class="btn btn-primary btn-sm mb-3" asp-action="">Print</a>
+                <a type="button" target="_blank" class="btn btn-primary btn-sm mb-3" asp-action="printIdeawiseReport" asp-route-id="@Model.FirstOrDefault().IdeaID">Print</a>
+                @*onclick="printReport()" id="printBtn"*@
             </div>
         </div>
     </div>
 </div>
+
+@*
+<script>
+    function printReport(){
+        window.print();
+    }
+</script>*@

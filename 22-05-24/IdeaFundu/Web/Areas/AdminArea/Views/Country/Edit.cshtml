@@ -1,0 +1,28 @@
+﻿@model Country
+@{
+    ViewBag.Title = "ADMIN | EDIT COUNTRY";
+    ViewBag.MainState = "active";
+    ViewBag.CountryState = "active";
+}
+<div class="col-lg-6">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Create</h5>
+            <form class="row g-3" asp-action="Edit" method="Post">
+                <div class="col-12">
+                    <label class="form-label">Country Name</label>
+                    <input asp-for="CountryName" class="form-control" />
+                    <span asp-validation-for="CountryName" class="text-danger"></span>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary btn-sm">Create</button>
+                </div>
+                @if (ViewBag.Message != null)
+                {
+                    <h6 class="text-info fw-bold">@ViewBag.Message</h6>
+                }
+                <input type="hidden" asp-for="CountryID" />
+            </form>
+        </div>
+    </div>
+</div>

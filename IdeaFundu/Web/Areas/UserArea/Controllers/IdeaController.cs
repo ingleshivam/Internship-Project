@@ -193,11 +193,12 @@ namespace Web.Areas.UserArea.Controllers
         }
 
         [HttpPost]
-        public IActionResult UpdateProgress(WorkProgress rec)
+        public IActionResult UpdateProgress(WorkProgressVM rec)
         {
             if (ModelState.IsValid)
             {
-                this.WorkProgressRepo.Add(rec);
+                //this.WorkProgressRepo.Add(rec);
+                this.WorkProgressRepo.AddRecord(rec);
                 TempData["WorkProgressStatus"] = "Work Progress has been Updated Successfully !";
                 return RedirectToAction("Index");
             }
@@ -253,6 +254,13 @@ namespace Web.Areas.UserArea.Controllers
         {
             this.WorkProgressRepo.Edit(rec);
             TempData["WorkProgressUpdate"] = "Work Progress Updated Successfully !";
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult WorkProgressDelete(Int64 id)
+        {
+            this.WorkProgressRepo.Delete(id);
             return RedirectToAction("Index");
         }
     }

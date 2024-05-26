@@ -4,6 +4,20 @@
     ViewBag.MainState = "active";
     ViewBag.StatesState = "active";
 }
+@if(TempData["StateAlreadyExists"] != null){
+    <div class="alert alert-danger fw-bold text-center">@TempData["StateAlreadyExists"]</div>
+}
+
+@if (TempData["StateAddedSuccessfully"] != null){
+    <div class="alert alert-success fw-bold text-center">@TempData["StateAddedSuccessfully"]</div>
+}
+
+@if (TempData["StateDeleted"] != null){
+    <div class="alert alert-danger fw-bold text-center">@TempData["StateDeleted"]</div>
+}
+@if(TempData["StateUpdated"] != null){
+    <div class="alert alert-success fw-bold text-center">@TempData["StateUpdated"]</div>
+}
 <div class="card">
     <h5 class="card-header">State List</h5>
     <div class="table-responsive text-nowrap">

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Stages>
+@*@{
+    ViewBag.Title = "ADMIN | CATEGORY";
+    ViewBag.MainState = "active";
+    ViewBag.CategoryState = "active";
+}*@
+<div class="card">
+    <h5 class="card-header">Stages List</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th colspan="7"><a class="btn btn-primary btn-sm" asp-action="Create" asp-controller="Stages">CREATE</a></th>
+                </tr>
+                <tr>
+                    <th>Sr.No</th>
+                    <th>Stage Name</th>
+                    <th>Stage Description</th>
+                    <th>Idea Name</th>
+                    <th>Edit / Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int srno = 1;
+                }
+                @foreach (var temp in Model)
+                {
+                    <tr>
+                        <td>@srno</td>
+                        <td>@temp.StageName</td>
+                        <td>@temp.StageDescription</td>
+                        <td>@temp.Idea.IdeaName</td>
+                        <td colspan="5">
+                            <a class="btn btn-outline-primary btn-sm" asp-action="Edit" asp-route-id="@temp.StageID">Edit</a>
+                            |
+                            <a class="btn btn-outline-primary btn-sm" asp-action="Delete" asp-route-id="@temp.StageID">Delete</a>
+                        </td>
+                    </tr>
+                    srno++;
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

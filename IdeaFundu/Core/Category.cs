@@ -13,6 +13,8 @@ namespace Core
     {
         [Key]
         public Int64 CategoryID { set; get; }
+
+        [Required(ErrorMessage ="Catgory Name Required")]
         public string CategoryName { set; get; }
         public virtual List<SubCategory> SubCategories { set; get; }
     }

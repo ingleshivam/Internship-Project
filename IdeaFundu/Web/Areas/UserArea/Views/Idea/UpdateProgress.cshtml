@@ -1,4 +1,4 @@
-﻿@model WorkProgress
+﻿@model WorkProgressVM
 
 <div class="col-lg-6">
     <div class="card">
@@ -26,7 +26,7 @@
 
                 <div class="col-12">
                     <label class="form-label">Remarks</label>
-                    <input asp-for="Remarks" class="form-control" />
+                    <input asp-for="Remarks" class="form-control" placeholder="In-Progress, Closed" />
                     <span asp-validation-for="Remarks" class="text-danger"></span>
                 </div>
 
