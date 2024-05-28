@@ -37,7 +37,7 @@
         </div>
     </div>
     <!-- Preloader Start -->
-    <header>
+    <header style="width: 100%;background-image: url('/frontend/assets/img/landingpageimages/landingpageimg5blur5.jpg');background-repeat: no-repeat;background-size: cover;background-position: center;">
         <!-- Header Start -->
        <div class="header-area header-transparrent">
            <div class="headder-top header-sticky">
@@ -46,19 +46,20 @@
                         <div class="col-lg-3 col-md-2">
                             <!-- Logo -->
                             <div class="logo">
-                                <a href="index.html"><img src="~/frontend/assets/img/logo/IdeaFundu.png"alt="" width="190"></a>
+                                <h2 style="color:white; font-weight:bolder;">IdeaFundu</h2>
+                                @*<a href="index.html"><img src="~/frontend/assets/img/logo/IdeaFundu.png"alt="" width="190"></a>*@
                             </div>  
                         </div>
                         <div class="col-lg-9 col-md-9">
                             <div class="menu-wrapper">
                                 <!-- Main-menu -->
                                 <div class="main-menu">
-                                    <nav class="d-none d-lg-block">
+                                    <nav class="d-none d-lg-block" >
                                         <ul id="navigation">
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="job_listing.html">Find a Jobs </a></li>
-                                            <li><a asp-action="Dashboard">Dashboard</a></li>
-                                            <li><a href="#">Page</a>
+                                            <li><a asp-action="Index"  style="color:white; font-weight:bold;">Home</a></li>
+                                            <li><a href="job_listing.html" style="color:white; font-weight:bold;" >Find a Jobs </a></li>
+                                            <li><a asp-action="Dashboard"  style="color:white; font-weight:bold;">Dashboard</a></li>
+                                            <li><a href="#"  style="color:white; font-weight:bold;">Page</a>
                                                 <ul class="submenu">
                                                     <li><a href="blog.html">Blog</a></li>
                                                     <li><a href="single-blog.html">Blog Details</a></li>
@@ -66,7 +67,7 @@
                                                     <li><a href="job_details.html">job Details</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="contact.html"  style="color:white; font-weight:bold;">Contact</a></li>
                                         </ul>
                                     </nav>
                                 </div>          
@@ -78,7 +79,7 @@
                                 @if(InvID == 0 && UserID  == 0){
                                     <div class="header-btn f-right d-flex">
                                         <div class="dropdown show">
-                                            <a class="btn head-btn1 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <a class="btn head-btn1 dropdown-toggle" style="border:3px solid white; color:white;font-weight:bold;background-color:transparent;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 Register
                                             </a>
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -87,7 +88,7 @@
                                             </div>
                                         </div>
                                         <div class="dropdown show ml-1">
-                                            <a class="btn head-btn2 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <a class="btn head-btn2 dropdown-toggle" style="border:3px solid white; color:white;font-weight:bold;"href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 Login
                                             </a>
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -120,10 +121,11 @@
            </div>
        </div>
         <!-- Header End -->
+        @RenderSection("DropDown",false)
     </header>
 
     <main>
-        @RenderSection("DropDown",false)
+
         <!-- Our Services Start -->
 @*        <div class="our-services">
             <div class="container-fluid" style="background-color:#EAEDFF;">
@@ -145,7 +147,7 @@
     </main>
     <footer>
         <!-- Footer Start-->
-        <div class="footer-area footer-bg footer-padding">
+        <div class="footer-area footer-bg pt-5">
             <div class="container">
                 <div class="row d-flex justify-content-between">
                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
@@ -204,7 +206,7 @@
                                      method="get" class="subscribe_form relative mail_part">
                                          <input type="email" name="email" id="newsletter-form-email" placeholder="Email Address"
                                          class="placeholder hide-on-focus" onfocus="this.placeholder = ''"
-                                         onblur="this.placeholder = ' Email Address '">
+                                         onblur="this.placeholder = 'Email Address'">
                                          <div class="form-icon">
                                              <button type="submit" name="submit" id="newsletter-submit"
                                              class="email_icon newsletter-submit button-contactForm"><img src="~/frontend/assets/img/icon/form.png" alt=""></button>
@@ -227,8 +229,8 @@
                          <div class="col-xl-10 col-lg-10 ">
                              <div class="footer-copy-right">
                                  <p>
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved to <a href="https://revolutioninfosystems.com" target="_blank">Revolution Infosystems</a>
-</p>
+                                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved to <a href="https://revolutioninfosystems.com" target="_blank">Revolution Infosystems</a>
+                                </p>
                              </div>
                          </div>
                          <div class="col-xl-2 col-lg-2">
