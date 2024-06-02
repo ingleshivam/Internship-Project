@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="~/backend/assets/vendor/css/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="~/backend/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="~/backend/assets/css/demo.css" />
-
+    <link href="~/frontend/assets/css/blinker.css" rel="stylesheet" />
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="~/backend/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
@@ -55,6 +55,7 @@
         <div class="authentication-wrapper authentication-basic container-p-y">
             <div class="authentication-inner">
                 <!-- Register -->
+               
                 <div class="card">
                     <div class="card-body">
                         <!-- Logo -->
@@ -144,14 +145,33 @@
                             <span>New on our platform?</span>
                             <a asp-action="SignUp">
                                 <span>Create an account</span>
-                            </a>
+                            </a><br />
+                            
+                            <div class="accordion-item">
+                                <div class="text-center">
+                                    <a data-bs-toggle="collapse" data-bs-target="#accordionOne" aria-expanded="true" aria-controls="accordionOne" style="cursor:pointer;">
+                                        <span class="fw-bold text-danger Blinker">Click Here to See Login Credentials</span>
+                                    </a>
+                                </div>
+
+                                <div id="accordionOne" class="accordion-collapse collapse ps-3 pe-3 pt-2 pb-2 mt-2 bg-light border border-1 rounded-2" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        Email Address : sringlepatil@gmail.com
+                                        Password : shivam
+                                    </div>
+                                </div>
+                            </div>
+
                         </p>
+                        </div>
                     </div>
                 </div>
                 <!-- /Register -->
             </div>
         </div>
     </div>
+
+        
 
     <!-- / Content -->
     <!-- Core JS -->

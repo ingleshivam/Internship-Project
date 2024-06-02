@@ -26,6 +26,10 @@
 
 <body style="background-color:#f5f5f9">
     <!-- Preloader Start -->
+    @{
+        Int64 InvID = Convert.ToInt64(Context.Session.GetString("InvestorID"));
+        Int64 UserID = Convert.ToInt64(Context.Session.GetString("UserID"));
+    }
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
             <div class="preloader-inner position-relative">
@@ -37,8 +41,15 @@
         </div>
     </div>
     <!-- Preloader Start -->
+    
     <header style="width: 100%;background-image: url('/frontend/assets/img/landingpageimages/landingpageimg5blur5.jpg');background-repeat: no-repeat;background-size: cover;background-position: center;">
         <!-- Header Start -->
+        @if(InvID != 0 || UserID  != 0){
+            <div class="alert alert-success text-center rounded-0" style="font-weight:bold;"><span>To access the Users/Investors dashboard, Click on "Dashboard"</span></div>
+        }else{
+            <div class="alert alert-success text-center rounded-0" style="font-weight:bold;">To access the Admin dashboard, @Html.ActionLink("Click Here !","Index","AdminHome",new {area = "AdminArea"},new {@class="text-primary"})</div>
+        }
+       
        <div class="header-area header-transparrent">
            <div class="headder-top header-sticky">
                 <div class="container">
@@ -72,10 +83,7 @@
                                     </nav>
                                 </div>          
                                 <!-- Header-btn -->
-                                @{
-                                    Int64 InvID = Convert.ToInt64(Context.Session.GetString("InvestorID"));
-                                    Int64 UserID = Convert.ToInt64(Context.Session.GetString("UserID"));
-                                }
+
                                 @if(InvID == 0 && UserID  == 0){
                                     <div class="header-btn f-right d-flex">
                                         <div class="dropdown show">
@@ -100,7 +108,7 @@
                                 }else{
                                     <div class="header-btn f-right d-flex">
                                         <div class="dropdown show ml-1">
-                                            <a class="btn head-btn2 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <a style="border:3px solid white; color:white;font-weight:bold;" class="btn head-btn2 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 @Context.Session.GetString("UserName")
                                                 @Context.Session.GetString("InvestorName")
                                             </a>

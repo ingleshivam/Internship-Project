@@ -49,6 +49,7 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="~/backend/assets/js/config.js"></script>
+    <link href="~/frontend/assets/css/blinker.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -148,6 +149,22 @@
                   <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
                 </div>
               </form>
+
+                <div class="accordion-item">
+                    <div class="text-center">
+                        <a data-bs-toggle="collapse" data-bs-target="#accordionOne" aria-expanded="true" aria-controls="accordionOne" style="cursor:pointer;">
+                            <span class="fw-bold text-danger Blinker">Click Here to See Login Credentials</span>
+                        </a>
+                    </div>
+
+                    <div id="accordionOne" class="accordion-collapse collapse ps-3 pe-3 pt-2 pb-2 mt-2 bg-light border border-1 rounded-2" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Email Address : ingleshivam@gmail.com
+                            Password : shivam
+                        </div>
+                    </div>
+                </div>
+
             </div>
           </div>
           <!-- /Register -->
