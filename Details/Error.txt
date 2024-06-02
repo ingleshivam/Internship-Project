@@ -1,6 +1,0 @@
-An unhandled exception occurred while processing the request.
-SqlException: The DELETE statement conflicted with the REFERENCE constraint "FK_IdeaDocumentsTbl_IdeaTbl_IdeaID". The conflict occurred in database "MainProjectDB", table "dbo.IdeaDocumentsTbl", column 'IdeaID'.
-Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, bool breakConnection, Action<Action> wrapCloseInAction)
-
-DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
-Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.Consume(RelationalDataReader reader)
