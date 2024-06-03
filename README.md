@@ -25,4 +25,4 @@
 
 <img src="https://github.com/ingleshivam/Internship-Project/assets/75012378/8d746f0f-efc6-4f08-9a88-4e01a53d532f" />
 
-<img src="https://github.com/ingleshivam/Internship-Project/assets/75012378/388f285d-88e8-443b-a338-de20ab12f49f" />
+<img src="https://github.com/ingleshivam/Internship-Project/assets/75012378/388f285d-88e8-443b-a338-de20ab12f49f"/>
