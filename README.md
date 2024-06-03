@@ -19,10 +19,10 @@
 
 <img src="https://github.com/ingleshivam/Internship-Project/assets/75012378/8f184a6e-7c85-4d17-a030-e7ac8a5973c5" />
 
-<img src="https://github.com/ingleshivam/Internship-Project/assets/75012378/b88b760e-5a73-4b0e-8eb3-a743384fda2b" />
+<img src="https://github.com/ingleshivam/Internship-Project/assets/75012378/b88b760e-5a73-4b0e-8eb3-a743384fda2b"/>
 
-<img src="https://github.com/ingleshivam/Internship-Project/assets/75012378/39c517e4-fc2e-496c-b8d2-3e3c7601ef97" />
+<img src="https://github.com/ingleshivam/Internship-Project/assets/75012378/39c517e4-fc2e-496c-b8d2-3e3c7601ef97"/>
 
-<img src="https://github.com/ingleshivam/Internship-Project/assets/75012378/8d746f0f-efc6-4f08-9a88-4e01a53d532f" />
+<img src="https://github.com/ingleshivam/Internship-Project/assets/75012378/8d746f0f-efc6-4f08-9a88-4e01a53d532f"/>
 
 <img src="https://github.com/ingleshivam/Internship-Project/assets/75012378/388f285d-88e8-443b-a338-de20ab12f49f"/>
